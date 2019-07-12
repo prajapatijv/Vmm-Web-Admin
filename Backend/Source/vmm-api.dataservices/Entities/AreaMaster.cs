@@ -10,7 +10,7 @@ namespace VmmApi.DataServices.Entities
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Area_Id")]
-        public int Id { get; set; }
+        public byte Id { get; set; }
 
         [Column("Area_Name", TypeName = "nvarchar(100)")]
         public string AreaName { get; set; }

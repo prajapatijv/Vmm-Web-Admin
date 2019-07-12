@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using VmmApi.DataServices;
+using VmmApi.Services;
 
 namespace VmmApi
 {
@@ -30,6 +31,8 @@ namespace VmmApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<VMMDbContext>(opt => opt.UseSqlServer(Configuration["ConnectionString:VMMDB"]));
+
+            this.BootstrapApplicationServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +50,11 @@ namespace VmmApi
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private void BootstrapApplicationServices(IServiceCollection services)
+        {
+            services.AddScoped<IAreaMasterService, AreaMasterService>();
         }
     }
 }

@@ -8,18 +8,12 @@ namespace VmmApi.DataServices
 {
     public class VMMDbContext : DbContext
     {
-        private readonly string connectionString;
-        public VMMDbContext(string connectionString)
+        public VMMDbContext(DbContextOptions<VMMDbContext> options) : base(options)
         {
-            this.connectionString = connectionString;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(connectionString);
-            }
         }
 
         public DbSet<AreaMaster> AreaMasters { get; set; }
