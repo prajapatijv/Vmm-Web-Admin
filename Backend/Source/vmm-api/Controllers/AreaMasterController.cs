@@ -20,10 +20,10 @@ namespace VmmApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<AreaMaster>> Get()
+        public JsonResult Get()
         {
             var items = this.areaMasterService.GetAllAreas();
-            return Ok(items);
+            return Json(items);
         }
     }
 }
