@@ -2,14 +2,17 @@
 
 namespace VmmApi.DataServices.Entities
 {
-    [Table("Document_Type_Master")]
-    public class DocumentType
+    [Table("Event_Type_Master")]
+    public class EventType
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("Document_Type_Id")]
-        public byte Id { get; set; }
+        [Column("Event_Type_Id")]
+        public int Id { get; set; }
 
         [Column("Description", TypeName = "nvarchar(100)")]
         public string Description { get; set; }
+
+        [Column("Color_code", TypeName = "varchar(50)")]
+        public string ColorCode { get; set; }
     }
 }

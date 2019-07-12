@@ -75,6 +75,7 @@ namespace VmmApi
         {
             services.AddScoped<IAreaService, AreaService>();
             services.AddScoped<IDocumentTypeService, DocumentTypeService>();
+            services.AddScoped<IEventTypeService, EventTypeService>();
         }
     }
 }
