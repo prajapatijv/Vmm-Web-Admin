@@ -12,10 +12,7 @@ namespace VmmApi.DataServices
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-        }
-
-        public DbSet<AreaMaster> AreaMasters { get; set; }
+        public DbSet<Area> Areas { get; set; }
+        public DbSet<DocumentType> DocumentTypes { get; set; }
     }
 }

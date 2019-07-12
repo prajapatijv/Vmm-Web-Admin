@@ -10,20 +10,20 @@ namespace VmmApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AreaMasterController : Controller
+    public class DocumentTypeController : Controller
     {
-        private readonly IAreaMasterService areaMasterService;
+        private readonly IDocumentTypeService documentTypeService;
 
-        public AreaMasterController(IAreaMasterService areaMasterService)
+        public DocumentTypeController(IDocumentTypeService documentTypeService)
         {
-            this.areaMasterService = areaMasterService;
+            this.documentTypeService = documentTypeService;
         }
 
         [HttpGet]
         public JsonResult Get()
         {
-            var items = this.areaMasterService.GetAllAreas();
-            return Json(items);
+            var documentTypes = this.documentTypeService.GetAllDocumentTypes();
+            return Json(documentTypes);
         }
     }
 }

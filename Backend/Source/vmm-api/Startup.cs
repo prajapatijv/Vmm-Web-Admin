@@ -73,7 +73,8 @@ namespace VmmApi
 
         private void BootstrapApplicationServices(IServiceCollection services)
         {
-            services.AddScoped<IAreaMasterService, AreaMasterService>();
+            services.AddScoped<IAreaService, AreaService>();
+            services.AddScoped<IDocumentTypeService, DocumentTypeService>();
         }
     }
 }

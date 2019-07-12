@@ -5,14 +5,14 @@ using System.Text;
 
 namespace VmmApi.DataServices.Entities
 {
-    [Table("Area_Master")]
-    public class AreaMaster
+    [Table("Document_Type_Master")]
+    public class DocumentType
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("Area_Id")]
+        [Column("Document_Type_Id")]
         public byte Id { get; set; }
 
-        [Column("Area_Name", TypeName = "nvarchar(100)")]
-        public string AreaName { get; set; }
+        [Column("Description", TypeName = "nvarchar(100)")]
+        public string Description { get; set; }
     }
 }

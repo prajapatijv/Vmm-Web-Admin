@@ -7,23 +7,23 @@ using VmmApi.DataServices.Entities;
 
 namespace VmmApi.Services
 {
-    public interface IAreaMasterService
+    public interface IAreaService
     {
-        IEnumerable<AreaMaster> GetAllAreas();
+        IEnumerable<Area> GetAllAreas();
     }
 
-    public class AreaMasterService : IAreaMasterService
+    public class AreaService : IAreaService
     {
         private readonly VMMDbContext dbContext;
 
-        public AreaMasterService(VMMDbContext dbContext)
+        public AreaService(VMMDbContext dbContext)
         {
             this.dbContext = dbContext; 
         }
 
-        public IEnumerable<AreaMaster> GetAllAreas()
+        public IEnumerable<Area> GetAllAreas()
         {
-            return this.dbContext.AreaMasters.ToList();
+            return this.dbContext.Areas.ToList();
         }
     }
 }
