@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
-namespace vmm_api.Models
+namespace VmmApi.DataServices.Entities
 {
     [Table("Area_Master")]
     public class AreaMaster
@@ -12,14 +14,5 @@ namespace vmm_api.Models
 
         [Column("Area_Name", TypeName = "nvarchar(100)")]
         public string AreaName { get; set; }
-    }
-
-    public class AreaMasterContext : DbContext
-    {
-        public AreaMasterContext(DbContextOptions<AreaMasterContext> options) : base(options)
-        {
-        }
-
-        public DbSet<AreaMaster> AreaMasters { get; set; }
     }
 }

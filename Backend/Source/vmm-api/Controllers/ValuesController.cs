@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace vmm_api.Controllers
+namespace VmmApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
