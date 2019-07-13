@@ -23,11 +23,11 @@ namespace VmmApi.Services
 
         public bool IsValidUser(string userName, string password)
         {
-            var user = this.dbContext.User.FirstOrDefault(u => u.UserName.Equals(u.UserName, StringComparison.OrdinalIgnoreCase)); 
+            var user = this.dbContext.Users.FirstOrDefault(u => u.UserName.Equals(u.UserName, StringComparison.OrdinalIgnoreCase)); 
 
             if (null != user)
             {
-                return user.Passwrod == password;
+                return user.Password == password;
             }
 
             return false;
