@@ -8,9 +8,7 @@ using VmmApi.Services;
 
 namespace VmmApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AreaController : Controller
+    public class AreaController : VMMControllerBase
     {
         private readonly IAreaService areaService;
 
