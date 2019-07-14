@@ -9,7 +9,6 @@ namespace VmmApi.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
     public abstract class VMMControllerBase : Controller
     {
     }

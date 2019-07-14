@@ -6,7 +6,7 @@ import { navigate } from '@reach/router'
 
 import { GetAuth } from './auth-service'
 
-axios.defaults.headers.common['authorization'] = `jwt ${GetAuth()}`
+axios.defaults.headers.common['authorization'] = `Bearer ${GetAuth()}`
 
 const fetchApi = (apiUrl, criteria) => axios.get(`${apiUrl}`)
 const saveApi = (apiUrl, payload) => {

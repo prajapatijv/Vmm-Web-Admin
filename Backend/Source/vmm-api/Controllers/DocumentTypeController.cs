@@ -8,6 +8,7 @@ using VmmApi.Services;
 
 namespace VmmApi.Controllers
 {
+    [Route("api/documentTypes")]
     public class DocumentTypeController : VMMControllerBase
     {
         private readonly IDocumentTypeService documentTypeService;

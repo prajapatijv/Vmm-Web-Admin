@@ -8,6 +8,7 @@ using VmmApi.Services;
 
 namespace VmmApi.Controllers
 {
+    [Route("api/eventTypes")]
     public class EventTypeController : VMMControllerBase
     {
         private readonly IEventTypeService eventTypeService;

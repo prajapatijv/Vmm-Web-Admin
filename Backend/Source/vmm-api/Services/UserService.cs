@@ -10,6 +10,7 @@ namespace VmmApi.Services
     public interface IUserService
     {
         User Authenticate(string userName, string password);
+        IEnumerable<User> GetAllUsers();
     }
 
     public class UserService : IUserService
@@ -31,6 +32,11 @@ namespace VmmApi.Services
             }
 
             return null;
+        }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+            return this.dbContext.Users.ToList();
         }
     }
 }
