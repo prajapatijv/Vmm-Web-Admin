@@ -44,7 +44,7 @@ const NotFound = ({ location }) =>
 
 const ProtectedRoute = ({ component: Component, ...props }) => {
   
-  const authToken =  "authToken"
+  const authToken =  GetAuth()
 
   return(
     authToken !== "" ? 

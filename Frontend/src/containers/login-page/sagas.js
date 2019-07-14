@@ -8,7 +8,7 @@ import { navigate } from '@reach/router'
 
 import { Config } from '../../AppConfig'
 
-const LOGIN_URL =  `${Config.API_URL}/login`
+const LOGIN_URL =  `${Config.API_URL}/auth`
 const LOGOUT_URL =  `${Config.API_URL}/logout`
 
 export function* loginSaga() {
