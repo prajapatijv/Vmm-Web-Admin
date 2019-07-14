@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,"firstName":"Jitendra", "lastName":"Prajapati", "userName":"JPraj", "password":"password1"
+    },
+    {
+        "id":2,"firstName":"Neeraj", "lastName":"Patel", "userName":"Neer", "password":"password2"
+    },
+    {
+        "id":3,"firstName":"Pratik", "lastName":"Jain", "userName":"PraJ", "password":"password3"
+    },
+    {
+        "id":4,"firstName":"Manish", "lastName":"Mistry", "userName":"ManM", "password":"password4"
+    },
+    {
+        "id":5,"firstName":"Ram", "lastName":"Singh", "userName":"RamS", "password":"password5"
+    },
+    {
+        "id":6,"firstName":"Chintan", "lastName":"Shah", "userName":"PraJ", "password":"password6"
+    }    
+]

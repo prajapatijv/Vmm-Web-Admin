@@ -1,0 +1,23 @@
+[
+    {
+        "id":1001,"name":"Books", "shortName":"Books", "active":"-1", "userId":"1001"
+    },    
+    {
+        "id":1002,"name":"Photo", "shortName":"Photo", "active":"-1", "userId":"1001"
+    },    
+    {
+        "id":1003,"name":"Audio CD", "shortName":"Audio CD", "active":"-1", "userId":"1001"
+    },    
+    {
+        "id":1004,"name":"VCD", "shortName":"VCD", "active":"-1", "userId":"1001"
+    },    
+    {
+        "id":1005,"name":"Audio Cassate", "shortName":"Audio Cassate", "active":"-1", "userId":"1001"
+    },    
+    {
+        "id":1006,"name":"Pujapa", "shortName":"Pujapa", "active":"-1", "userId":"1001"
+    },    
+    {
+        "id":1007,"name":"DVD", "shortName":"DVD", "active":"1", "userId":"1001"
+    }    
+]

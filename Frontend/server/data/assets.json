@@ -1,0 +1,102 @@
+[
+    {
+        "id":"1001",
+        "assetType":"Video",
+        "fileName":"c:/test/videoname.mp4",
+        "fileSizeBytes":"18900254",
+        "title":"Video asset",
+        "description":"This is for the program xxx",
+        "transcripts":"Trascripts",
+        "author":"Author",
+        "categories":["2019","Sep 2019","Shatabdi Year"],
+        "tags":["satsang","bhajans","pravachan"],
+        "recordDate":"2019-07-01 14:20:00",
+        "quality":"Broadcast",
+        "mediaType":"NTSC",
+        "compressionFormat":"MPEG-4",
+        "archive":[{
+            "lto": { "tapeId":"1234", "path":"/ltopath/to/file", "ltoAttributes":"abc", "inSync":"true" },
+            "cloud" :{ "inSync": "false"}
+        }]
+    },
+    {
+        "id":"1005",
+        "assetType":"Audio",
+        "fileName":"c:/test/audioname.mp3",
+        "fileSizeBytes":"89010",
+        "title":"Audio asset",
+        "description":"This is for the program xxx",
+        "transcripts":"Audio Trascripts",
+        "author":"Author",
+        "categories":["2018","Jan 2018","Utrayan"],
+        "tags":["bhajans","pravachan"],
+        "recordDate":"2018-01-01 14:20:00",
+        "quality":"Streaming",
+        "mediaType":"",
+        "compressionFormat":"MP3",
+        "archive":[{
+            "lto": { "tapeId":"1234", "path":"/ltopath/to/file", "ltoAttributes":"abc", "inSync":"true" },
+            "cloud" :{ "inSync": "false"}
+        }]
+    },
+    {
+        "id":"2010",
+        "assetType":"Video",
+        "fileName":"c:/test/videoname.mp4",
+        "fileSizeBytes":"89010004",
+        "title":"Video asset new",
+        "description":"This is for the program xxx",
+        "transcripts":"Video Trascripts",
+        "author":"Author",
+        "categories":["2017","Mar 2017","Holi"],
+        "tags":["bhajans","pravachan"],
+        "recordDate":"2017-02-01 14:20:00",
+        "quality":"Streaming",
+        "mediaType":"PAL",
+        "compressionFormat":"MPEG-4",
+        "archive":[{
+            "lto": { "tapeId":"1234", "path":"/ltopath/to/file", "ltoAttributes":"abc", "inSync":"true" },
+            "cloud" :{ "inSync": "false"}
+        }]
+    } ,
+    {
+        "id":"2500",
+        "assetType":"Image",
+        "fileName":"c:/test/image.png",
+        "fileSizeBytes":"15235",
+        "title":"Image asset",
+        "description":"This is for the program xxx",
+        "transcripts":"",
+        "author":"Author",
+        "categories":["2018","Jan 2018","Utrayan"],
+        "tags":["bhajans","pravachan"],
+        "recordDate":"2018-01-01 14:20:00",
+        "quality":"",
+        "mediaType":"",
+        "compressionFormat":"",
+        "archive":[{
+            "lto": { "tapeId":"1234", "path":"/ltopath/to/file", "ltoAttributes":"abc", "inSync":"true" },
+            "cloud" :{ "inSync": "false"}
+        }]
+    }   ,
+    {
+        "id":"2601",
+        "assetType":"Document",
+        "fileName":"c:/test/document.pdf",
+        "fileSizeBytes":"10012",
+        "title":"Document asset",
+        "description":"This is for the program xxx",
+        "transcripts":"",
+        "author":"Author",
+        "categories":["2018","Jan 2018","Utrayan"],
+        "tags":["books","pravachan"],
+        "recordDate":"2018-01-01 14:20:00",
+        "quality":"",
+        "mediaType":"",
+        "compressionFormat":"",
+        "archive":[{
+            "lto": { "tapeId":"1536", "path":"/ltopath/to/file", "ltoAttributes":"def", "inSync":"true" },
+            "cloud" :{ "inSync": "false"}
+        }]
+    }            
+]

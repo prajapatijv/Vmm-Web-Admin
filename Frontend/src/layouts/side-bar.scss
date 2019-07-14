@@ -1,0 +1,45 @@
+#sidebar {
+    width: 12rem;
+    max-width: 12rem;
+    min-height: 100vh;
+    color: #fff;
+    transition: all 0.3s;  
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  
+    &.collaspe {
+      width: 3.6rem;
+      white-space: nowrap;
+      overflow: hidden;
+
+      svg {
+        margin: 0;
+      }
+    }
+  
+    .app-icon {
+      padding: 0;
+      color: #999;
+    }
+
+    .toggle {
+      cursor: pointer;
+    }
+  
+    .sidebar-sticky {
+      .nav-pills {
+        .nav-link {
+          color: #333;
+          font-weight: 500;
+
+          &.active {
+            border-radius: 0;
+            background-color:rgba(0, 123, 255, 0.36);
+          }
+  
+          svg {
+            margin: 0 1rem 0 0;
+          }
+        }
+      }
+    }
+  }

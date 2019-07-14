@@ -1,0 +1,22 @@
+// Override default variables before the import
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+//Extended 
+.app-list-item {
+    @extend .list-group-item;
+    border: 1px aliceblue solid;
+
+    &.active {
+      color: unset;
+      background-color:#f8f9fa;
+      border-color:transparent;
+    }
+  }
+
+.app-button {
+    @extend .btn-outline-secondary;
+    border: 1px solid  #eaeaea;
+}
