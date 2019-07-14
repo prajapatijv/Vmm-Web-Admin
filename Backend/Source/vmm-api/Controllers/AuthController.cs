@@ -29,9 +29,11 @@ namespace VmmApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (authenticateService.IsAuthenticated(request, out string token))
+            var user = authenticateService.AuthenticateUser(request, out string token);
+
+            if (user != null)
             {
-                return Ok(token);
+                return Ok(user);
             }
 
             return BadRequest("Invalid Request");

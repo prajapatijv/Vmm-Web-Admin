@@ -37,7 +37,7 @@ const LoginForm = ({ auth, onLogin }) => {
                             <Field type="text" name="userName" component={InputBox} placeholder="User name" floatinglabel="1" />
                         </div>
                         <div className="form-label-group">
-                            <Field type="text" name="password" component={InputBox} placeholder="Password" floatinglabel="1" />
+                            <Field type="password" name="password" component={InputBox} placeholder="Password" floatinglabel="1" />
                         </div>
                         <div className="form-label-group mb-3">
                             <Field type="checkbox" name="rememberMe" component={CheckBox} label="Remember me"/>

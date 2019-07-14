@@ -11,7 +11,7 @@ export const GetAuth = () => {
 export const SetAuth = (authResponse) => {
     if (authResponse.authToken) {
         const userName = authResponse.userName.toUpperCase()
-        SetCookie(THISUSERNAME, userName)
+        SetCookie(THISUSERNAME, authResponse.userName)
         SetCookie(`${AUTHTOKEN}${userName}`, authResponse.authToken)
         return true
     } else {

@@ -9,7 +9,7 @@ namespace VmmApi.Services
 {
     public interface IUserService
     {
-        bool IsValidUser(string userName, string password);
+        User Authenticate(string userName, string password);
     }
 
     public class UserService : IUserService
@@ -21,16 +21,16 @@ namespace VmmApi.Services
             this.dbContext = dbContext; 
         }
 
-        public bool IsValidUser(string userName, string password)
+        public User Authenticate(string userName, string password)
         {
             var user = this.dbContext.Users.FirstOrDefault(u => u.UserName.Equals(u.UserName, StringComparison.OrdinalIgnoreCase)); 
 
             if (null != user)
             {
-                return user.Password == password;
+                return user.Password == password ? user : null;
             }
 
-            return false;
+            return null;
         }
     }
 }

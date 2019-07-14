@@ -7,12 +7,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using VmmApi.DataServices.Entities;
+using VmmApi.Models;
 
 namespace VmmApi.Services
 {
     public interface IAuthenticateService
     {
-        bool IsAuthenticated(TokenRequest request, out string token);
+        UserViewModel AuthenticateUser(TokenRequest request, out string token);
     }
 
     public class JwtTokenAuthenticationService : IAuthenticateService
@@ -26,14 +28,15 @@ namespace VmmApi.Services
             this.tokenManagement = tokenManagement.Value;
         }
 
-        public bool IsAuthenticated(TokenRequest request, out string token)
+        public UserViewModel AuthenticateUser(TokenRequest request, out string token)
         {
             token = string.Empty;
-            if (!userService.IsValidUser(request.Username, request.Password)) return false;
+            var authUser = userService.Authenticate(request.Username, request.Password);
+            if (authUser == null) return null;
 
             var claim = new[]
             {
-                new Claim(ClaimTypes.Name, request.Username)
+                new Claim(ClaimTypes.Name, authUser.UserName)
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenManagement.Secret));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -46,7 +49,8 @@ namespace VmmApi.Services
                 signingCredentials: credentials
             );
             token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
-            return true;
+
+            return new UserViewModel { UserName = authUser.UserName, AuthToken = token };
         }
     }
 }

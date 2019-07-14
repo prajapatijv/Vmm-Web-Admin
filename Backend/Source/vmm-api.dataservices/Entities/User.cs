@@ -14,8 +14,5 @@ namespace VmmApi.DataServices.Entities
 
         [Column("Password", TypeName = "nvarchar(40)")]
         public string Password { get; set; }
-
-        [Column("Email", TypeName = "nvarchar(350)")]
-        public string Email { get; set; }
     }
 }
