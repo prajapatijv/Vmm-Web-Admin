@@ -19,7 +19,7 @@ const Sidebar = () => {
     <nav id="sidebar" className={cls}>
         <div className="navbar navbar-dark bg-dark">
             <a className="navbar-brand" href="/">
-                BS
+                VMM
             </a>
             {toggle === 0 && <span className="toggle" onClick={() => setToggle(1)}><ChevronLeft/></span>}
             {toggle === 1 && <span className="toggle" onClick={() => setToggle(0)}><ChevronRight/></span>}
