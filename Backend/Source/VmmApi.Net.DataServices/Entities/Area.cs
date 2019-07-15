@@ -9,7 +9,7 @@ namespace VmmApi.Net.DataServices.Entities
         [Column("Area_Id")]
         public byte Id { get; set; }
 
-        [Column("Area_Name", TypeName = "nvarchar(100)")]
+        [Column("Area_Name")]
         public string AreaName { get; set; }
     }
 }

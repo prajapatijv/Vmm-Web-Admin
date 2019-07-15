@@ -9,10 +9,10 @@ namespace VmmApi.Net.DataServices.Entities
         [Column("AdminId")]
         public int Id { get; set; }
 
-        [Column("UserName", TypeName = "nvarchar(50)")]
+        [Column("UserName")]
         public string UserName { get; set; }
 
-        [Column("Password", TypeName = "nvarchar(40)")]
+        [Column("Password")]
         public string Password { get; set; }
 
         public string FirstName { get; set; }

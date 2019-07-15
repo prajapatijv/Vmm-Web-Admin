@@ -9,7 +9,7 @@ namespace VmmApi.Net.DataServices.Entities
         [Column("Document_Type_Id")]
         public byte Id { get; set; }
 
-        [Column("Description", TypeName = "nvarchar(100)")]
+        [Column("Description")]
         public string Description { get; set; }
     }
 }

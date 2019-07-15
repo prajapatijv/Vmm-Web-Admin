@@ -9,10 +9,10 @@ namespace VmmApi.Net.DataServices.Entities
         [Column("Event_Type_Id")]
         public int Id { get; set; }
 
-        [Column("Description", TypeName = "nvarchar(100)")]
+        [Column("Description")]
         public string Description { get; set; }
 
-        [Column("Color_code", TypeName = "varchar(50)")]
+        [Column("Color_code")]
         public string ColorCode { get; set; }
     }
 }

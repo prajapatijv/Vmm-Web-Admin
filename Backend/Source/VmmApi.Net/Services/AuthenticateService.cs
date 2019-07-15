@@ -37,6 +37,12 @@ namespace VmmApi.Net.Services
             {
                 new Claim(ClaimTypes.Name, authUser.UserName)
             };
+
+            tokenManagement.Secret = "this is my custom Secret key for authnetication";
+            tokenManagement.Issuer = "issuer";
+            tokenManagement.Audience = "audience";
+            tokenManagement.AccessExpiration = 30;
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenManagement.Secret));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
