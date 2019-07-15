@@ -4,7 +4,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
-    public class AuthController : ApiController
+    public class AuthController : BaseController
     {
         private readonly IAuthenticateService authenticateService;
 
