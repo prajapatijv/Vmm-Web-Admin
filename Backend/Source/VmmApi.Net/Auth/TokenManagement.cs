@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 
+
 namespace VmmApi.Net.Auth
 {
     [JsonObject("tokenManagement")]

@@ -19,8 +19,7 @@ namespace VmmApi.Net.Auth
         private static bool TryRetrieveToken(HttpRequestMessage request, out string token)
         {
             token = null;
-            IEnumerable<string> authzHeaders;
-            if (!request.Headers.TryGetValues("Authorization", out authzHeaders) || authzHeaders.Count() > 1)
+            if (!request.Headers.TryGetValues("Authorization", out IEnumerable<string> authzHeaders) || authzHeaders.Count() > 1)
             {
                 return false;
             }
@@ -84,7 +83,6 @@ namespace VmmApi.Net.Auth
             }
             return false;
         }
-
 
     }
 }
