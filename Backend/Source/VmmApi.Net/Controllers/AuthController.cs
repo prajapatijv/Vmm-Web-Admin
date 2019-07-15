@@ -4,6 +4,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
+    [Route("api/authenticate")]
     public class AuthController : BaseController
     {
         private readonly IAuthenticateService authenticateService;
