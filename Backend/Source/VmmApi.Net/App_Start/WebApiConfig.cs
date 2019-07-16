@@ -15,8 +15,6 @@ namespace VmmApi.Net
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            DIConfig.Register(config);
-
             IdentityModelEventSource.ShowPII = false;
 
 
