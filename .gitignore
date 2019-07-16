@@ -36,3 +36,4 @@ msbuild.wrn
 # Visual Studio 2015
 .vs/
 /Backend/Source/vmm-api/packages
+/Backend/Source/VmmApi.Net/Properties/PublishProfiles/FolderProfile.pubxml
