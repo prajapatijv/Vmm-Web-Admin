@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http.Filters;
+using NLog;
 
 namespace VmmApi.Net.Core
 {
@@ -9,26 +10,23 @@ namespace VmmApi.Net.Core
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-            var logger =
-                (Core.ILogger) actionExecutedContext
-                               .ActionContext.ControllerContext.Configuration.DependencyResolver
-                               .GetService(typeof(Core.ILogger));
+            var logger = LogManager.GetLogger(actionExecutedContext.ActionContext.ControllerContext.Controller.GetType().FullName, typeof(LoggerService));
 
-            string exceptionMessage = string.Empty;
+            string mesage = string.Empty;
             Exception ex = null;
             if (actionExecutedContext.Exception.InnerException == null)
             {
-                exceptionMessage = actionExecutedContext.Exception.Message;
+                mesage = actionExecutedContext.Exception.Message;
                 ex = actionExecutedContext.Exception;
             }
             else
             {
-                exceptionMessage = actionExecutedContext.Exception.InnerException.Message;
+                mesage = actionExecutedContext.Exception.InnerException.Message;
                 ex = actionExecutedContext.Exception.InnerException;
             }
             //We can log this exception message to the file or database.  
 
-            logger.LogError(ex, exceptionMessage);
+            logger.Error(ex, mesage);
 
             var response = new HttpResponseMessage(HttpStatusCode.InternalServerError)
             {

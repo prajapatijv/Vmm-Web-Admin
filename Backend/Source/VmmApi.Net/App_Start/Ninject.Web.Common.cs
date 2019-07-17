@@ -68,12 +68,14 @@ namespace VmmApi.Net.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<NLog.ILogger>().To<NLog.Logger>();
-            kernel.Bind<Core.ILogger>().ToMethod(x =>
-             {
-                 var scope = x.Request.ParentRequest.Service.FullName;
+            /*kernel.Bind<Core.ILogger>().ToMethod(x =>
+                                                 {
+                                                     var scope = x.Request.ParentRequest != null
+                                                         ? x.Request.ParentRequest.Service.FullName
+                                                         : x.Request.Service.FullName;
                  var log = (Core.ILogger) LogManager.GetLogger(scope, typeof(LoggerService));
                  return log;
-             });
+             });*/
 
             kernel.Bind<IAuthenticateService>().To<JwtTokenAuthenticationService>();
             kernel.Bind<IAreaService>().To<AreaService>();

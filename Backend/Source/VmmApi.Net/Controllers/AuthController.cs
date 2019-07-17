@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using VmmApi.Net.Models;
 using VmmApi.Net.Services;
 
@@ -18,7 +19,6 @@ namespace VmmApi.Net.Controllers
         [HttpPost]
         public IHttpActionResult RequestToken(TokenRequest request)
         {
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
