@@ -9,9 +9,10 @@ namespace VmmApi.Net
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors(new EnableCorsAttribute("http://admin.mokshmargdharm.org", "*", "*"));
+
             // Web API configuration and services
             IdentityModelEventSource.ShowPII = false;
-
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -24,7 +25,6 @@ namespace VmmApi.Net
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.EnableCors(new EnableCorsAttribute("*", "*", "GET,PUT,POST,DELETE"));
         }
     }
 }

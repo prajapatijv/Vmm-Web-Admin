@@ -45,17 +45,17 @@ namespace VmmApi.Net.Core
 
             try
             {
-                const string sec = "401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429090fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1";
+                const string secret = "401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429090fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1";
                 var now = DateTime.UtcNow;
-                var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(sec));
+                var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(secret));
 
 
                 SecurityToken securityToken;
                 JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
                 TokenValidationParameters validationParameters = new TokenValidationParameters()
                 {
-                    ValidAudience = "http://localhost:50191",
-                    ValidIssuer = "http://localhost:50191",
+                    ValidAudience = "http://api.mokshmargdharm.org",
+                    ValidIssuer = "http://admin.mokshmargdharm.org",
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     LifetimeValidator = this.LifetimeValidator,
