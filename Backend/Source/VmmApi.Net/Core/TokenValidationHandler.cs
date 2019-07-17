@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens;
@@ -16,6 +17,8 @@ namespace VmmApi.Net.Core
 {
     internal class TokenValidationHandler : DelegatingHandler
     {
+        NLog.ILogger logger = LogManager.GetLogger(nameof(TokenValidationHandler), typeof(LoggerService));
+
         private static bool TryRetrieveToken(HttpRequestMessage request, out string token)
         {
             token = null;
@@ -64,12 +67,14 @@ namespace VmmApi.Net.Core
 
                 return base.SendAsync(request, cancellationToken);
             }
-            catch (SecurityTokenValidationException)
+            catch (SecurityTokenValidationException ex)
             {
+                logger.Error(ex, ex.Message);
                 statusCode = HttpStatusCode.Unauthorized;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 statusCode = HttpStatusCode.InternalServerError;
             }
             return Task<HttpResponseMessage>.Factory.StartNew(() => new HttpResponseMessage(statusCode) { });
