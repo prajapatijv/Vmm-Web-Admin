@@ -167,7 +167,9 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NLog.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
