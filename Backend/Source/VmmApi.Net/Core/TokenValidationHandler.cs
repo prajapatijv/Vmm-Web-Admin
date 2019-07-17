@@ -17,7 +17,7 @@ namespace VmmApi.Net.Core
 {
     internal class TokenValidationHandler : DelegatingHandler
     {
-        NLog.ILogger logger = LogManager.GetLogger(nameof(TokenValidationHandler), typeof(LoggerService));
+        NLog.ILogger logger = LogManager.GetCurrentClassLogger();
 
         private static bool TryRetrieveToken(HttpRequestMessage request, out string token)
         {
@@ -33,6 +33,7 @@ namespace VmmApi.Net.Core
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
+            logger.Info("Enter Token Validaion SendAsync");
             HttpStatusCode statusCode;
             string token;
             //determine whether a jwt exists or not
@@ -77,6 +78,8 @@ namespace VmmApi.Net.Core
                 logger.Error(ex, ex.Message);
                 statusCode = HttpStatusCode.InternalServerError;
             }
+            logger.Info("Exit Token Validaion SendAsync");
+
             return Task<HttpResponseMessage>.Factory.StartNew(() => new HttpResponseMessage(statusCode) { });
         }
 

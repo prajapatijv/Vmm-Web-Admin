@@ -10,7 +10,7 @@ namespace VmmApi.Net.Core
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-            var logger = LogManager.GetLogger(actionExecutedContext.ActionContext.ControllerContext.Controller.GetType().FullName, typeof(LoggerService));
+            var logger = LogManager.GetCurrentClassLogger();
 
             string mesage = string.Empty;
             Exception ex = null;
