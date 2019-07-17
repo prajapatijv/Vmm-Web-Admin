@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.IdentityModel.Logging;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using Microsoft.IdentityModel.Logging;
-using Microsoft.IdentityModel.Tokens;
-using VmmApi.Net.App_Start;
-using VmmApi.Net.Auth;
+using VmmApi.Net.Core;
 
 namespace VmmApi.Net
 {

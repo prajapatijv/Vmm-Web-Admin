@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace VmmApi.Net.Auth
+namespace VmmApi.Net.Core
 {
     internal class TokenValidationHandler : DelegatingHandler
     {

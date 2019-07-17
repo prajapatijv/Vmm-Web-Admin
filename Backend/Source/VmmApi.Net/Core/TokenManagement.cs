@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 
-namespace VmmApi.Net.Auth
+namespace VmmApi.Net.Core
 {
     [JsonObject("tokenManagement")]
     public class TokenManagement

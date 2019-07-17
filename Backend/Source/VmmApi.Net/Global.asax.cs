@@ -13,5 +13,9 @@ namespace VmmApi.Net
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+        }
     }
 }

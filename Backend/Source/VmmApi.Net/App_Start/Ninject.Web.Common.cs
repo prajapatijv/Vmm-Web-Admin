@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+using NLog.Fluent;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(VmmApi.Net.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(VmmApi.Net.App_Start.NinjectWebCommon), "Stop")]
 
@@ -11,6 +14,8 @@ namespace VmmApi.Net.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
+    using NLog;
+    using VmmApi.Net.Core;
     using VmmApi.Net.Services;
 
     public static class NinjectWebCommon 
@@ -62,6 +67,14 @@ namespace VmmApi.Net.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<NLog.ILogger>().To<NLog.Logger>();
+            kernel.Bind<Core.ILogger>().ToMethod(x =>
+             {
+                 var scope = x.Request.ParentRequest.Service.FullName;
+                 var log = (Core.ILogger) LogManager.GetLogger(scope, typeof(LoggerService));
+                 return log;
+             });
+
             kernel.Bind<IAuthenticateService>().To<JwtTokenAuthenticationService>();
             kernel.Bind<IAreaService>().To<AreaService>();
             kernel.Bind<IDocumentTypeService>().To<DocumentTypeService>();

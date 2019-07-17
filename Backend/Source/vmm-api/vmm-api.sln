@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29021.104
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VmmApi", "VmmApi.csproj", "{1249A11A-26B1-4CB4-B78C-553410E19536}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VmmApi.DataServices", "..\vmm-api.dataservices\VmmApi.DataServices.csproj", "{237C8170-E0A4-49FA-B468-16886ADFD552}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VmmApi.Net", "..\VmmApi.Net\VmmApi.Net.csproj", "{C5036E07-AD56-44C3-B96F-C1BD418794D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VmmApi.Net.DataServices", "..\VmmApi.Net.DataServices\VmmApi.Net.DataServices.csproj", "{41ED16BF-BEF3-4354-8532-2E7927064DBE}"
@@ -17,14 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1249A11A-26B1-4CB4-B78C-553410E19536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1249A11A-26B1-4CB4-B78C-553410E19536}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1249A11A-26B1-4CB4-B78C-553410E19536}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1249A11A-26B1-4CB4-B78C-553410E19536}.Release|Any CPU.Build.0 = Release|Any CPU
-		{237C8170-E0A4-49FA-B468-16886ADFD552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{237C8170-E0A4-49FA-B468-16886ADFD552}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{237C8170-E0A4-49FA-B468-16886ADFD552}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{237C8170-E0A4-49FA-B468-16886ADFD552}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5036E07-AD56-44C3-B96F-C1BD418794D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5036E07-AD56-44C3-B96F-C1BD418794D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5036E07-AD56-44C3-B96F-C1BD418794D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
