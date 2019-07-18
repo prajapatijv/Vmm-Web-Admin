@@ -7,6 +7,8 @@ import { navigate } from '@reach/router'
 import { GetAuth } from './auth-service'
 
 axios.defaults.headers.common['authorization'] = `Bearer ${GetAuth()}`
+axios.defaults.headers.post['Content-Type'] = 'application/json'
+
 
 const fetchApi = (apiUrl, criteria) => axios.get(`${apiUrl}`)
 const saveApi = (apiUrl, payload) => {
@@ -97,5 +99,6 @@ export function* post(apiUrl, payload, successType, errorType) {
 
 const GetApiUrl = (params) => {
     return `${params.config.API_URL}/${params.contextObj.apiContext}`
+    //return `http://admin.mokshmargdharm.org/api/${params.contextObj.apiContext}`
 }
 
