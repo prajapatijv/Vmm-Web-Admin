@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Logging;
+using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using VmmApi.Net.Core;
@@ -11,6 +12,9 @@ namespace VmmApi.Net
         {
             // Web API configuration and services
             IdentityModelEventSource.ShowPII = false;
+
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             config.EnableCors(new EnableCorsAttribute("http://admin.mokshmargdharm.org", "*", "*"));
 
