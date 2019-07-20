@@ -2,12 +2,12 @@
 using System.Web.Http;
 using System.Web.Http.Results;
 using VmmApi.Net.DataServices.Entities;
+using VmmApi.Net.Jwt;
 using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
     [Route("api/areas")]
-
     public class AreaController : BaseController
     {
         private readonly IAreaService areaService;

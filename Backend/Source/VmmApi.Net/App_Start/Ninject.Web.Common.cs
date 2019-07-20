@@ -16,6 +16,7 @@ namespace VmmApi.Net.App_Start
     using Ninject.Web.Common.WebHost;
     using NLog;
     using VmmApi.Net.Core;
+    using VmmApi.Net.Jwt;
     using VmmApi.Net.Services;
 
     public static class NinjectWebCommon 
@@ -82,6 +83,15 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IDocumentTypeService>().To<DocumentTypeService>();
             kernel.Bind<IEventTypeService>().To<EventTypeService>();
             kernel.Bind<IUserService>().To<UserService>();
+
+            var jwtIssuer = new JwtIssuer(options =>
+            {
+                options.Audience = "http://admin.mokshmargdharm.org";
+                options.Issuer = "http://admin.mokshmargdharm.org";
+                options.SecurityKey = Guid.NewGuid().ToString();
+            });
+
+            kernel.Bind<JwtIssuer>().ToConstant(jwtIssuer);
         }
     }
 }
