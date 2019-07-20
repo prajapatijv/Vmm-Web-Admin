@@ -87,7 +87,7 @@ namespace VmmApi.Net.App_Start
             var jwtIssuer = new JwtIssuer(options =>
             {
                 options.Audience = "http://admin.mokshmargdharm.org";
-                options.Issuer = "http://admin.mokshmargdharm.org";
+                options.Issuer = "http://api.mokshmargdharm.org";
                 options.SecurityKey = Guid.NewGuid().ToString();
             });
 

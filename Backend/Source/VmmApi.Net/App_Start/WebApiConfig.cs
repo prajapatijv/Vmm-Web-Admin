@@ -12,6 +12,8 @@ namespace VmmApi.Net
             // Web API configuration and services
             IdentityModelEventSource.ShowPII = false;
 
+            config.EnableCors(new EnableCorsAttribute("http://admin.mokshmargdharm.org", "*", "*"));
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
