@@ -146,8 +146,6 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Core\HandleExceptionFilter.cs" />
-    <Compile Include="Core\TokenManagement.cs" />
-    <Compile Include="Core\TokenValidationHandler.cs" />
     <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -157,6 +155,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Jwt\AddChallengeOnUnauthorizedResult.cs" />
+    <Compile Include="Jwt\AuthenticationFailureResult.cs" />
+    <Compile Include="Jwt\JwtAuthenticationAttribute.cs" />
+    <Compile Include="Jwt\JwtClaimsAuthorizationAttribute.cs" />
+    <Compile Include="Jwt\JwtIssuer.cs" />
+    <Compile Include="Jwt\JwtIssuerOptions.cs" />
     <Compile Include="Models\TokenRequest.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

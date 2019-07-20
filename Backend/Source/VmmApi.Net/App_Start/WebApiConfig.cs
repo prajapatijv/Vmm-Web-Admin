@@ -9,15 +9,11 @@ namespace VmmApi.Net
     {
         public static void Register(HttpConfiguration config)
         {
-            config.EnableCors(new EnableCorsAttribute("http://admin.mokshmargdharm.org", "*", "*"));
-
             // Web API configuration and services
             IdentityModelEventSource.ShowPII = false;
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-            config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
