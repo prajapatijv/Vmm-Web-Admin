@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
-using System.Web.Http.Results;
-using VmmApi.Net.DataServices.Entities;
+﻿using System.Web.Http;
 using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
@@ -17,10 +14,10 @@ namespace VmmApi.Net.Controllers
         }
 
         [HttpGet]
-        public JsonResult<IEnumerable<DocumentType>> Get()
+        public IHttpActionResult Get()
         {
             var documentTypes = this.documentTypeService.GetAllDocumentTypes();
-            return Json(documentTypes);
+            return Ok(documentTypes);
         }
     }
 

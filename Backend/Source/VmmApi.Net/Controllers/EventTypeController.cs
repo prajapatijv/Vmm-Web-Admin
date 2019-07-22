@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Http.Results;
-using VmmApi.Net.DataServices.Entities;
+﻿using System.Web.Http;
 using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
@@ -20,10 +14,10 @@ namespace VmmApi.Net.Controllers
         }
 
         [HttpGet]
-        public JsonResult<IEnumerable<EventType>> Get()
+        public IHttpActionResult Get()
         {
             var eventTypes = this.eventTypeService.GetAllEventTypes();
-            return Json(eventTypes);
+            return Ok(eventTypes);
         }
     }
 }

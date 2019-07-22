@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
-using System.Web.Http.Results;
-using VmmApi.Net.DataServices.Entities;
-using VmmApi.Net.Jwt;
+﻿using System.Web.Http;
 using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
@@ -18,10 +14,10 @@ namespace VmmApi.Net.Controllers
         }
 
         [HttpGet]
-        public JsonResult<IEnumerable<Area>> Get()
+        public IHttpActionResult Get()
         {
             var areas = this.areaService.GetAllAreas();
-            return Json(areas);
+            return Ok(areas);
         }
     }
 }
