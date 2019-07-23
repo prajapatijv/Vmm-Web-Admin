@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Results;
-using VmmApi.Net.DataServices.Entities;
 using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
@@ -19,11 +16,11 @@ namespace VmmApi.Net.Controllers
         }
 
         [HttpGet]
-        public JsonResult<IEnumerable<User>> Get()
+        public IHttpActionResult Get()
         {
             var users = this.userService.GetAllUsers();
             users.ToList().ForEach(u => u.Password = string.Empty);
-            return Json(users);
+            return Ok(users);
         }
     }
 }
