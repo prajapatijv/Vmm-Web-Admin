@@ -9,7 +9,6 @@ import { navigate } from '@reach/router'
 import { Config } from '../../AppConfig'
 
 const LOGIN_URL =  `${Config.API_URL}/authenticate`
-const LOGOUT_URL =  `${Config.API_URL}/logout`
 
 export function* loginSaga() {
     yield takeEvery(C.LOGIN, loginWorker)
@@ -34,7 +33,7 @@ function* loginWorker(params) {
 
 function* logoutWorker(params) {
     RemoveAuth(params.payload.userName)
-    yield(call(post, LOGOUT_URL, params.payload, C.LOGOUT_SUCCESS, C.LOGOUT_FAILURE))
+    yield put({"type": C.LOGOUT_SUCCESS});
     
     navigate('/login')
 }

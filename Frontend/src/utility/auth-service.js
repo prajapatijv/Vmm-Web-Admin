@@ -1,18 +1,19 @@
-import { GetCookie, SetCookie, RemoveCookie } from './cookie'
+//import { GetCookie, SetCookie, RemoveCookie } from './cookie'
+import { GetItem, SetItem, RemoveItem } from './cache'
 
 const THISUSERNAME = 'THISUSERNAME'
 const AUTHTOKEN ='AUTHTOKEN_'
 
 export const GetAuth = () => {
-    const thisUser = GetCookie(THISUSERNAME)
-    return GetCookie(`${AUTHTOKEN}${thisUser}`)
+    const thisUser = GetItem(THISUSERNAME)
+    return GetItem(`${AUTHTOKEN}${thisUser}`) || ""
 }
 
 export const SetAuth = (authResponse) => {
     if (authResponse.authToken) {
         const userName = authResponse.userName.toUpperCase()
-        SetCookie(THISUSERNAME, userName)
-        SetCookie(`${AUTHTOKEN}${userName}`, authResponse.authToken)
+        SetItem(THISUSERNAME, userName)
+        SetItem(`${AUTHTOKEN}${userName}`, authResponse.authToken)
         return true
     } else {
         return false
@@ -20,6 +21,6 @@ export const SetAuth = (authResponse) => {
 }
 
 export const RemoveAuth = (userName) => {
-    RemoveCookie(THISUSERNAME)
-    RemoveCookie(`${AUTHTOKEN}${userName.toUpperCase()}`)
+    RemoveItem(THISUSERNAME)
+    RemoveItem(`${AUTHTOKEN}${userName.toUpperCase()}`)
 }

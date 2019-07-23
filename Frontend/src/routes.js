@@ -42,7 +42,7 @@ const NotFound = ({ location }) =>
   </WithOpenLayout>
 
 
-const ProtectedRoute = ({ component: Component, ...props }) => {
+  const ProtectedRoute = ({ component: Component, ...props }) => {
   
   const authToken =  GetAuth()
 
