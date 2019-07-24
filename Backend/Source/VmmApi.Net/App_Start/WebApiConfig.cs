@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using VmmApi.Net.Services;
 
 namespace VmmApi.Net
 {
@@ -12,8 +13,10 @@ namespace VmmApi.Net
             // Web API configuration and services
             IdentityModelEventSource.ShowPII = false;
 
+            var configProvider = (IConfigurationProvider)config.DependencyResolver.GetService(typeof(IConfigurationProvider));
 
-            config.EnableCors(new EnableCorsAttribute("http://admin.mokshmargdharm.org", "*", "*"));
+
+            config.EnableCors(new EnableCorsAttribute(configProvider.AppSettings.AllowedCorsDomain, "*", "*"));
 
             // Web API routes
             config.MapHttpAttributeRoutes();

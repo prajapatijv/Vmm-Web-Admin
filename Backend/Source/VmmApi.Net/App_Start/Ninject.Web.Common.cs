@@ -68,6 +68,7 @@ namespace VmmApi.Net.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+
             kernel.Bind<NLog.ILogger>().To<NLog.Logger>();
             /*kernel.Bind<Core.ILogger>().ToMethod(x =>
                                                  {
@@ -83,15 +84,21 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IDocumentTypeService>().To<DocumentTypeService>();
             kernel.Bind<IEventTypeService>().To<EventTypeService>();
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>().InSingletonScope();
+
+            var configProvider = kernel.Get<IConfigurationProvider>();
 
             var jwtIssuer = new JwtIssuer(options =>
-            {
-                options.Audience = "http://admin.mokshmargdharm.org";
-                options.Issuer = "http://api.mokshmargdharm.org";
-                options.SecurityKey = Guid.NewGuid().ToString();
-            });
+                                          {
+                                              options.Audience = configProvider.AppSettings.Audience;
+                                              options.Issuer = configProvider.AppSettings.Issuer;
+                                              options.ExpireSeconds =
+                                                  configProvider.AppSettings.AccessExpirationSeconds;
+                                              options.SecurityKey = Guid.NewGuid().ToString();
+                                          });
 
             kernel.Bind<JwtIssuer>().ToConstant(jwtIssuer);
+            
         }
     }
 }
