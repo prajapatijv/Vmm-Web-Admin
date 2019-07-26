@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChevronLeft, ChevronRight, List, Users , BarChart, PieChart, Settings, Book, Video }  from 'react-feather'
+import { ChevronLeft, ChevronRight, List, BarChart, PieChart, Settings, Book, Video }  from 'react-feather'
 import classNames from 'classnames'
 
 import NavLink from '../components/shared/navlink'
@@ -28,7 +28,6 @@ const Sidebar = () => {
         <div className="sidebar-sticky pt-3">
             <ul className="nav nav-pills flex-column">
                 <NavItem path="/categories" displayName="Categories" icon={<Book/>} />
-                <NavItem path="/users" displayName="Users" icon={<Users/>} />
                 <NavItem path="/items" displayName="Items" icon={<List/>} />
                 <NavItem path="/assets" displayName="Assets" icon={<Video/>} />
             </ul>

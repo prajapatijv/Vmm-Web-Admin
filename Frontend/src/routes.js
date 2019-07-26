@@ -1,6 +1,8 @@
 import React from 'react'
 import { Router, Redirect } from "@reach/router"
 
+import Setting from './components/settings/setting'
+
 import { GetAuth } from './utility/auth-service'
 import { WithBasicLayout, WithOpenLayout } from './layouts'
 import LoginPage from './containers/login-page/login'
@@ -9,18 +11,22 @@ import ItemPage from './containers/item-page/item'
 import CategoryPage from './containers/category-page/category'
 import AssetPage from './containers/asset-page/asset'
 
+
 const Routes = (props) =>
   <Router>
     <LoginPage {...props} path="/login"/>
     <ProtectedRoute component={HomePage} {...props} path="/" />
-    <ProtectedRoute component={UserPage} {...props} path="users" />
-    <ProtectedRoute component={UserPage} {...props} path="users/:id" />
     <ProtectedRoute component={ItemPage} {...props} path="items" />
     <ProtectedRoute component={ItemPage} {...props} path="items/:id" />
     <ProtectedRoute component={CategoryPage} {...props} path="/categories" />
     <ProtectedRoute component={CategoryPage} {...props} path="/categories/:id" />
     <ProtectedRoute component={AssetPage} {...props} path="assets" />
     <ProtectedRoute component={AssetPage} {...props} path="assets/:id" />
+
+    <ProtectedRoute component={Setting} {...props} path="settings" />
+    <ProtectedRoute component={UserPage} {...props} path="users" />
+    <ProtectedRoute component={UserPage} {...props} path="users/:id" />
+
     <NotFound default />
   </Router>
 
