@@ -1,4 +1,6 @@
 //import { GetCookie, SetCookie, RemoveCookie } from './cookie'
+
+import axios from "axios"
 import { GetItem, SetItem, RemoveItem } from './cache'
 
 const THISUSERNAME = 'THISUSERNAME'
@@ -14,6 +16,7 @@ export const SetAuth = (authResponse) => {
         const userName = authResponse.userName.toUpperCase()
         SetItem(THISUSERNAME, userName)
         SetItem(`${AUTHTOKEN}${userName}`, authResponse.authToken)
+        axios.defaults.headers.common['Authorization'] = `Bearer ${GetAuth()}`
         return true
     } else {
         return false

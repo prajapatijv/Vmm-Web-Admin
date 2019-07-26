@@ -19,13 +19,13 @@ const logger = (req, res, next) => {
 
 const jwtVerify = (req, res, next) => {
     
-    if (req.url.endsWith("login") || req.method === "OPTIONS")  {
+    if (req.url.endsWith("authenticate") || req.method === "OPTIONS")  {
         next()
         return
     }
 
     const authorizationHeader = req.headers.authorization || ""
-    if (authorizationHeader.startsWith('jwt')) {
+    if (authorizationHeader.startsWith('Bearer')) {
         const token = authorizationHeader.split(" ")[1]
         jwt.verify(token, TOKEN_KEY, (err,payload) => {
             if (payload) {
@@ -54,7 +54,7 @@ const app = express()
     .use('/', express.static('./dist/img'));
 
 //Wildcards
-app.post('/api/login', (req, res) => { 
+app.post('/api/authenticate', (req, res) => { 
     console.log(req.body)
     const authToken = generateToken(req)
     res.status(200).json({"userName":req.body.userName, "authToken":authToken}) 

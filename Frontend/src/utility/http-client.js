@@ -4,9 +4,6 @@ import { GetItem, SetItem, RemoveItem } from './cache'
 import { HandleSuccess, HandleError, HandleSaveSuccess, HandleDeleteSuccess } from './status'
 import { navigate } from '@reach/router'
 
-import { GetAuth } from './auth-service'
-
-axios.defaults.headers.common['authorization'] = `Bearer ${GetAuth()}`
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 
@@ -99,6 +96,4 @@ export function* post(apiUrl, payload, successType, errorType) {
 
 const GetApiUrl = (params) => {
     return `${params.config.API_URL}/${params.contextObj.apiContext}`
-    //return `http://admin.mokshmargdharm.org/api/${params.contextObj.apiContext}`
 }
-
