@@ -12,6 +12,7 @@
     "express": "^4.16.4",
     "express-delay": "^0.2.0",
     "formik": "^1.5.7",
+    "hash-source": "^1.0.4",
     "js-cookie": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
     "node-sass": "^4.11.0",
