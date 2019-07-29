@@ -1,5 +1,5 @@
 import React from 'react'
-import { createHistory, Link, LocationProvider, Router } from '@reach/router'
+import { createHistory, LocationProvider } from '@reach/router'
 import createHashSource from 'hash-source'
 
 import Routes from './routes'
