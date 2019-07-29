@@ -24,7 +24,7 @@ function* loginWorker(params) {
     const response = yield(call(post, LOGIN_URL, params.payload, C.LOGIN_SUCCESS, C.LOGIN_FAILURE))
     
     if (SetAuth(response))  {
-        navigate('/#')
+        navigate('/')
     }
     else  {
         yield put({"type": S.ADD_ERROR_SUCCESS, payload: "Invalid username or password"})
@@ -35,5 +35,5 @@ function* logoutWorker(params) {
     RemoveAuth(params.payload.userName)
     yield put({"type": C.LOGOUT_SUCCESS});
     
-    navigate('/#/login')
+    navigate('/login')
 }
