@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -6,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
 using System.Net.Http;
+using Ninject.Activation;
 
 
 namespace VmmApi.Net.Jwt
@@ -19,6 +21,12 @@ namespace VmmApi.Net.Jwt
         public async Task AuthenticateAsync(HttpAuthenticationContext context, CancellationToken cancellationToken)
         {
             var request = context.Request;
+            CookieHeaderValue cookie = request.Headers.GetCookies("session-id").FirstOrDefault();
+            if (cookie != null)
+            {
+                CookieState cookieState = cookie["session-id"];
+            }
+
             var authorization = request.Headers.Authorization;
 
             if (authorization == null || authorization.Scheme != "Bearer")

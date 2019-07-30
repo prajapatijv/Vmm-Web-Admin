@@ -16,7 +16,8 @@ namespace VmmApi.Net
             var configProvider = (IConfigurationProvider)config.DependencyResolver.GetService(typeof(IConfigurationProvider));
 
 
-            config.EnableCors(new EnableCorsAttribute(configProvider.AppSettings.AllowedCorsDomain, "*", "*"));
+            config.EnableCors(new EnableCorsAttribute(configProvider.AppSettings.AllowedCorsDomain, "*", "*")
+                                  {SupportsCredentials = true});
 
             // Web API routes
             config.MapHttpAttributeRoutes();

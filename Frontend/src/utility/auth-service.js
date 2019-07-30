@@ -3,6 +3,7 @@
 import axios from "axios"
 import { GetItem, SetItem, RemoveItem } from './cache'
 
+const IsLoggedIn = 'IsLoggedIn'
 const THISUSERNAME = 'THISUSERNAME'
 const AUTHTOKEN ='AUTHTOKEN_'
 
@@ -11,8 +12,14 @@ export const GetAuth = () => {
     return GetItem(`${AUTHTOKEN}${thisUser}`) || ""
 }
 
+
+export const GetIsLoggedIn = () => {
+    return GetItem(IsLoggedIn)
+}
+
+
 export const SetAuth = (authResponse) => {
-    if (authResponse.authToken) {
+    /*if (authResponse.authToken) {
         const userName = authResponse.userName.toUpperCase()
         SetItem(THISUSERNAME, userName)
         SetItem(`${AUTHTOKEN}${userName}`, authResponse.authToken)
@@ -20,7 +27,10 @@ export const SetAuth = (authResponse) => {
         return true
     } else {
         return false
-    }
+    }*/
+
+    SetItem(IsLoggedIn, true)
+    return true
 }
 
 export const RemoveAuth = (userName) => {

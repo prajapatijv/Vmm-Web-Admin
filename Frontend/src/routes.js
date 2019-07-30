@@ -3,7 +3,7 @@ import { Router, Redirect } from "@reach/router"
 
 import Setting from './components/settings/setting'
 
-import { GetAuth } from './utility/auth-service'
+import { GetIsLoggedIn } from './utility/auth-service'
 import { WithBasicLayout, WithOpenLayout } from './layouts'
 import LoginPage from './containers/login-page/login'
 import UserPage from './containers/user-page/user'
@@ -50,10 +50,8 @@ const NotFound = ({ location }) =>
 
   const ProtectedRoute = ({ component: Component, ...props }) => {
   
-  const authToken =  GetAuth()
-
   return(
-    authToken !== "" ? 
+    GetIsLoggedIn() ? 
         <Component {...props} /> : <Redirect noThrow to='/login' />   
   )
 }

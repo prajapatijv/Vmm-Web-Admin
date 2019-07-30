@@ -3,6 +3,7 @@ using System;
 using System.Security.Claims;
 using System.Text;
 using VmmApi.Net.Core;
+using VmmApi.Net.DataServices.Entities;
 using VmmApi.Net.Jwt;
 using VmmApi.Net.Models;
 
@@ -27,7 +28,10 @@ namespace VmmApi.Net.Services
         public UserViewModel AuthenticateUser(TokenRequest request)
         {
 
-            var authUser = userService.Authenticate(request.Username, request.Password);
+            //var authUser = userService.Authenticate(request.Username, request.Password);
+            var authUser = new User()
+                {Id = 1, UserName = "jit", FirstName = "First", LastName = "last", Password = "test"};
+
             if (authUser == null) return null;
 
             var jwtToken = this.jwtIssuer.IssueToken(
