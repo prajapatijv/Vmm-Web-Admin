@@ -4,12 +4,20 @@ const { port = 3333 } = require('minimist')(process.argv)
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser'); 
 
 const users = require('./data/users.json')
 const items = require('./data/items.json')
 const categories = require('./data/categories.json')
 const assets = require('./data/assets.json')
 const TOKEN_KEY = 'jwtsecret'
+
+ 
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    //optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    credentials:true
+  }
 
 //Server setup
 const logger = (req, res, next) => {
@@ -45,25 +53,31 @@ const jwtVerify = (req, res, next) => {
 }
 
 const app = express()
+    //.use(cookieParser)
     .use(jwtVerify)
     .use(logger)
     .use(bodyParser.urlencoded({ extended: true }))
     .use(bodyParser.json()) // for parsing application/json    
     .use(delay(1000, 4000))
-    .use(cors())
+    .use(cors(corsOptions))
     .use('/', express.static('./dist/img'));
+
+app.options('*', cors(corsOptions));
 
 //Wildcards
 app.post('/api/authenticate', (req, res) => { 
     console.log(req.body)
     const authToken = generateToken(req)
+    res.cookie('authToken',authToken, { maxAge: 900000, httpOnly: true, domain: 'localhost:3000'  })
+    res.cookie('userName',req.body.userName, { maxAge: 900000, httpOnly: true, domain: 'localhost:3000' })
     res.status(200).json({"userName":req.body.userName, "authToken":authToken}) 
+    //res.status(204)
 })
 app.post('/api/*', (req, res) => { console.log(req.body); res.status(200).json(req.body) })
 app.delete('/api/*/:id', (req, res) => res.status(200).json({}))
 
 //Gets
-app.get('/api/users', (req, res) => {res.status(200).json(users) })
+app.get('/api/users', (req, res) => { console.log(console.log(req.cookies)); res.status(200).json(users) })
 app.get('/api/items', (req, res) => res.status(200).json(items))
 app.get('/api/categories', (req, res) => res.status(200).json(categories))
 app.get('/api/assets', (req, res) => res.status(200).json(assets))

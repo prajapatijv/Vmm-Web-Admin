@@ -7,7 +7,7 @@ import { navigate } from '@reach/router'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 
-const fetchApi = (apiUrl, criteria) => axios.get(`${apiUrl}`)
+const fetchApi = (apiUrl, criteria) => axios.get(`${apiUrl}`, {withCredentials:true})
 const saveApi = (apiUrl, payload) => {
     return axios({ method: 'post', url: apiUrl, data: payload });
 }
