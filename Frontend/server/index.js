@@ -11,13 +11,6 @@ const documenttypes = require('./data/documenttypes.json')
 const assets = require('./data/assets.json')
 const TOKEN_KEY = 'jwtsecret'
 
- 
-var corsOptions = {
-    origin: '*',
-    //optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-    credentials:false
-}
-
 //Server setup
 const logger = (req, res, next) => {
     console.log(`${req.method} request for ${req.url}`)
@@ -52,15 +45,13 @@ const jwtVerify = (req, res, next) => {
 }
 
 const app = express()
-    //.use(jwtVerify)
+    .use(jwtVerify)
     .use(logger)
     .use(bodyParser.urlencoded({ extended: true }))
     .use(bodyParser.json()) // for parsing application/json    
     .use(delay(1000, 4000))
     .use(cors())
     .use('/', express.static('./dist/img'));
-
-//app.options('*', cors(corsOptions));
 
 //Wildcards
 app.post('/api/authenticate', (req, res) => { 
@@ -72,7 +63,7 @@ app.post('/api/*', (req, res) => { console.log(req.body); res.status(200).json(r
 app.delete('/api/*/:id', (req, res) => res.status(200).json({}))
 
 //Gets
-app.get('/api/users', (req, res) => { res.status(200).json(users) })
+app.get('/api/users', (req, res) => {res.status(200).json(users) })
 app.get('/api/items', (req, res) => res.status(200).json(items))
 app.get('/api/documenttypes', (req, res) => res.status(200).json(documenttypes))
 app.get('/api/assets', (req, res) => res.status(200).json(assets))

@@ -15,7 +15,7 @@ const deleteApi = (apiUrl, id) => axios.delete(`${apiUrl}/${id}`)
 
 
 export function* fetch(params, throttle = false) {
-    
+
     const contextObj = params.contextObj
 
     try {
