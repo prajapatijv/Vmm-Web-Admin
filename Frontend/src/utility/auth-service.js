@@ -19,7 +19,7 @@ export const GetIsLoggedIn = () => {
 
 
 export const SetAuth = (authResponse) => {
-    /*if (authResponse.authToken) {
+    if (authResponse.authToken) {
         const userName = authResponse.userName.toUpperCase()
         SetItem(THISUSERNAME, userName)
         SetItem(`${AUTHTOKEN}${userName}`, authResponse.authToken)
@@ -27,10 +27,7 @@ export const SetAuth = (authResponse) => {
         return true
     } else {
         return false
-    }*/
-
-    SetItem(IsLoggedIn, true)
-    return true
+    }
 }
 
 export const RemoveAuth = (userName) => {

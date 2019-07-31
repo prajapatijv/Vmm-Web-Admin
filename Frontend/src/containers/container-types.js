@@ -1,5 +1,5 @@
 const ContainerKeys = {
-    Category:'category',
+    DocumentType:'documenttype',
     User:'user',
     Item:'item',
     Asset:'asset'

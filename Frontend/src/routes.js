@@ -3,12 +3,12 @@ import { Router, Redirect } from "@reach/router"
 
 import Setting from './components/settings/setting'
 
-import { GetIsLoggedIn } from './utility/auth-service'
+import { GetAuth } from './utility/auth-service'
 import { WithBasicLayout, WithOpenLayout } from './layouts'
 import LoginPage from './containers/login-page/login'
 import UserPage from './containers/user-page/user'
 import ItemPage from './containers/item-page/item'
-import CategoryPage from './containers/category-page/category'
+import DcoumentTypePage from './containers/document-type-page/document-type'
 import AssetPage from './containers/asset-page/asset'
 
 
@@ -18,8 +18,8 @@ const Routes = (props) =>
     <ProtectedRoute component={HomePage} {...props} path="/" />
     <ProtectedRoute component={ItemPage} {...props} path="items" />
     <ProtectedRoute component={ItemPage} {...props} path="items/:id" />
-    <ProtectedRoute component={CategoryPage} {...props} path="/categories" />
-    <ProtectedRoute component={CategoryPage} {...props} path="/categories/:id" />
+    <ProtectedRoute component={DcoumentTypePage} {...props} path="/document-types" />
+    <ProtectedRoute component={DcoumentTypePage} {...props} path="/document-types/:id" />
     <ProtectedRoute component={AssetPage} {...props} path="assets" />
     <ProtectedRoute component={AssetPage} {...props} path="assets/:id" />
 
@@ -50,8 +50,9 @@ const NotFound = ({ location }) =>
 
   const ProtectedRoute = ({ component: Component, ...props }) => {
   
+  let authToken = GetAuth()  
   return(
-    GetIsLoggedIn() ? 
+    authToken !== "" ? 
         <Component {...props} /> : <Redirect noThrow to='/login' />   
   )
 }

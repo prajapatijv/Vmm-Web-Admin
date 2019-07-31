@@ -4,7 +4,7 @@ import status from './status-bar/reducer'
 import auth from './login-page/reducer'
 import users from './user-page/reducer'
 import items from './item-page/reducer'
-import categories from './category-page/reducer'
+import documenttypes from './document-type-page/reducer'
 import assets from './asset-page/reducer'
 
 export default combineReducers({
@@ -12,6 +12,6 @@ export default combineReducers({
     auth,
     userState: users,
     itemState: items,
-    categoryState: categories,
+    documenttypeState: documenttypes,
     assetState:assets,
 })

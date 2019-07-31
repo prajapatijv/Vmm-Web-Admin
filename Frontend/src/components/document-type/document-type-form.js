@@ -8,9 +8,9 @@ import { CheckBox } from '../shared/check-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const CategoryForm = ({ category, onClose, onSave, onDelete, saving, deleting }) => {
+const DocumentTypeForm = ({ documentType, onClose, onSave, onDelete, saving, deleting }) => {
 
-    const _init = { ...category }
+    const _init = { ...documentType }
 
     const schema = Yup.object().shape({
         id:Yup.number(),
@@ -30,7 +30,7 @@ const CategoryForm = ({ category, onClose, onSave, onDelete, saving, deleting })
 
 
     return (
-        category ?
+        documentType ?
             <Formik
                 enableReinitialize
                 initialValues={_init}
@@ -40,7 +40,7 @@ const CategoryForm = ({ category, onClose, onSave, onDelete, saving, deleting })
                 render={props => (
                     <React.Fragment>
                         <div className="modal-header mb-3 py-0">
-                            <PageTitle title="Category" fetching={props.fetching} onClose={onClose} adding={category.id === 0}></PageTitle>
+                            <PageTitle title="Document Type" fetching={props.fetching} onClose={onClose} adding={documentType.id === 0}></PageTitle>
                         </div>
                         <form className="needs-validation"
                             onSubmit={props.handleSubmit}
@@ -56,8 +56,8 @@ const CategoryForm = ({ category, onClose, onSave, onDelete, saving, deleting })
                             </div>
 
                             <ButtonBar
-                                showDelete={category.id !== 0}
-                                onDelete={(id) => onDeleteEntity(category.id)}
+                                showDelete={documentType.id !== 0}
+                                onDelete={(id) => onDeleteEntity(documentType.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -70,10 +70,10 @@ const CategoryForm = ({ category, onClose, onSave, onDelete, saving, deleting })
     )
 }
 
-export default CategoryForm
+export default DocumentTypeForm
 
-CategoryForm.propTypes = {
-    category: PropTypes.object,
+DocumentTypeForm.propTypes = {
+    documentType: PropTypes.object,
     onClose: PropTypes.func,
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
