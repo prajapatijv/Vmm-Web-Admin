@@ -16,10 +16,10 @@ const DocumentTypePage = (props) => {
 const DocumentTypeLines = ({ documenttypes }) =>
     documenttypes.map((documenttype) =>
         <NavLink key={documenttype.id}
-            to={`/document-types/${documenttype.id}`}
+            to={`/documenttypes/${documenttype.id}`}
             activeClassName="active"
             className="app-list-item list-group-item-action"
-        >{documenttype.name} {documenttype.shortName}
+        >{documenttype.description} 
         </NavLink>
     )
 

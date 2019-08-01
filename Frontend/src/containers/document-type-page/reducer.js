@@ -7,9 +7,7 @@ const documenttypes = (state=initialState, action) => {
 
 const defaultDocumentType = { 
     id:0,
-    name:"",
-    shortName:"",
-    active:0
+    description:""
 }
 
 const initialState = {
@@ -21,8 +19,7 @@ const byName = criteria => documentType => {
         return true
     }
     else  {
-        return documentType.name.toLowerCase().match(criteria.toLowerCase()) ||     
-                documentType.shortName.toLowerCase().match(criteria.toLowerCase())
+        return documentType.description.toLowerCase().match(criteria.toLowerCase()) 
     }
 }
 

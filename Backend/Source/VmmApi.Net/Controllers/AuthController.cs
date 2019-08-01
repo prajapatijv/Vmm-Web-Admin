@@ -1,8 +1,5 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
 using System.Web.Http;
 using VmmApi.Net.Core;
 using VmmApi.Net.Models;
@@ -36,15 +33,6 @@ namespace VmmApi.Net.Controllers
 
             if (user != null)
             {
-                response.Content = new ObjectContent<UserViewModel>(user, new JsonMediaTypeFormatter());
-                CookieHeaderValue cookie = new CookieHeaderValue("session-id", user.AuthToken);
-                cookie.Expires = DateTimeOffset.Now.AddDays(2);
-                cookie.Domain = "localhost";
-                cookie.HttpOnly = true;
-                cookie.Path = "/";
-
-                response.Headers.AddCookies(new CookieHeaderValue[] {cookie});
-
                 return response;
             }
 

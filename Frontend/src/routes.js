@@ -18,8 +18,8 @@ const Routes = (props) =>
     <ProtectedRoute component={HomePage} {...props} path="/" />
     <ProtectedRoute component={ItemPage} {...props} path="items" />
     <ProtectedRoute component={ItemPage} {...props} path="items/:id" />
-    <ProtectedRoute component={DcoumentTypePage} {...props} path="/document-types" />
-    <ProtectedRoute component={DcoumentTypePage} {...props} path="/document-types/:id" />
+    <ProtectedRoute component={DcoumentTypePage} {...props} path="/documenttypes" />
+    <ProtectedRoute component={DcoumentTypePage} {...props} path="/documenttypes/:id" />
     <ProtectedRoute component={AssetPage} {...props} path="assets" />
     <ProtectedRoute component={AssetPage} {...props} path="assets/:id" />
 

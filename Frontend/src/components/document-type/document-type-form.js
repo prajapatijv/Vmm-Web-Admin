@@ -4,7 +4,6 @@ import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 
 import { InputBox } from '../shared/input-box'
-import { CheckBox } from '../shared/check-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
@@ -46,13 +45,7 @@ const DocumentTypeForm = ({ documenttype, onClose, onSave, onDelete, saving, del
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-3">
-                                <Field type="text" name="name" component={InputBox} placeholder="Name" floatinglabel="1" />
-                            </div>
-                            <div className="form-row mb-3">
-                                <Field type="text" name="shortName" component={InputBox} placeholder="Short Name" floatinglabel="1" />
-                            </div>
-                            <div className="form-row mb-3">
-                                <Field type="checkbox" name="active" component={CheckBox} label="Active"/>
+                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel="1" />
                             </div>
 
                             <ButtonBar
