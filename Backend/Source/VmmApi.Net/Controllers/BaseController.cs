@@ -5,7 +5,7 @@ using VmmApi.Net.Jwt;
 namespace VmmApi.Net.Controllers
 {
     //[JwtAuthentication, JwtClaimsAuthorization("isAdmin", "true", "True")]
-    //[JwtAuthentication]
+    [JwtAuthentication]
     [HandleExceptionFilter]
     public abstract class BaseController: ApiController
     {

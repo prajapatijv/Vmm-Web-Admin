@@ -20,23 +20,22 @@ namespace VmmApi.Net.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public HttpResponseMessage RequestToken(TokenRequest request)
+        public IHttpActionResult RequestToken(TokenRequest request)
         {
-            var response = new HttpResponseMessage();
-
             if (!ModelState.IsValid)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return BadRequest(ModelState);
             }
 
             var user = authenticateService.AuthenticateUser(request);
 
             if (user != null)
             {
-                return response;
+                return Ok(user);
             }
 
-            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid request");
+            return BadRequest("Invalid Request");
         }
+
     }
 }
