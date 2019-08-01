@@ -8,6 +8,7 @@ const _contextMappings = {
     'item' : { 'apiContext': 'items', 'actionContext': { 'singular': 'item', 'SINGULAR': 'ITEM', 'plural': 'items', 'PLURAL': 'ITEMS' } },
     'documenttype' : { 'apiContext': 'documenttypes', 'actionContext': { 'singular': 'documenttype', 'SINGULAR': 'DOCUMENTTYPE', 'plural': 'documenttypes', 'PLURAL': 'DOCUMENTTYPES' } },
     'asset' : { 'apiContext': 'assets', 'actionContext': { 'singular': 'asset', 'SINGULAR': 'ASSET', 'plural': 'assets', 'PLURAL': 'ASSETS' } },
+    'eventtype' : { 'apiContext': 'eventtypes', 'actionContext': { 'singular': 'eventtype', 'SINGULAR': 'EVENTTYPE', 'plural': 'eventtypes', 'PLURAL': 'EVENTTYPES' } },
 }
 
 export const Config = {

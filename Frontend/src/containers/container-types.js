@@ -2,7 +2,8 @@ const ContainerKeys = {
     DocumentType:'documenttype',
     User:'user',
     Item:'item',
-    Asset:'asset'
+    Asset:'asset',
+    EventType:'eventtype'
 }
 
 export default ContainerKeys

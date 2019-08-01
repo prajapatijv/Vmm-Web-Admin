@@ -5,6 +5,7 @@ import auth from './login-page/reducer'
 import users from './user-page/reducer'
 import items from './item-page/reducer'
 import documenttypes from './document-type-page/reducer'
+import eventtypes from './event-type-page/reducer'
 import assets from './asset-page/reducer'
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
     userState: users,
     itemState: items,
     documenttypeState: documenttypes,
+    eventtypeState:eventtypes,
     assetState:assets,
 })

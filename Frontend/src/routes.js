@@ -8,7 +8,8 @@ import { WithBasicLayout, WithOpenLayout } from './layouts'
 import LoginPage from './containers/login-page/login'
 import UserPage from './containers/user-page/user'
 import ItemPage from './containers/item-page/item'
-import DcoumentTypePage from './containers/document-type-page/document-type'
+import DocumentTypePage from './containers/document-type-page/document-type'
+import EventTypePage from './containers/event-type-page/event-type'
 import AssetPage from './containers/asset-page/asset'
 
 
@@ -18,8 +19,11 @@ const Routes = (props) =>
     <ProtectedRoute component={HomePage} {...props} path="/" />
     <ProtectedRoute component={ItemPage} {...props} path="items" />
     <ProtectedRoute component={ItemPage} {...props} path="items/:id" />
-    <ProtectedRoute component={DcoumentTypePage} {...props} path="/documenttypes" />
-    <ProtectedRoute component={DcoumentTypePage} {...props} path="/documenttypes/:id" />
+    <ProtectedRoute component={DocumentTypePage} {...props} path="/documenttypes" />
+    <ProtectedRoute component={DocumentTypePage} {...props} path="/documenttypes/:id" />
+    <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes" />
+    <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes/:id" />
+
     <ProtectedRoute component={AssetPage} {...props} path="assets" />
     <ProtectedRoute component={AssetPage} {...props} path="assets/:id" />
 
