@@ -84,6 +84,7 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IDocumentTypeService>().To<DocumentTypeService>();
             kernel.Bind<IEventTypeService>().To<EventTypeService>();
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IDocumentService>().To<DocumentService>();
             kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>().InSingletonScope();
 
             var configProvider = kernel.Get<IConfigurationProvider>();

@@ -13,5 +13,7 @@ namespace VmmApi.Net.DataServices
         public DbSet<Area> Areas { get; set; }
         public DbSet<DocumentType> DocumentTypes { get; set; }
         public DbSet<EventType> EventTypes { get; set; }
+        public DbSet<Document> Documents { get; set; }
+
     }
 }

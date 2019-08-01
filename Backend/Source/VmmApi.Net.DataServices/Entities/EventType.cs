@@ -7,7 +7,7 @@ namespace VmmApi.Net.DataServices.Entities
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Event_Type_Id")]
-        public int Id { get; set; }
+        public byte Id { get; set; }
 
         [Column("Description")]
         public string Description { get; set; }
