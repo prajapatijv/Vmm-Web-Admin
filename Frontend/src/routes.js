@@ -11,26 +11,27 @@ import ItemPage from './containers/item-page/item'
 import DocumentTypePage from './containers/document-type-page/document-type'
 import EventTypePage from './containers/event-type-page/event-type'
 import AssetPage from './containers/asset-page/asset'
-
+import AreaPage from './containers/area-page/area' 
 
 const Routes = (props) =>
   <Router>
     <LoginPage {...props} path="/login"/>
     <ProtectedRoute component={HomePage} {...props} path="/" />
+
     <ProtectedRoute component={ItemPage} {...props} path="items" />
     <ProtectedRoute component={ItemPage} {...props} path="items/:id" />
-    <ProtectedRoute component={DocumentTypePage} {...props} path="/documenttypes" />
-    <ProtectedRoute component={DocumentTypePage} {...props} path="/documenttypes/:id" />
-    <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes" />
-    <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes/:id" />
-
     <ProtectedRoute component={AssetPage} {...props} path="assets" />
     <ProtectedRoute component={AssetPage} {...props} path="assets/:id" />
 
     <ProtectedRoute component={Setting} {...props} path="settings" />
     <ProtectedRoute component={UserPage} {...props} path="users" />
     <ProtectedRoute component={UserPage} {...props} path="users/:id" />
-
+    <ProtectedRoute component={DocumentTypePage} {...props} path="/documenttypes" />
+    <ProtectedRoute component={DocumentTypePage} {...props} path="/documenttypes/:id" />
+    <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes" />
+    <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes/:id" />
+    <ProtectedRoute component={AreaPage} {...props} path="areas" />
+    <ProtectedRoute component={AreaPage} {...props} path="areas/:id" />
     <NotFound default />
   </Router>
 

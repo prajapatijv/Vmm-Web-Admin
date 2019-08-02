@@ -9,6 +9,7 @@ const _contextMappings = {
     'documenttype' : { 'apiContext': 'documenttypes', 'actionContext': { 'singular': 'documenttype', 'SINGULAR': 'DOCUMENTTYPE', 'plural': 'documenttypes', 'PLURAL': 'DOCUMENTTYPES' } },
     'asset' : { 'apiContext': 'assets', 'actionContext': { 'singular': 'asset', 'SINGULAR': 'ASSET', 'plural': 'assets', 'PLURAL': 'ASSETS' } },
     'eventtype' : { 'apiContext': 'eventtypes', 'actionContext': { 'singular': 'eventtype', 'SINGULAR': 'EVENTTYPE', 'plural': 'eventtypes', 'PLURAL': 'EVENTTYPES' } },
+    'area' : { 'apiContext': 'areas', 'actionContext': { 'singular': 'area', 'SINGULAR': 'AREA', 'plural': 'areas', 'PLURAL': 'AREAS' } },    
 }
 
 export const Config = {
