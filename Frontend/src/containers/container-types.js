@@ -4,7 +4,8 @@ const ContainerKeys = {
     Item:'item',
     Asset:'asset',
     EventType:'eventtype',
-    Area: 'area'
+    Area: 'area',
+    Document:'document'
 }
 
 export default ContainerKeys

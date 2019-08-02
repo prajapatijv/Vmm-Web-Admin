@@ -10,6 +10,7 @@ const items = require('./data/items.json')
 const documenttypes = require('./data/documenttypes.json')
 const eventtypes = require('./data/eventtypes.json')
 const areas = require('./data/areas.json')
+const documents = require('./data/documents.json')
 const TOKEN_KEY = 'jwtsecret'
 
 //Server setup
@@ -69,7 +70,7 @@ app.get('/api/items', (req, res) => res.status(200).json(items))
 app.get('/api/documenttypes', (req, res) => res.status(200).json(documenttypes))
 app.get('/api/eventtypes', (req, res) => res.status(200).json(eventtypes))
 app.get('/api/areas', (req, res) => {res.status(200).json(areas) })
-
+app.get('/api/documents', (req, res) => {res.status(200).json(documents) })
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)

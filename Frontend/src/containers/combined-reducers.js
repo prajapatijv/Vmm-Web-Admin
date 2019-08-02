@@ -8,6 +8,7 @@ import documenttypes from './document-type-page/reducer'
 import eventtypes from './event-type-page/reducer'
 import assets from './asset-page/reducer'
 import areas from './area-page/reducer'
+import documents from './document-page/reducer'
 
 export default combineReducers({
     status,
@@ -17,5 +18,6 @@ export default combineReducers({
     documenttypeState: documenttypes,
     eventtypeState:eventtypes,
     assetState:assets,
-    areaState:areas
+    areaState:areas,
+    documentState:documents
 })

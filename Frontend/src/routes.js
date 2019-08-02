@@ -12,14 +12,15 @@ import DocumentTypePage from './containers/document-type-page/document-type'
 import EventTypePage from './containers/event-type-page/event-type'
 import AssetPage from './containers/asset-page/asset'
 import AreaPage from './containers/area-page/area' 
+import DocumentPage from './containers/document-page/document'
 
 const Routes = (props) =>
   <Router>
     <LoginPage {...props} path="/login"/>
     <ProtectedRoute component={HomePage} {...props} path="/" />
 
-    <ProtectedRoute component={ItemPage} {...props} path="items" />
-    <ProtectedRoute component={ItemPage} {...props} path="items/:id" />
+    <ProtectedRoute component={DocumentPage} {...props} path="documents" />
+    <ProtectedRoute component={DocumentPage} {...props} path="documents/:id" />
     <ProtectedRoute component={AssetPage} {...props} path="assets" />
     <ProtectedRoute component={AssetPage} {...props} path="assets/:id" />
 
