@@ -4,6 +4,7 @@ import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 
 import { InputBox } from '../shared/input-box'
+import { CheckBox } from '../shared/check-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
@@ -49,6 +50,24 @@ const DocumentForm = ({ document, onClose, onSave, onDelete, saving, deleting })
                             </div>
                             <div className="form-row mb-3">
                                 <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel="1" />
+                            </div>
+                            <div className="form-row mb-3">
+                                <Field type="text" name="publishDate" component={InputBox} placeholder="Publish Date" floatinglabel="1" />
+                            </div>
+                            <div className="form-row mb-3">
+                                <Field type="text" name="expiryDate" component={InputBox} placeholder="Expiry Date" floatinglabel="1" />
+                            </div>
+                            <div className="form-row mb-3">
+                                <Field type="text" name="documentPath" component={InputBox} placeholder="Document Path" floatinglabel="1" />
+                            </div>
+                            <div className="form-row mb-3">
+                                <Field type="text" name="documentTypeId" component={InputBox} placeholder="Document TypeId" floatinglabel="1" />
+                            </div>
+                            <div className="form-row mb-3">
+                                <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel="1" />
+                            </div>
+                            <div className="form-row mb-3">
+                                <Field type="text" name="groupYear" component={InputBox} placeholder="Group Year" floatinglabel="1" />
                             </div>
 
                             <ButtonBar
