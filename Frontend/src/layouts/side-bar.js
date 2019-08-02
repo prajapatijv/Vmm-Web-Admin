@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChevronLeft, ChevronRight, List, BarChart, PieChart, Settings, Book, Video }  from 'react-feather'
+import { ChevronLeft, ChevronRight, BarChart, PieChart, Settings, BookOpen, Calendar, Gitlab }  from 'react-feather'
 import classNames from 'classnames'
 
 import NavLink from '../components/shared/navlink'
@@ -19,17 +19,16 @@ const Sidebar = () => {
     <nav id="sidebar" className={cls}>
         <div className="navbar navbar-dark bg-dark">
             <a className="navbar-brand" href="/">
-                VMM
+                <Gitlab className="text-primary"/>
             </a>
-            {toggle === 0 && <span className="toggle" onClick={() => setToggle(1)}><ChevronLeft/></span>}
-            {toggle === 1 && <span className="toggle" onClick={() => setToggle(0)}><ChevronRight/></span>}
+            {toggle === 0 && <span className="toggle" onClick={() => setToggle(1)}><ChevronLeft className="text-muted"/></span>}
+            {toggle === 1 && <span className="toggle" onClick={() => setToggle(0)}><ChevronRight className="text-muted"/></span>}
         </div>
 
         <div className="sidebar-sticky pt-3">
             <ul className="nav nav-pills flex-column">
-                <NavItem path="/documenttypes" displayName="Document Types" icon={<Book/>} />
-                <NavItem path="/eventtypes" displayName="Event Types" icon={<List/>} />
-                <NavItem path="/assets" displayName="Assets" icon={<Video/>} />
+                <NavItem path="/documents" displayName="Documents" icon={<BookOpen/>} />
+                <NavItem path="/events" displayName="Events" icon={<Calendar/>} />
             </ul>
 
             <hr/>

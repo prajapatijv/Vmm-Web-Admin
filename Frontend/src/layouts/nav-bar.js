@@ -13,7 +13,7 @@ const Navbar = (props) => {
 
     return(
         <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap">
-            <span className="navbar-brand"></span>
+            <span className="navbar-brand text-muted">VMM Admin Portal</span>
             <ul className="navbar-nav px-3">
                 <li className="nav-item text-nowrap">
                     <button  className="btn btn-dark btn-link"
