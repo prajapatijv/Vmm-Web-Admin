@@ -3,7 +3,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
-    [Route("api/docuements")]
+    [Route("api/documents")]
     public class DocumentController : BaseController
     {
         private readonly IDocumentService documentService;

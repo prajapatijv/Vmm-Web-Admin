@@ -163,6 +163,7 @@
     <Compile Include="Jwt\JwtIssuer.cs" />
     <Compile Include="Jwt\JwtIssuerOptions.cs" />
     <Compile Include="Models\AppSettings.cs" />
+    <Compile Include="Models\DocumentViewModel.cs" />
     <Compile Include="Models\TokenRequest.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

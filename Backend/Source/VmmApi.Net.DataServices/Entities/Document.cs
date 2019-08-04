@@ -13,7 +13,7 @@ namespace VmmApi.Net.DataServices.Entities
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Document_Id")]
-        public int DocumentId { get; set; }
+        public int Id { get; set; }
 
         [Column("Title")]
         public string Title { get; set; }
