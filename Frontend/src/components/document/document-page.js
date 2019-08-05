@@ -13,8 +13,9 @@ const DocumentPage = (props) => {
     )
 }
 
-const DocumentLines = ({ documents }) =>
-    documents.map((document) =>
+const DocumentLines = ({ documents }) => {
+return(
+    documents.documents.map((document) =>
         <NavLink key={document.id}
             to={`/documents/${document.id}`}
             activeClassName="active"
@@ -22,5 +23,6 @@ const DocumentLines = ({ documents }) =>
         >{document.title} 
         </NavLink>
     )
-
+)
+}
 export default DocumentPage

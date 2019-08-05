@@ -1,14 +1,46 @@
 [
     {
-        "id":1,"title":"Document 1","description":"Description 1","publishDate":"2019-08-02 11:00:00","expiryDate":"2019-12-31 23:00:00","documentPath":"filename1.pdf","documentTypeId":1,"active":1,"groupYear":2019
-    },    
+        "id": 1,
+        "title": "Document 1",
+        "description": "Description 1",
+        "publishDate": "2019-08-02 11:00:00",
+        "expiryDate": "2019-12-31 23:00:00",
+        "documentPath": "filename1.pdf",
+        "documentTypeId": 1,
+        "active": 1,
+        "groupYear": 2019
+    },
     {
-        "id":2,"title":"Document 2","description":"Description 2","publishDate":"2019-08-02 12:12:12","expiryDate":"2019-12-25 23:30:00","documentPath":"filename2.pdf","documentTypeId":1,"active":1,"groupYear":2019
-    },    
+        "id": 2,
+        "title": "Document 2",
+        "description": "Description 2",
+        "publishDate": "2019-08-02 12:12:12",
+        "expiryDate": "2019-12-25 23:30:00",
+        "documentPath": "filename2.pdf",
+        "documentTypeId": 1,
+        "active": 1,
+        "groupYear": 2019
+    },
     {
-        "id":3,"title":"Document 3","description":"Description 3","publishDate":"2019-08-02 13:13:00","expiryDate":"2019-12-20 23:59:00","documentPath":"filename3.pdf","documentTypeId":1,"active":0,"groupYear":2019
-    },    
+        "id": 3,
+        "title": "Document 3",
+        "description": "Description 3",
+        "publishDate": "2019-08-02 13:13:00",
+        "expiryDate": "2019-12-20 23:59:00",
+        "documentPath": "filename3.pdf",
+        "documentTypeId": 1,
+        "active": 0,
+        "groupYear": 2019
+    },
     {
-        "id":4,"title":"Document 4","description":"Description 4","publishDate":"2019-08-02 15:15:00","expiryDate":"2019-12-10 23:00:00","documentPath":"filename4.pdf","documentTypeId":1,"active":1,"groupYear":2019
+        "id": 4,
+        "title": "Document 4",
+        "description": "Description 4",
+        "publishDate": "2019-08-02 15:15:00",
+        "expiryDate": "2019-12-10 23:00:00",
+        "documentPath": "filename4.pdf",
+        "documentTypeId": 1,
+        "active": 1,
+        "groupYear": 2019
     }
 ]

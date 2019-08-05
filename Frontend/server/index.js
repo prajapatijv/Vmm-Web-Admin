@@ -70,7 +70,13 @@ app.get('/api/items', (req, res) => res.status(200).json(items))
 app.get('/api/documenttypes', (req, res) => res.status(200).json(documenttypes))
 app.get('/api/eventtypes', (req, res) => res.status(200).json(eventtypes))
 app.get('/api/areas', (req, res) => {res.status(200).json(areas) })
-app.get('/api/documents', (req, res) => {res.status(200).json(documents) })
+app.get('/api/documents', (req, res) => {
+        var response = {}
+        response.documents = documents;
+        response.documentTypes = documenttypes
+        res.status(200).json(response) 
+    }
+)
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)

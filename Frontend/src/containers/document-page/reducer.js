@@ -12,7 +12,10 @@ const defaultDocument = {
 }
 
 const initialState = {
-    documents:[]
+    documents:{
+        documents:[],
+        documentTypes:[]
+    }
 } 
 
 const byName = criteria => document => {
