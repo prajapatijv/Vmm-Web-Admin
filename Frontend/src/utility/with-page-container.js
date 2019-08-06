@@ -22,16 +22,31 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
 
     const mapState = (state) => {
         const localState = state[stateName]
+        //const dynamicState = getDynamicState(localState, listName, entityName)
         return {
             [listName]: localState[listName],
             [entityName]: (props.id === undefined || localState[entityName] !== undefined) ? 
                                 localState[entityName] : 
                                 localState[listName].find(u => parseInt(u.id) === parseInt(props.id)),
+            'documentTypes': localState.documentTypes,
             fetching: localState.fetching,
             saving: localState.saving,
             deleting: localState.deleting
         }
     }
+
+    /*
+    const getDynamicState = (localState, listName, entityName) => {
+        const excludeItems = [entityName, listName, 'error', 'fetching', 'saving', 'deleting']
+        var dynamicState = {};
+        Object.keys(localState).forEach( (item) => {
+            if (excludeItems.indexOf(item) < 0) {
+                dynamicState[item] = localState[item]
+            }
+        })
+
+        return dynamicState;
+    }*/
     
 
     const state = useSelector(mapState)

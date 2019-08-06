@@ -8,9 +8,10 @@ const documents = (state=initialState, action) => {
         case `FETCH_DOCUMENTS_SUCCEED`: {
             return {...documentState, "documentTypes": action.payload.data.documentTypes }
         }
-    }
 
-    return documentState
+        default:
+            return documentState
+    }
 }
 
 const defaultDocument = { 
