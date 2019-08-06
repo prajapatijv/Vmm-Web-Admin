@@ -11,9 +11,10 @@ import ButtonBar from '../shared/button-bar'
 const DocumentForm = ({ document, documentTypes, onClose, onSave, onDelete, saving, deleting }) => {
 
     const _init = { ...document }
+    const _documentTypes = documentTypes || []
 
     const schema = Yup.object().shape({
-        id:Yup.number(),
+        id: Yup.number(),
         name: Yup.string().min(2).max(50).required(),
         shortName: Yup.string().min(2).max(50).required(),
         active: Yup.boolean().notRequired()
@@ -62,6 +63,11 @@ const DocumentForm = ({ document, documentTypes, onClose, onSave, onDelete, savi
                             </div>
                             <div className="form-row mb-3">
                                 <Field type="text" name="documentTypeId" component={InputBox} placeholder="Document TypeId" floatinglabel="1" />
+                                <Field className="custom-select" name="documentTypeId" component="select" placeholder="Document Type">
+                                    {
+                                        _documentTypes.map((item) =><option value={item.id}>{item.description}</option>)
+                                    }
+                                </Field>
                             </div>
                             <div className="form-row mb-3">
                                 <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel="1" />
