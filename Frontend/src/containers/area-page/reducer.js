@@ -11,7 +11,8 @@ const defaultArea = {
 }
 
 const initialState = {
-    areas:[]
+    areas:[],
+    area:{}
 } 
 
 const byName = criteria => area => {

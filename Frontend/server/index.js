@@ -20,8 +20,8 @@ const logger = (req, res, next) => {
 }
 
 const jwtVerify = (req, res, next) => {
-    
-    if (req.url.endsWith("authenticate") || req.method === "OPTIONS")  {
+
+    if (req.url.endsWith("authenticate") || req.method === "OPTIONS") {
         next()
         return
     }
@@ -29,7 +29,7 @@ const jwtVerify = (req, res, next) => {
     const authorizationHeader = req.headers.authorization || ""
     if (authorizationHeader.startsWith('Bearer')) {
         const token = authorizationHeader.split(" ")[1]
-        jwt.verify(token, TOKEN_KEY, (err,payload) => {
+        jwt.verify(token, TOKEN_KEY, (err, payload) => {
             if (payload) {
                 req.user = payload
                 next()
@@ -56,38 +56,32 @@ const app = express()
     .use('/', express.static('./dist/img'));
 
 //Wildcards
-app.post('/api/authenticate', (req, res) => { 
+app.post('/api/authenticate', (req, res) => {
     console.log(req.body)
     const authToken = generateToken(req)
-    res.status(200).json({"userName":req.body.userName, "authToken":authToken}) 
+    res.status(200).json({ "userName": req.body.userName, "authToken": authToken })
 })
 app.post('/api/*', (req, res) => { console.log(req.body); res.status(200).json(req.body) })
 app.delete('/api/*/:id', (req, res) => res.status(200).json({}))
 
 //Gets
-app.get('/api/users', (req, res) => {res.status(200).json(users) })
-app.get('/api/items', (req, res) => res.status(200).json(items))
-app.get('/api/documenttypes', (req, res) => res.status(200).json(documenttypes))
-app.get('/api/eventtypes', (req, res) => res.status(200).json(eventtypes))
-app.get('/api/areas', (req, res) => {res.status(200).json(areas) })
-app.get('/api/documents', (req, res) => {
-        var response = {}
-        response.documents = documents;
-        response.documentTypes = documenttypes
-        res.status(200).json(response) 
-    }
-)
+app.get('/api/users', (req, res) => { var response = {}; response.users = users; res.status(200).json(response) })
+app.get('/api/items', (req, res) => { var response = {}; response.items = items; res.status(200).json(response) })
+app.get('/api/documenttypes', (req, res) => { var response = {}; response.documenttypes = documenttypes; res.status(200).json(response) })
+app.get('/api/eventtypes', (req, res) => { var response = {}; response.eventtypes = eventtypes; res.status(200).json(response) })
+app.get('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
+app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documentTypes = documenttypes; res.status(200).json(response) })
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)
     if (user && user.password === req.body.password) {
         var payload = {
-            userName:  user.userName,
-            role:'admin'
+            userName: user.userName,
+            role: 'admin'
         }
-        
-        return token = jwt.sign(payload , TOKEN_KEY, {
-            expiresIn: 60 *60*24 //24hrs
+
+        return token = jwt.sign(payload, TOKEN_KEY, {
+            expiresIn: 60 * 60 * 24 //24hrs
         })
     }
     else {

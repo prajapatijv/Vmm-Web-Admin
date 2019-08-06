@@ -21,14 +21,15 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
     const mapActions = bindActionCreators(actions, useDispatch());
 
     const mapState = (state) => {
+        const localState = state[stateName]
         return {
-            [listName]: state[stateName][listName],
-            [entityName]: (props.id === undefined || state[stateName][entityName] !== undefined) ? 
-                                state[stateName][entityName] : 
-                                state[stateName][listName].find(u => parseInt(u.id) === parseInt(props.id)),
-            fetching: state[stateName].fetching,
-            saving: state[stateName].saving,
-            deleting: state[stateName].deleting
+            [listName]: localState[listName],
+            [entityName]: (props.id === undefined || localState[entityName] !== undefined) ? 
+                                localState[entityName] : 
+                                localState[listName].find(u => parseInt(u.id) === parseInt(props.id)),
+            fetching: localState.fetching,
+            saving: localState.saving,
+            deleting: localState.deleting
         }
     }
     

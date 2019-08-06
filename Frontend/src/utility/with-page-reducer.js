@@ -6,16 +6,16 @@ const withPageReducer = (key, state, action, defaultEntity, filterByFn) => {
 }
 
 const template = (contextObj, state, action, defaultEntity, filterByFn) => {
-    
     switch (action.type) {
         case `FETCH_${contextObj.actionContext.PLURAL}`:
             return {...state, fetching:true , error:null}
         
         case `FETCH_${contextObj.actionContext.PLURAL}_SUCCEED`: {
-            return {...state, fetching:false,
+            return {
+                ...state, fetching:false,
                 [contextObj.actionContext.plural]: action.payload.criteria === "" ? 
-                    action.payload.data : 
-                    action.payload.data.filter(filterByFn(action.payload.criteria)) 
+                    action.payload.data[contextObj.actionContext.plural] : 
+                    action.payload.data[contextObj.actionContext.plural].filter(filterByFn(action.payload.criteria)) 
                 }
         }
 
