@@ -70,7 +70,7 @@ app.get('/api/items', (req, res) => { var response = {}; response.items = items;
 app.get('/api/documenttypes', (req, res) => { var response = {}; response.documenttypes = documenttypes; res.status(200).json(response) })
 app.get('/api/eventtypes', (req, res) => { var response = {}; response.eventtypes = eventtypes; res.status(200).json(response) })
 app.get('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
-app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documentTypes = documenttypes; res.status(200).json(response) })
+app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documenttypes = documenttypes; res.status(200).json(response) })
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)

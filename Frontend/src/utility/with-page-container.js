@@ -28,7 +28,7 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
             [entityName]: (props.id === undefined || localState[entityName] !== undefined) ? 
                                 localState[entityName] : 
                                 localState[listName].find(u => parseInt(u.id) === parseInt(props.id)),
-            'documentTypes': localState.documentTypes,
+            'documenttypes': localState.documenttypes,
             fetching: localState.fetching,
             saving: localState.saving,
             deleting: localState.deleting
