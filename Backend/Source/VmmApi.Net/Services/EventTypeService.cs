@@ -24,7 +24,7 @@ namespace VmmApi.Net.Services
         {
             return new EventtTypeViewModel
             {
-                EventTypes = this.dbContext.EventTypes.ToList()
+                Eventtypes = this.dbContext.EventTypes.ToList()
             };
         }
     }

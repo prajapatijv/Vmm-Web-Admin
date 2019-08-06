@@ -27,7 +27,7 @@ namespace VmmApi.Net.Services
             return new DocumentViewModel
             {
                 Documents = this.dbContext.Documents.ToList(),
-                DocumentTypes = this.documentTypeService.GetAllDocumentTypes().DocumentTypes
+                Documenttypes = this.documentTypeService.GetAllDocumentTypes().Documenttypes
             };
         }
     }

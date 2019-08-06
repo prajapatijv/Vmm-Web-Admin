@@ -5,6 +5,6 @@ namespace VmmApi.Net.Models
 {
     public class EventtTypeViewModel
     {
-        public IEnumerable<EventType> EventTypes { get; set; }
+        public IEnumerable<EventType> Eventtypes { get; set; }
     }
 }

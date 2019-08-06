@@ -5,6 +5,6 @@ namespace VmmApi.Net.Models
 {
     public class DocumentTypeViewModel
     {
-        public IEnumerable<DocumentType> DocumentTypes { get; set; }
+        public IEnumerable<DocumentType> Documenttypes { get; set; }
     }
 }

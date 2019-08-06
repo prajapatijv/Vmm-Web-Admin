@@ -7,6 +7,6 @@ namespace VmmApi.Net.Models
     {
         public IEnumerable<Document> Documents { get; set; }
 
-        public IEnumerable<DocumentType> DocumentTypes { get; set; }
+        public IEnumerable<DocumentType> Documenttypes { get; set; }
     }
 }
