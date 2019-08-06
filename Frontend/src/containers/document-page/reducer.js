@@ -2,7 +2,15 @@ import keys from '../container-types'
 import withPageReducer from '../../utility/with-page-reducer'
 
 const documents = (state=initialState, action) => {
-    return withPageReducer(keys.Document, state, action, defaultDocument, (criteria) => byName(criteria))
+    var documentState = withPageReducer(keys.Document, state, action, defaultDocument, (criteria) => byName(criteria))
+
+    switch (action.type) {
+        case `FETCH_DOCUMENTS_SUCCEED`: {
+            return {...documentState, "documentTypes": action.payload.data.documentTypes }
+        }
+    }
+
+    return documentState
 }
 
 const defaultDocument = { 
@@ -12,10 +20,8 @@ const defaultDocument = {
 }
 
 const initialState = {
-    documents:{
-        documents:[],
-        documentTypes:[]
-    }
+    documents:[],
+    documentTypes:[]
 } 
 
 const byName = criteria => document => {

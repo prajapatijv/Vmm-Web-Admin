@@ -8,8 +8,8 @@ import { CheckBox } from '../shared/check-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const DocumentForm = ({ document, onClose, onSave, onDelete, saving, deleting }) => {
-
+const DocumentForm = ({ document, documentTypes, onClose, onSave, onDelete, saving, deleting }) => {
+console.log(documentTypes)
     const _init = { ...document }
 
     const schema = Yup.object().shape({

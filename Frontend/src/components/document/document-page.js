@@ -15,7 +15,7 @@ const DocumentPage = (props) => {
 
 const DocumentLines = ({ documents }) => {
 return(
-    documents.documents.map((document) =>
+    documents.map((document) =>
         <NavLink key={document.id}
             to={`/documents/${document.id}`}
             activeClassName="active"
