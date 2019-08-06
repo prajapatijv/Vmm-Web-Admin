@@ -9,7 +9,7 @@ namespace VmmApi.Net.Services
         AppSettings AppSettings { get; }
     }
 
-    public class ConfigurationProvider : IConfigurationProvider
+    public class ConfigurationProvider  : IConfigurationProvider
     {
         private AppSettings appSettings;
 
@@ -33,7 +33,7 @@ namespace VmmApi.Net.Services
                 Audience = ConfigurationManager.AppSettings["Audience"],
                 AccessExpirationSeconds = 
                     Convert.ToInt32(ConfigurationManager.AppSettings["AccessExpirationMinutes"]) * 60,
-                RefreshExpirationMinutes = Convert.ToInt32(ConfigurationManager.AppSettings["RefreshExpirationMinutes"]) * 60
+                RefreshExpirationMinutes = Convert.ToInt32(ConfigurationManager.AppSettings["RefreshExpirationMinutes"]) * 60,
             };
         }
     }

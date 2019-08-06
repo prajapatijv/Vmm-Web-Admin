@@ -19,7 +19,6 @@ namespace VmmApi.Net.Controllers
         public IHttpActionResult Get()
         {
             var users = this.userService.GetAllUsers();
-            users.ToList().ForEach(u => u.Password = string.Empty);
             return Ok(users);
         }
     }

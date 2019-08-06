@@ -2,13 +2,14 @@
 using System.Linq;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
+using VmmApi.Net.Models;
 
 namespace VmmApi.Net.Services
 {
 
     public interface IDocumentTypeService
     {
-        IEnumerable<DocumentType> GetAllDocumentTypes();
+        DocumentTypeViewModel GetAllDocumentTypes();
     }
 
     public class DocumentTypeService : IDocumentTypeService
@@ -20,9 +21,12 @@ namespace VmmApi.Net.Services
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<DocumentType> GetAllDocumentTypes()
+        public DocumentTypeViewModel GetAllDocumentTypes()
         {
-            return this.dbContext.DocumentTypes.ToList();
+            return new DocumentTypeViewModel
+            {
+                DocumentTypes = this.dbContext.DocumentTypes.ToList()
+            };
         }
     }
 }

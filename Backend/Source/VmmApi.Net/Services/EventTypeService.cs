@@ -2,12 +2,13 @@
 using System.Linq;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
+using VmmApi.Net.Models;
 
 namespace VmmApi.Net.Services
 {
     public interface IEventTypeService
     {
-        IEnumerable<EventType> GetAllEventTypes();
+        EventtTypeViewModel GetAllEventTypes();
     }
 
     public class EventTypeService : IEventTypeService
@@ -19,9 +20,12 @@ namespace VmmApi.Net.Services
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<EventType> GetAllEventTypes()
+        public EventtTypeViewModel GetAllEventTypes()
         {
-            return this.dbContext.EventTypes.ToList();
+            return new EventtTypeViewModel
+            {
+                EventTypes = this.dbContext.EventTypes.ToList()
+            };
         }
     }
 }

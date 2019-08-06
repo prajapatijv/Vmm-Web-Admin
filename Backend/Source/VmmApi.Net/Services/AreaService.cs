@@ -2,12 +2,13 @@
 using System.Linq;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
+using VmmApi.Net.Models;
 
 namespace VmmApi.Net.Services
 {
     public interface IAreaService
     {
-        IEnumerable<Area> GetAllAreas();
+        AreaViewModel GetAllAreas();
     }
 
     public class AreaService : IAreaService
@@ -19,9 +20,12 @@ namespace VmmApi.Net.Services
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<Area> GetAllAreas()
+        public AreaViewModel GetAllAreas()
         {
-            return this.dbContext.Areas.ToList();
+            return new AreaViewModel
+            {
+                Areas = this.dbContext.Areas.ToList()
+            };
         }
     }
 }

@@ -11,5 +11,7 @@
         public int AccessExpirationSeconds { get; set; }
 
         public int RefreshExpirationMinutes { get; set; }
+
+        public bool IsLocalEnv { get; set; }
     }
 }

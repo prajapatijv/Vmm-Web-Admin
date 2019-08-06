@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
+using VmmApi.Net.Models;
 
 namespace VmmApi.Net.Services
 {
     public interface IUserService
     {
         User Authenticate(string userName, string password);
-        IEnumerable<User> GetAllUsers();
+        UserViewModel GetAllUsers();
     }
 
     public class UserService : IUserService
@@ -33,9 +34,15 @@ namespace VmmApi.Net.Services
             return null;
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public UserViewModel GetAllUsers()
         {
-            return this.dbContext.Users.ToList();
+            var users = this.dbContext.Users.ToList();
+            users.ToList().ForEach(u => u.Password = string.Empty);
+
+            return new UserViewModel
+            {
+                Users = users
+            };
         }
     }
 }
