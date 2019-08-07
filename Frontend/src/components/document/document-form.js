@@ -16,9 +16,14 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
 
     const schema = Yup.object().shape({
         id: Yup.number(),
-        name: Yup.string().min(2).max(50).required(),
-        shortName: Yup.string().min(2).max(50).required(),
-        active: Yup.boolean().notRequired()
+        title: Yup.string().min(2).max(50).required(),
+        description: Yup.string().min(2).max(50).required(),
+        publishDate: Yup.date().required(),
+        expiryDate: Yup.date().required(),
+        documentPath:Yup.string().required(),
+        documentTypeId:Yup.number().required(),
+        groupYear:Yup.number().notRequired(),
+        actions:Yup.boolean().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -54,10 +59,10 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                 <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel="1" />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="publishDate" component={InputBox} placeholder="Publish Date" floatinglabel="1" />
+                                <Field type="datetime" name="publishDate" component={InputBox} placeholder="Publish Date" floatinglabel="1" />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="expiryDate" component={InputBox} placeholder="Expiry Date" floatinglabel="1" />
+                                <Field type="datetime" name="expiryDate" component={InputBox} placeholder="Expiry Date" floatinglabel="1" />
                             </div>
                             <div className="form-row mb-3">
                                 <Field type="text" name="documentPath" component={InputBox} placeholder="Document Path" floatinglabel="1" />
@@ -66,7 +71,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                 <Field type="text" name="documentTypeId" component={InputBox} placeholder="Document TypeId" floatinglabel="1" />
                                 <Field className="custom-select" name="documentTypeId" component="select" placeholder="Document Type">
                                     {
-                                        _documentTypes.map((item) =><option value={item.id}>{item.description}</option>)
+                                        _documentTypes.map((item) =><option key={item.id} value={item.id}>{item.description}</option>)
                                     }
                                 </Field>
                             </div>
