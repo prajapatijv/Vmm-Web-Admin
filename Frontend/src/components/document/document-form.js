@@ -8,10 +8,11 @@ import { CheckBox } from '../shared/check-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const DocumentForm = ({ document, documentTypes, onClose, onSave, onDelete, saving, deleting }) => {
+const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting }) => {
 
     const _init = { ...document }
-    const _documentTypes = documentTypes || []
+    const _documentTypes = documenttypes || []
+    //const _options = _documentTypes.map((item) => {return { value:item.id, label:item.description }})
 
     const schema = Yup.object().shape({
         id: Yup.number(),
@@ -101,3 +102,7 @@ DocumentForm.propTypes = {
     saving: PropTypes.bool,
     deleting: PropTypes.bool
 }
+
+/*
+<Field type="select" name="documentTypeId" component={SelectBox} options = {_options} floatinglabel="0"/>
+*/

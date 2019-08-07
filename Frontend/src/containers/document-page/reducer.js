@@ -6,7 +6,7 @@ const documents = (state=initialState, action) => {
 
     switch (action.type) {
         case `FETCH_DOCUMENTS_SUCCEED`: {
-            return {...documentState, "documentTypes": action.payload.data.documentTypes }
+            return {...documentState, "documenttypes": action.payload.data.documenttypes }
         }
 
         default:

@@ -1,10 +1,13 @@
 import React from 'react'
+import Select from "react-select"
 import { ErrorMessage } from 'formik'
 import classNames from 'classnames'
 
 export const SelectBox = ({
     field, // { name, value, onChange, onBlur }
-    form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+    form: { touched, errors , setFieldValue }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+    options,
+    isMulti = false,
     ...props
   }) => {
     var cls = classNames({
@@ -17,19 +20,43 @@ export const SelectBox = ({
       'input-group':true,
       'floating-label':props.floatinglabel,
     })
+
+    const onChange = (option) => {
+      setFieldValue(
+        field.name,
+        isMulti
+          ? option.map((item) => item.value)
+          : (option).value
+      );
+    }
   
+    const getValue = () => {
+      if (options) {
+        return isMulti
+          ? options.filter(option => field.value.indexOf(option.value) >= 0)
+          : options.find(option => option.value === field.value);
+      } else {
+        return isMulti ? [] : ("");
+      }
+    }
+
     return (
     <div className={clsig} >
-        <SelectBox field={field} props={props} touched={touched} errors={errors} cls={cls} />
+        <SelectInput field={field} props={props} touched={touched} errors={errors} cls={cls} 
+                    onChange={onChange} getValue={getValue} options={options} isMulti={isMulti} />
         <FloatingLabel props={props} />
         <ErrorMessage className="invalid-feedback" component="div" name={field.name} />
     </div>
     )
   };
   
-  const SelectBox = ({ field, props, touched, errors, cls }) =>
-    <input className={cls}
+  const SelectInput = ({ field, props, touched, errors, cls, getValue, onChange, options, isMulti }) =>
+    <Select className={cls}
       invalid={touched[field.name] && errors[field.name] ? "false" : "true"}
+      value={getValue()}
+      options={options}
+      isMulti={isMulti}
+      onChange={onChange}
       {...field} {...props}
     />
   
@@ -39,3 +66,4 @@ export const SelectBox = ({
       props.floatinglabel ? <label style={style} htmlFor={props.name}>{props.placeholder}</label> : null
     )
   }
+
