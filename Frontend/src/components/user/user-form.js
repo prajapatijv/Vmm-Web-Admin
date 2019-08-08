@@ -64,7 +64,7 @@ const UserForm = ({ user, onClose, onSave, onDelete, saving, deleting }) => {
 
                             <ButtonBar
                                 showDelete={user.id !== 0}
-                                onDelete={(id) => onDeleteEntity(user.id)}
+                                onDelete={() => onDeleteEntity(user.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -85,5 +85,10 @@ UserForm.propTypes = {
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
     saving: PropTypes.bool,
-    deleting: PropTypes.bool
+    fetching: PropTypes.bool,
+    deleting: PropTypes.bool,
+    dirty: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func
 }

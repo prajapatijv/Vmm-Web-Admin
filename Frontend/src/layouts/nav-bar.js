@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { LogOut } from 'react-feather'
 import * as actions from '../containers/login-page/actions'
 
-const Navbar = (props) => {
+const Navbar = () => {
 
     const mapActions = bindActionCreators(actions, useDispatch())
     const mapState  = (state) => { return { auth: state.auth }}        

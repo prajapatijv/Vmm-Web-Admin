@@ -11,6 +11,7 @@ const monitorReducerEnhancer = createStore => (
     const end = performance.now()
     const diff = round(end - start)
 
+    //eslint-disable-next-line 
     console.log('reducer process time:', diff)
 
     return newState

@@ -91,7 +91,7 @@ const AssetForm = ({ asset, onClose, onSave, onDelete, saving, deleting }) => {
 
                             <ButtonBar
                                 showDelete={asset.id !== 0}
-                                onDelete={(id) => onDeleteEntity(asset.id)}
+                                onDelete={() => onDeleteEntity(asset.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -112,5 +112,10 @@ AssetForm.propTypes = {
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
     saving: PropTypes.bool,
-    deleting: PropTypes.bool
+    fetching: PropTypes.bool,
+    deleting: PropTypes.bool,
+    dirty: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func
 }

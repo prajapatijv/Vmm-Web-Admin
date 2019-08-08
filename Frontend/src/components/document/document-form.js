@@ -84,7 +84,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
 
                             <ButtonBar
                                 showDelete={document.id !== 0}
-                                onDelete={(id) => onDeleteEntity(document.id)}
+                                onDelete={() => onDeleteEntity(document.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -101,11 +101,17 @@ export default DocumentForm
 
 DocumentForm.propTypes = {
     document: PropTypes.object,
+    documenttypes: PropTypes.array,
     onClose: PropTypes.func,
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
     saving: PropTypes.bool,
-    deleting: PropTypes.bool
+    fetching: PropTypes.bool,
+    deleting: PropTypes.bool,
+    dirty: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func
 }
 
 /*

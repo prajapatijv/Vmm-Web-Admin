@@ -4,6 +4,8 @@ import NavLink from '../shared/navlink'
 
 import { WithBasicLayout } from '../../layouts'
 
+import PropTypes from 'prop-types'
+
 const Setting = () =>
     <WithBasicLayout>
         <div className="px-4 py-4">
@@ -49,3 +51,9 @@ const NavItem = ({ path, displayName, icon }) =>
 
 
 export default Setting
+
+NavItem.propTypes = {
+    path: PropTypes.string,
+    displayName: PropTypes.string,
+    icon: PropTypes.func
+}

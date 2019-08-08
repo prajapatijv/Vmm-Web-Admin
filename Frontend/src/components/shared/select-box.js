@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Select from "react-select"
 import { ErrorMessage } from 'formik'
 import classNames from 'classnames'
@@ -67,3 +68,32 @@ export const SelectBox = ({
     )
   }
 
+
+  SelectInput.propTypes = {
+    field: PropTypes.object,
+    props: PropTypes.object,
+    touched: PropTypes.bool,
+    errors: PropTypes.array,
+    cls: PropTypes.object,
+    getValue: PropTypes.func,
+    onChange: PropTypes.func,
+    options: PropTypes.array,
+    isMulti: PropTypes.bool
+  }
+  
+  FloatingLabel.propTypes = {
+    floatingleft: PropTypes.bool,
+    floatinglabel: PropTypes.bool,
+    name: PropTypes.string,
+    placeholder:PropTypes.string,
+    props: PropTypes.object
+  }
+  
+  SelectBox.propTypes = {
+    field: PropTypes.object,
+    form: PropTypes.object,
+    props: PropTypes.object,
+    floatinglabel: PropTypes.bool,
+    options: PropTypes.array,
+    isMulti: PropTypes.bool
+  }

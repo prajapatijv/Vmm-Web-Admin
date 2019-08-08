@@ -54,7 +54,7 @@ const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting 
 
                             <ButtonBar
                                 showDelete={eventtype.id !== 0}
-                                onDelete={(id) => onDeleteEntity(eventtype.id)}
+                                onDelete={() => onDeleteEntity(eventtype.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -75,5 +75,10 @@ EventTypeForm.propTypes = {
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
     saving: PropTypes.bool,
-    deleting: PropTypes.bool
+    fetching: PropTypes.bool,
+    deleting: PropTypes.bool,
+    dirty: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func
 }

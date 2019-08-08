@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { ChevronLeft, ChevronRight, BarChart, PieChart, Settings, BookOpen, Calendar, Gitlab }  from 'react-feather'
 import classNames from 'classnames'
 
@@ -55,3 +56,9 @@ const NavItem = ({path, displayName, icon}) =>
     </li>
 
 export default Sidebar
+
+NavItem.propTypes = {
+    path: PropTypes.string,
+    displayName: PropTypes.string,
+    icon: PropTypes.func
+}

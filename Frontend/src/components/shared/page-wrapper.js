@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import SearchBar from './search-bar'
 import { Spinner } from './spinner'
@@ -30,3 +31,13 @@ const LinesContainer = (props) =>
     </React.Fragment>
 
 export default PageWrapper
+
+PageWrapper.propTypes = {
+    children: PropTypes.array
+}
+
+LinesContainer.propTypes = {
+    fetching: PropTypes.bool,
+    searchLabel: PropTypes.string,
+    children: PropTypes.array
+}

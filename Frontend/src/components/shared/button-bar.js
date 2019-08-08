@@ -42,5 +42,12 @@ ButtonBar.propTypes = {
     saving: PropTypes.bool,
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
-    isValid: PropTypes.bool
+    isValid: PropTypes.bool,
+    path: PropTypes.string
+}
+
+DeleteButton.propTypes = {
+    showDelete: PropTypes.bool,
+    onDelete: PropTypes.func,
+    deleting: PropTypes.bool
 }

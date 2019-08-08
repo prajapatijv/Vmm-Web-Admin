@@ -57,5 +57,9 @@ const LoginForm = ({ auth, onLogin }) => {
 export default LoginForm
 
 LoginForm.propTypes = {
-    onLogin: PropTypes.func
+    onLogin: PropTypes.func,
+    auth: PropTypes.object,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func,
+    processing: PropTypes.boolean
 }

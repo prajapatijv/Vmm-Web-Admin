@@ -63,7 +63,7 @@ const ItemForm = ({ item, onClose, onSave, onDelete, saving, deleting }) => {
 
                             <ButtonBar
                                 showDelete={item.id !== 0}
-                                onDelete={(id) => onDeleteEntity(item.id)}
+                                onDelete={() => onDeleteEntity(item.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -84,5 +84,10 @@ ItemForm.propTypes = {
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
     saving: PropTypes.bool,
-    deleting: PropTypes.bool
+    fetching: PropTypes.bool,
+    deleting: PropTypes.bool,
+    dirty: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func
 }

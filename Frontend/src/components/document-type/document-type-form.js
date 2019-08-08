@@ -50,7 +50,7 @@ const DocumentTypeForm = ({ documenttype, onClose, onSave, onDelete, saving, del
 
                             <ButtonBar
                                 showDelete={documenttype.id !== 0}
-                                onDelete={(id) => onDeleteEntity(documenttype.id)}
+                                onDelete={() => onDeleteEntity(documenttype.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -71,5 +71,10 @@ DocumentTypeForm.propTypes = {
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
     saving: PropTypes.bool,
-    deleting: PropTypes.bool
+    fetching: PropTypes.bool,
+    deleting: PropTypes.bool,
+    dirty: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func
 }

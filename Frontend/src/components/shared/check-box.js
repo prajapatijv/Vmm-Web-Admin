@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export const CheckBox = ({
@@ -26,3 +27,21 @@ const Check = ({ field, props, touched, errors, cls }) =>
     invalid={touched[field.name] && errors[field.name] ? "false" : "true"}
     {...field} {...props}
   />
+
+
+
+  Check.propTypes = {
+    field: PropTypes.object,
+    props: PropTypes.object,
+    touched: PropTypes.bool,
+    errors: PropTypes.array,
+    cls: PropTypes.object
+  }
+  
+  CheckBox.propTypes = {
+    field: PropTypes.object,
+    form: PropTypes.object,
+    props: PropTypes.object,
+    floatinglabel: PropTypes.bool,
+    label: PropTypes.string
+  }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { ErrorMessage } from 'formik'
 import classNames from 'classnames'
 import './input-box.scss'
@@ -55,4 +56,29 @@ const FloatingLabel = ({props}) => {
   return(
     props.floatinglabel ? <label style={style} htmlFor={props.name}>{props.placeholder}</label> : null
   )
+}
+
+
+
+TextBox.propTypes = {
+  field: PropTypes.object,
+  props: PropTypes.object,
+  touched: PropTypes.bool,
+  errors: PropTypes.array,
+  cls: PropTypes.object
+}
+
+FloatingLabel.propTypes = {
+  floatingleft: PropTypes.bool,
+  floatinglabel: PropTypes.bool,
+  name: PropTypes.string,
+  placeholder:PropTypes.string,
+  props: PropTypes.object
+}
+
+TextBox.propTypes = {
+  field: PropTypes.object,
+  form: PropTypes.object,
+  props: PropTypes.object,
+  floatinglabel: PropTypes.bool,
 }

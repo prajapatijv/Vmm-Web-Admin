@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import withPageActions from './with-page-action'
 import { WithBasicLayout }  from '../layouts'
 
+import PropTypes from 'prop-types'
+
 const WithPageContainer = (WrappedComponent, props, context ) => {
 
     const contextObj = props.config.mappings[context]
@@ -71,3 +73,13 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
 }
 
 export default WithPageContainer
+
+WithPageContainer.propTypes = {
+    config: PropTypes.object,
+    mappings: PropTypes.array,
+    actionContext: PropTypes.object,
+    singular: PropTypes.string,
+    plural: PropTypes.string,
+    navigate: PropTypes.func,
+    id: PropTypes.number
+}

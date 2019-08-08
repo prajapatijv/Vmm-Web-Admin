@@ -1,6 +1,6 @@
 import React from 'react'
-import { PlusSquare, Edit, X } from 'react-feather'
 import PropTypes from 'prop-types'
+import { PlusSquare, Edit, X } from 'react-feather'
 
 const PageTitle = ({ adding, title, onClose }) =>
     <React.Fragment>
@@ -20,5 +20,7 @@ const PageTitle = ({ adding, title, onClose }) =>
 export default PageTitle
 
 PageTitle.propTypes = {
-    title: PropTypes.string
+    adding: PropTypes.func,
+    title: PropTypes.string,
+    onClose: PropTypes.string
 }

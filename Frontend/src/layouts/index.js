@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Navbar from './nav-bar'
 import Sidebar from './side-bar'
@@ -26,3 +27,11 @@ export const WithOpenLayout = ({children}) =>
     </div>
   </div>
 </React.Fragment>
+
+WithBasicLayout.propTypes = {
+  children:PropTypes.func
+}
+
+WithOpenLayout.propTypes = {
+  children:PropTypes.func
+}

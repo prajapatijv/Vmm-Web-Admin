@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, Redirect } from "@reach/router"
+import PropTypes from 'prop-types'
 
 import Setting from './components/settings/setting'
 
@@ -47,7 +48,7 @@ const NotFound = ({ location }) =>
   <WithOpenLayout>
     <div className="whoops-404 text-center m-4">
       <h1 className="h1 mb-3 font-weight-normal">404</h1>
-      <div>We couldn't find this page. </div>
+      <div>We couldn`&apos;`t find this page.</div>
       <p>{location.pathname}</p>
     </div>
   </WithOpenLayout>
@@ -64,3 +65,19 @@ const NotFound = ({ location }) =>
 }
 
 export default Routes
+
+Routes.propTypes = {
+  location: PropTypes.object,
+  pathname: PropTypes.string,
+  component: PropTypes.func
+}
+
+NotFound.propTypes = {
+  location: PropTypes.object,
+  pathname: PropTypes.string,
+  component: PropTypes.func
+}
+
+ProtectedRoute.propTypes = {
+  component: PropTypes.func
+}

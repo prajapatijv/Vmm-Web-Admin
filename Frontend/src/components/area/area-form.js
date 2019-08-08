@@ -50,7 +50,7 @@ const AreaForm = ({ area, onClose, onSave, onDelete, saving, deleting }) => {
 
                             <ButtonBar
                                 showDelete={area.id !== 0}
-                                onDelete={(id) => onDeleteEntity(area.id)}
+                                onDelete={() => onDeleteEntity(area.id)}
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
@@ -71,5 +71,10 @@ AreaForm.propTypes = {
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
     saving: PropTypes.bool,
-    deleting: PropTypes.bool
+    fetching: PropTypes.bool,
+    deleting: PropTypes.bool,
+    dirty: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    handleReset: PropTypes.func
 }
