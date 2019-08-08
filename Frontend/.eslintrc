@@ -9,5 +9,10 @@
         "commonjs": true,
         "browser": true,
         "es6": true
+    },
+    "settings":{
+        "react":{
+            "version":"detect"
+        }
     }
 }
