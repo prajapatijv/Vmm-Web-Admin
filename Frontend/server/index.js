@@ -1,3 +1,4 @@
+/* eslint-disable */
 const express = require('express')
 const delay = require('express-delay')
 const { port = 3333 } = require('minimist')(process.argv)
@@ -11,6 +12,7 @@ const documenttypes = require('./data/documenttypes.json')
 const eventtypes = require('./data/eventtypes.json')
 const areas = require('./data/areas.json')
 const documents = require('./data/documents.json')
+const events = require('./data/events.json')
 const TOKEN_KEY = 'jwtsecret'
 
 //Server setup
@@ -71,6 +73,7 @@ app.get('/api/documenttypes', (req, res) => { var response = {}; response.docume
 app.get('/api/eventtypes', (req, res) => { var response = {}; response.eventtypes = eventtypes; res.status(200).json(response) })
 app.get('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
 app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documenttypes = documenttypes; res.status(200).json(response) })
+app.get('/api/events', (req, res) => { var response = {}; response.events = events; response.eventtypes = eventtypes; res.status(200).json(response) })
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)

@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,"eventTypeId":"1","eventName":"Event 1","startDate":"2019-09-01", "endDate":"2019-09-02", "time":"08:00", "address1":"address1","address2":"address2","city":"city","contactNumber":"9998887770","contactEmail":"contact@email.com"
+    },    
+    {
+        "id":2,"eventTypeId":"2","eventName":"Event 2","startDate":"2019-09-15", "endDate":"2019-09-15", "time":"09:30", "address1":"address1","address2":"address2","city":"city","contactNumber":"9998887771","contactEmail":"contact@email.com"
+    },    
+    {
+        "id":3,"eventTypeId":"3","eventName":"Event 3","startDate":"2019-09-16", "endDate":"2019-09-17", "time":"06:00", "address1":"address1","address2":"address2","city":"city","contactNumber":"9998887772","contactEmail":"contact@email.com"
+    },    
+    {
+        "id":4,"eventTypeId":"1","eventName":"Event 4","startDate":"2019-09-25", "endDate":"2019-09-25", "time":"19:00", "address1":"address1","address2":"address2","city":"city","contactNumber":"9998887773","contactEmail":"contact@email.com"
+    },    
+    {
+        "id":5,"eventTypeId":"2","eventName":"Event 5","startDate":"2019-09-30", "endDate":"2019-10-01", "time":"5:30", "address1":"address1","address2":"address2","city":"city","contactNumber":"9998887774","contactEmail":"contact@email.com"
+    }
+]
