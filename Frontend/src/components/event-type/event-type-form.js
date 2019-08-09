@@ -49,7 +49,7 @@ const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting 
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="label" name="colorCode" component={ColorPicker} label="Pick Color" />
+                                <Field type="label" name="colorCode" component={ColorPicker} label="Pick Event Theme Color" />
                             </div>
 
                             <ButtonBar

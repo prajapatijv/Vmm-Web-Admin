@@ -34,7 +34,7 @@ export const ColorPicker = ({
 
     return (
         <div className={clsig} >
-            <div className="shadow-sm p-3 rounded" style={divStyle}></div>
+            <div className="shadow p-3 rounded" style={divStyle}> <span className="badge badge-secondary">{color}</span></div>
             <div className="btn-group" role="group">
                 <button type="button" className="btn btn-secondary" onClick={() => setShow(true)}>{props.label}</button>
                 <button type="button" className="btn btn-secondary dropdown-toggle dropdown-toggle-split" onClick={() => setShow(true)}>
