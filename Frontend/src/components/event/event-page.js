@@ -20,7 +20,7 @@ return(
             to={`/events/${event.id}`}
             activeClassName="active"
             className="app-list-item list-group-item-action"
-        >{event.eventName} ({event.eventType})
+        >{event.eventName} 
         </NavLink>
     )
 )

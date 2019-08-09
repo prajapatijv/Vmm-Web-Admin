@@ -43,7 +43,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
     "cookie-parser": "^1.4.4",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",

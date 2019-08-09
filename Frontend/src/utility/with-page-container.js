@@ -31,6 +31,7 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
                                 localState[entityName] : 
                                 localState[listName].find(u => parseInt(u.id) === parseInt(props.id)),
             'documenttypes': localState.documenttypes,
+            'eventtypes': localState.eventtypes,
             fetching: localState.fetching,
             saving: localState.saving,
             deleting: localState.deleting

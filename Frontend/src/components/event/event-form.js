@@ -19,7 +19,7 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
         description: Yup.string().min(2).max(50).required(),
         startDate: Yup.date().required(),
         endDate: Yup.date().required(),
-        time:Yup.time().notRequired(),
+        time:Yup.date().notRequired(),
         address1:Yup.number().notRequired(),
         address2:Yup.number().notRequired(),
         city:Yup.number().required(),
@@ -84,9 +84,6 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             <div className="form-row mb-3">
                                 <Field type="text" name="eventContact" component={InputBox} placeholder="Contact" floatinglabel="1" />
                                 <Field type="text" name="eventEmail" component={InputBox} placeholder="Email" floatinglabel="1" />
-                            </div>
-                            <div className="form-row mb-3">
-                                <Field type="text" name="groupYear" component={InputBox} placeholder="Group Year" floatinglabel="1" />
                             </div>
 
                             <ButtonBar

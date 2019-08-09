@@ -61,5 +61,5 @@ LoginForm.propTypes = {
     auth: PropTypes.object,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func,
-    processing: PropTypes.boolean
+    processing: PropTypes.bool
 }
