@@ -55,5 +55,5 @@ export default Setting
 NavItem.propTypes = {
     path: PropTypes.string,
     displayName: PropTypes.string,
-    icon: PropTypes.func
+    icon: PropTypes.object
 }

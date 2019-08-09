@@ -33,7 +33,7 @@ const LinesContainer = (props) =>
 export default PageWrapper
 
 PageWrapper.propTypes = {
-    children: PropTypes.object
+    children: PropTypes.any
 }
 
 LinesContainer.propTypes = {
