@@ -4,6 +4,7 @@ import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 
 import { InputBox } from '../shared/input-box'
+import { SelectBox } from '../shared/select-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
@@ -14,7 +15,7 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
 
     const schema = Yup.object().shape({
         id: Yup.number(),
-        eventTypeId: Yup.number(),
+        eventTypeId: Yup.number().required(),
         eventName: Yup.string().min(2).max(50).required(),
         description: Yup.string().min(2).max(50).required(),
         startDate: Yup.date().required(),
@@ -54,12 +55,7 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-3">
-                                <Field type="text" name="eventTypeId" component={InputBox} placeholder="Event Type" floatinglabel="1" />
-                                <Field className="custom-select" name="eventTypeId" component="select" placeholder="Event Type">
-                                    {
-                                        _eventTypes.map((item) =><option key={item.id} value={item.id}>{item.description}</option>)
-                                    }
-                                </Field>
+                                <Field type="text" name="eventTypeId" component={SelectBox} placeholder="Event Type" options={_eventTypes} floatinglabel="1" />
                             </div>
 
                             <div className="form-row mb-3">

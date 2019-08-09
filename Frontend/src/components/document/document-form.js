@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 
 import { InputBox } from '../shared/input-box'
 import { CheckBox } from '../shared/check-box'
+import { SelectBox } from '../shared/select-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
@@ -68,12 +69,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                 <Field type="text" name="documentPath" component={InputBox} placeholder="Document Path" floatinglabel="1" />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="documentTypeId" component={InputBox} placeholder="Document TypeId" floatinglabel="1" />
-                                <Field className="custom-select" name="documentTypeId" component="select" placeholder="Document Type">
-                                    {
-                                        _documentTypes.map((item) =><option key={item.id} value={item.id}>{item.description}</option>)
-                                    }
-                                </Field>
+                                <Field type="text" name="documentTypeId" component={SelectBox} options={_documentTypes} placeholder="Document Type" floatinglabel="1" />
                             </div>
                             <div className="form-row mb-3">
                                 <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel="1" />
