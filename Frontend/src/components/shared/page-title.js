@@ -20,7 +20,7 @@ const PageTitle = ({ adding, title, onClose }) =>
 export default PageTitle
 
 PageTitle.propTypes = {
-    adding: PropTypes.func,
+    adding: PropTypes.bool,
     title: PropTypes.string,
-    onClose: PropTypes.string
+    onClose: PropTypes.func
 }

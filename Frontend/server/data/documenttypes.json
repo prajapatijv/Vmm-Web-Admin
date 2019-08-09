@@ -1,11 +1,11 @@
 [
     {
-        "id":1001,"description":"Partika"
+        "id":1,"description":"Partika"
     },    
     {
-        "id":1002,"description":"Chetvani"
+        "id":2,"description":"Chetvani"
     },    
     {
-        "id":1003,"description":"Other"
+        "id":3,"description":"Other"
     }
 ]

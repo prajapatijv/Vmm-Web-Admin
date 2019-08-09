@@ -54,28 +54,28 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-3">
-                                <Field type="text" name="title" component={InputBox} placeholder="Title" floatinglabel="1" />
+                                <Field type="text" name="title" component={InputBox} placeholder="Title" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel="1" />
+                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="publishDate" component={InputBox} placeholder="Publish Date" floatinglabel="1" />
+                                <Field type="datetime" name="publishDate" component={InputBox} placeholder="Publish Date" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="expiryDate" component={InputBox} placeholder="Expiry Date" floatinglabel="1" />
+                                <Field type="datetime" name="expiryDate" component={InputBox} placeholder="Expiry Date" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="documentPath" component={InputBox} placeholder="Document Path" floatinglabel="1" />
+                                <Field type="text" name="documentPath" component={InputBox} placeholder="Document Path" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="documentTypeId" component={SelectBox} options={_documentTypes} placeholder="Document Type" floatinglabel="1" />
+                                <Field type="text" name="documentTypeId" component={SelectBox} options={_documentTypes} placeholder="Document Type" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel="1" />
+                                <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="groupYear" component={InputBox} placeholder="Group Year" floatinglabel="1" />
+                                <Field type="text" name="groupYear" component={InputBox} placeholder="Group Year" floatinglabel={true} />
                             </div>
 
                             <ButtonBar

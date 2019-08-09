@@ -29,9 +29,9 @@ export const WithOpenLayout = ({children}) =>
 </React.Fragment>
 
 WithBasicLayout.propTypes = {
-  children:PropTypes.func
+  children:PropTypes.any
 }
 
 WithOpenLayout.propTypes = {
-  children:PropTypes.func
+  children:PropTypes.any
 }

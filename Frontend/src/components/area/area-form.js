@@ -45,7 +45,7 @@ const AreaForm = ({ area, onClose, onSave, onDelete, saving, deleting }) => {
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-3">
-                                <Field type="text" name="areaName" component={InputBox} placeholder="Area Name" floatinglabel="1" />
+                                <Field type="text" name="areaName" component={InputBox} placeholder="Area Name" floatinglabel={true} />
                             </div>
 
                             <ButtonBar

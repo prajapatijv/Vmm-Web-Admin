@@ -46,18 +46,18 @@ const ItemForm = ({ item, onClose, onSave, onDelete, saving, deleting }) => {
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row">
-                                <Field type="text" name="itemName" component={InputBox} placeholder="Item Name" floatinglabel="1"/>
+                                <Field type="text" name="itemName" component={InputBox} placeholder="Item Name" floatinglabel={true}/>
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="type" component={InputBox} placeholder="Type" floatinglabel="1"/>
+                                <Field type="text" name="type" component={InputBox} placeholder="Type" floatinglabel={true}/>
                             </div>
                             
                             <div className="form-row">
                                 <div className="col-md-6 mb-3">
-                                    <Field type="number" name="rate" component={InputBox} placeholder="Rate" floatinglabel="1"/>
+                                    <Field type="number" name="rate" component={InputBox} placeholder="Rate" floatinglabel={true}/>
                                 </div>
                                 <div className="col-md-6 mb-3">
-                                    <Field type="number" name="stock" component={InputBox} placeholder="Stock" floatinglabel="1"/>
+                                    <Field type="number" name="stock" component={InputBox} placeholder="Stock" floatinglabel={true}/>
                                 </div>
                             </div>
 

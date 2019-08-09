@@ -34,10 +34,10 @@ const LoginForm = ({ auth, onLogin }) => {
                         <Feather size="42px" className="mb-3" />
                         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                         <div className="form-label-group">
-                            <Field type="text" name="userName" component={InputBox} placeholder="User name" floatinglabel="1" />
+                            <Field type="text" name="userName" component={InputBox} placeholder="User name" floatinglabel={true} />
                         </div>
                         <div className="form-label-group">
-                            <Field type="password" name="password" component={InputBox} placeholder="Password" floatinglabel="1" />
+                            <Field type="password" name="password" component={InputBox} placeholder="Password" floatinglabel={true} />
                         </div>
                         <div className="form-label-group mb-3">
                             <Field type="checkbox" name="rememberMe" component={CheckBox} label="Remember me"/>

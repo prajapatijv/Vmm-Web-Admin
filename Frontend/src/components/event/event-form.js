@@ -55,31 +55,31 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-3">
-                                <Field type="text" name="eventTypeId" component={SelectBox} placeholder="Event Type" options={_eventTypes} floatinglabel="1" />
+                                <Field type="text" name="eventTypeId" component={SelectBox} placeholder="Event Type" options={_eventTypes} floatinglabel={true} />
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="text" name="eventName" component={InputBox} placeholder="Evant Name" floatinglabel="1" />
+                                <Field type="text" name="eventName" component={InputBox} placeholder="Evant Name" floatinglabel={true} />
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="startDate" component={InputBox} placeholder="Start Date" floatinglabel="1" />
+                                <Field type="datetime" name="startDate" component={InputBox} placeholder="Start Date" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="endDate" component={InputBox} placeholder="End Date" floatinglabel="1" />
+                                <Field type="datetime" name="endDate" component={InputBox} placeholder="End Date" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="time" component={InputBox} placeholder="Time" floatinglabel="1" />
+                                <Field type="datetime" name="time" component={InputBox} placeholder="Time" floatinglabel={true} />
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="text" name="address1" component={InputBox} placeholder="Address" floatinglabel="1" />
-                                <Field type="text" name="address2" component={InputBox} placeholder="Address" floatinglabel="1" />
-                                <Field type="text" name="city" component={InputBox} placeholder="City" floatinglabel="1" />
+                                <Field type="text" name="address1" component={InputBox} placeholder="Address" floatinglabel={true} />
+                                <Field type="text" name="address2" component={InputBox} placeholder="Address" floatinglabel={true} />
+                                <Field type="text" name="city" component={InputBox} placeholder="City" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="eventContact" component={InputBox} placeholder="Contact" floatinglabel="1" />
-                                <Field type="text" name="eventEmail" component={InputBox} placeholder="Email" floatinglabel="1" />
+                                <Field type="text" name="eventContact" component={InputBox} placeholder="Contact" floatinglabel={true} />
+                                <Field type="text" name="eventEmail" component={InputBox} placeholder="Email" floatinglabel={true} />
                             </div>
 
                             <ButtonBar

@@ -33,11 +33,11 @@ const LinesContainer = (props) =>
 export default PageWrapper
 
 PageWrapper.propTypes = {
-    children: PropTypes.array
+    children: PropTypes.object
 }
 
 LinesContainer.propTypes = {
     fetching: PropTypes.bool,
     searchLabel: PropTypes.string,
-    children: PropTypes.array
+    children: PropTypes.object
 }

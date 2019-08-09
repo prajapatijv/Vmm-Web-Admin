@@ -60,5 +60,5 @@ export default Sidebar
 NavItem.propTypes = {
     path: PropTypes.string,
     displayName: PropTypes.string,
-    icon: PropTypes.func
+    icon: PropTypes.any
 }

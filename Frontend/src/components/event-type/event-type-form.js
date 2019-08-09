@@ -45,11 +45,11 @@ const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting 
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-3">
-                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel="1" />
+                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel={true} />
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="text" name="colorCode" component={InputBox} placeholder="Color" floatinglabel="1" />
+                                <Field type="text" name="colorCode" component={InputBox} placeholder="Color" floatinglabel={true} />
                             </div>
 
                             <ButtonBar

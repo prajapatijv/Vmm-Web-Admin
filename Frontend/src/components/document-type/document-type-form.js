@@ -45,7 +45,7 @@ const DocumentTypeForm = ({ documenttype, onClose, onSave, onDelete, saving, del
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-3">
-                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel="1" />
+                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel={true} />
                             </div>
 
                             <ButtonBar

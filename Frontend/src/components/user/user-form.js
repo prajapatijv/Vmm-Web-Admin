@@ -46,17 +46,17 @@ const UserForm = ({ user, onClose, onSave, onDelete, saving, deleting }) => {
                             onReset={props.handleReset}>
                             <div className="form-row">
                                 <div className="col-md-6 mb-3">
-                                    <Field type="text" name="firstName" component={InputBox} placeholder="First name" floatinglabel="1" />
+                                    <Field type="text" name="firstName" component={InputBox} placeholder="First name" floatinglabel={true} />
                                 </div>
                                 <div className="col-md-6 mb-3">
-                                    <Field type="text" name="lastName" component={InputBox} placeholder="Last name" floatinglabel="1" />
+                                    <Field type="text" name="lastName" component={InputBox} placeholder="Last name" floatinglabel={true} />
                                 </div>
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="userName" component={InputBox} prefix="@" placeholder="User name" floatinglabel="1" floatingleft="40px"/>
+                                <Field type="text" name="userName" component={InputBox} prefix="@" placeholder="User name" floatinglabel={true} floatingleft="40px"/>
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="password" name="password" component={InputBox} placeholder="Password" floatinglabel="1" />
+                                <Field type="password" name="password" component={InputBox} placeholder="Password" floatinglabel={true} />
                                 <small id="passwordHelpBlock" className="form-text text-muted">
                                     Must be 6-15 characters long, contains letters and numbers.
                                 </small>

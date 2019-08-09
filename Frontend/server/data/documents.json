@@ -28,7 +28,7 @@
         "publishDate": "2019-08-02 13:13:00",
         "expiryDate": "2019-12-20 23:59:00",
         "documentPath": "filename3.pdf",
-        "documentTypeId": 1,
+        "documentTypeId": 2,
         "active": 0,
         "groupYear": 2019
     },
@@ -39,7 +39,7 @@
         "publishDate": "2019-08-02 15:15:00",
         "expiryDate": "2019-12-10 23:00:00",
         "documentPath": "filename4.pdf",
-        "documentTypeId": 1,
+        "documentTypeId": 3,
         "active": 1,
         "groupYear": 2019
     }
