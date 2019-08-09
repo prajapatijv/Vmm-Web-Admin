@@ -53,7 +53,7 @@ const app = express()
     .use(logger)
     .use(bodyParser.urlencoded({ extended: true }))
     .use(bodyParser.json()) // for parsing application/json    
-    .use(delay(1000, 4000))
+    .use(delay(1000, 2000))
     .use(cors())
     .use('/', express.static('./dist/img'));
 

@@ -75,10 +75,3 @@ FloatingLabel.propTypes = {
   placeholder:PropTypes.string,
   props: PropTypes.object
 }
-
-TextBox.propTypes = {
-  field: PropTypes.object,
-  form: PropTypes.object,
-  props: PropTypes.object,
-  floatinglabel: PropTypes.bool,
-}

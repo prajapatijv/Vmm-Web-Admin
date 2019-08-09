@@ -4,6 +4,7 @@ import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 
 import { InputBox } from '../shared/input-box'
+import { ColorPicker } from '../shared/color-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
@@ -13,9 +14,8 @@ const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting 
 
     const schema = Yup.object().shape({
         id:Yup.number(),
-        name: Yup.string().min(2).max(50).required(),
-        shortName: Yup.string().min(2).max(50).required(),
-        active: Yup.boolean().notRequired()
+        description: Yup.string().min(2).max(50).required(),
+        colorCode: Yup.string().min(2).max(50).required()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -49,7 +49,7 @@ const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting 
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="text" name="colorCode" component={InputBox} placeholder="Color" floatinglabel={true} />
+                                <Field type="label" name="colorCode" component={ColorPicker} label="Pick Color" />
                             </div>
 
                             <ButtonBar
