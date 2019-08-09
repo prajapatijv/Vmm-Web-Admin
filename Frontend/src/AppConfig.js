@@ -7,7 +7,7 @@ const _contextMappings = {
     'user' : { 'apiContext': 'users', 'actionContext': { 'singular': 'user', 'SINGULAR': 'USER', 'plural': 'users', 'PLURAL': 'USERS' } },
     'item' : { 'apiContext': 'items', 'actionContext': { 'singular': 'item', 'SINGULAR': 'ITEM', 'plural': 'items', 'PLURAL': 'ITEMS' } },
     'documenttype' : { 'apiContext': 'documenttypes', 'actionContext': { 'singular': 'documenttype', 'SINGULAR': 'DOCUMENTTYPE', 'plural': 'documenttypes', 'PLURAL': 'DOCUMENTTYPES' } },
-    'asset' : { 'apiContext': 'assets', 'actionContext': { 'singular': 'asset', 'SINGULAR': 'ASSET', 'plural': 'assets', 'PLURAL': 'ASSETS' } },
+    'event' : { 'apiContext': 'events', 'actionContext': { 'singular': 'event', 'SINGULAR': 'EVENT', 'plural': 'events', 'PLURAL': 'EVENTS' } },
     'eventtype' : { 'apiContext': 'eventtypes', 'actionContext': { 'singular': 'eventtype', 'SINGULAR': 'EVENTTYPE', 'plural': 'eventtypes', 'PLURAL': 'EVENTTYPES' } },
     'area' : { 'apiContext': 'areas', 'actionContext': { 'singular': 'area', 'SINGULAR': 'AREA', 'plural': 'areas', 'PLURAL': 'AREAS' } },    
     'document' : { 'apiContext': 'documents', 'actionContext': { 'singular': 'document', 'SINGULAR': 'DOCUMENT', 'plural': 'documents', 'PLURAL': 'DOCUMENTS' } },    
