@@ -145,6 +145,7 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Core\HandleExceptionFilter.cs" />
     <Compile Include="Controllers\AreaController.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Jwt\JwtIssuer.cs" />
     <Compile Include="Jwt\JwtIssuerOptions.cs" />
     <Compile Include="Models\AppSettings.cs" />
+    <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\EventtTypeViewModel.cs" />
     <Compile Include="Models\DocumentTypeViewModel.cs" />
     <Compile Include="Models\DocumentViewModel.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="Models\AreaViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\DocumentService.cs" />
     <Compile Include="Services\AreaService.cs" />
     <Compile Include="Services\AuthenticateService.cs" />
