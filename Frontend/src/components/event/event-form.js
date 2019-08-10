@@ -5,6 +5,9 @@ import * as Yup from 'yup'
 
 import { InputBox } from '../shared/input-box'
 import { SelectBox } from '../shared/select-box'
+import { TextAreaBox } from '../shared/textarea-box'
+import { CheckBox } from '../shared/check-box'
+
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
@@ -17,10 +20,10 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
         id: Yup.number(),
         eventTypeId: Yup.number().required(),
         eventName: Yup.string().min(2).max(50).required(),
-        description: Yup.string().min(2).max(50).required(),
+        description: Yup.string().min(2).max(200).required(),
         startDate: Yup.date().required(),
         endDate: Yup.date().required(),
-        time:Yup.date().notRequired(),
+        time:Yup.string().notRequired(),
         address1:Yup.number().notRequired(),
         address2:Yup.number().notRequired(),
         city:Yup.number().required(),
@@ -61,6 +64,10 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             <div className="form-row mb-3">
                                 <Field type="text" name="eventName" component={InputBox} placeholder="Evant Name" floatinglabel={true} />
                             </div>
+                            
+                            <div className="form-row mb-3">
+                                <Field type="text" name="description" component={TextAreaBox} placeholder="Description" floatinglabel={true} />
+                            </div>
 
                             <div className="form-row mb-3">
                                 <Field type="datetime" name="startDate" component={InputBox} placeholder="Start Date" floatinglabel={true} />
@@ -80,6 +87,9 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             <div className="form-row mb-3">
                                 <Field type="text" name="eventContact" component={InputBox} placeholder="Contact" floatinglabel={true} />
                                 <Field type="text" name="eventEmail" component={InputBox} placeholder="Email" floatinglabel={true} />
+                            </div>
+                            <div className="form-row mb-3">
+                                <Field type="checkbox" name="active" component={CheckBox} label="Active"/>
                             </div>
 
                             <ButtonBar
