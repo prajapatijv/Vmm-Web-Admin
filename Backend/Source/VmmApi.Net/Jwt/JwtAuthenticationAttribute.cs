@@ -23,10 +23,10 @@ namespace VmmApi.Net.Jwt
             var jwtIssuer = diScope.GetService(typeof(JwtIssuer)) as JwtIssuer;
             var appSetting = diScope.GetService(typeof(AppSettings)) as AppSettings;
 
-            if (appSetting.Env == AppEnums.Env.Local)
+            /*if (appSetting.Env == AppEnums.Env.Local)
             {
                 return;
-            }
+            }*/
 
             var authorization = request.Headers.Authorization;
 
