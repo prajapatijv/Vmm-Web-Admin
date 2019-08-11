@@ -1,4 +1,7 @@
-﻿namespace VmmApi.Net.Models
+﻿using System;
+using static VmmApi.Net.Models.AppEnums;
+
+namespace VmmApi.Net.Models
 {
     public class AppSettings
     {
@@ -12,6 +15,6 @@
 
         public int RefreshExpirationMinutes { get; set; }
 
-        public bool IsLocalEnv { get; set; }
+        public Env Env { get; set; }
     }
 }

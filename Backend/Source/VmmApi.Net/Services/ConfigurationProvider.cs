@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using VmmApi.Net.Models;
+using static VmmApi.Net.Models.AppEnums;
 
 namespace VmmApi.Net.Services
 {
@@ -26,15 +28,27 @@ namespace VmmApi.Net.Services
 
         private void LoadSettings()
         {
+            var env = GetSetting<string>("Env", Env.Production.ToString());
+
             this.appSettings = new AppSettings
             {
-                AllowedCorsDomain = ConfigurationManager.AppSettings["AllowedCorsDomain"],
-                Issuer = ConfigurationManager.AppSettings["Issuer"],
-                Audience = ConfigurationManager.AppSettings["Audience"],
-                AccessExpirationSeconds = 
-                    Convert.ToInt32(ConfigurationManager.AppSettings["AccessExpirationMinutes"]) * 60,
-                RefreshExpirationMinutes = Convert.ToInt32(ConfigurationManager.AppSettings["RefreshExpirationMinutes"]) * 60,
+                AllowedCorsDomain = GetSetting<string>("AllowedCorsDomain", string.Empty),
+                Issuer = GetSetting<string>("Issuer", string.Empty),
+                Audience = GetSetting<string>("Audience", string.Empty),
+                AccessExpirationSeconds = GetSetting<int>("AccessExpirationMinutes", 1500) * 60,
+                RefreshExpirationMinutes = GetSetting<int>("RefreshExpirationMinutes", 1500) * 60,
+                Env = (Env)Enum.Parse(typeof(Env), env)
             };
+        }
+
+        private T GetSetting<T>(string key, T defaultValue)
+        {
+            return (KeyExists(key)) ? (T)Convert.ChangeType(ConfigurationManager.AppSettings[key], typeof(T)) : defaultValue;
+        }
+
+        private bool KeyExists(string key)
+        {
+            return ConfigurationManager.AppSettings.AllKeys.Any(k => k == key);
         }
     }
 }

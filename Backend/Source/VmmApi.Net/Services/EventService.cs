@@ -9,6 +9,9 @@ namespace VmmApi.Net.Services
     public interface IEventService
     {
         EventViewModel GetAllEvents();
+        Event GetById(int id);
+        void Save(Event eventModel);
+        void Delete(int id);
     }
 
     public class EventService : IEventService
@@ -30,5 +33,34 @@ namespace VmmApi.Net.Services
                 Eventtypes = this.eventTypeService.GetAllEventTypes().Eventtypes
             };
         }
+
+        public Event GetById(int id)
+        {
+            return this.dbContext.Events.FirstOrDefault(e => e.Id == id);
+        }
+
+        public void Save(Event eventModel)
+        {
+            this.dbContext.Events.Add(eventModel);
+
+            if (eventModel.Id > 0)
+            {
+                this.dbContext.Entry(eventModel).State = System.Data.Entity.EntityState.Modified;
+            }
+
+            this.dbContext.SaveChanges();
+        }
+
+
+        public void Delete(int id)
+        {
+            var entity = this.GetById(id);
+            if (entity != null)
+            {
+                this.dbContext.Events.Remove(entity);
+                this.dbContext.SaveChanges();
+            }
+        }
+
     }
 }

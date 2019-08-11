@@ -6,7 +6,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
-
+using VmmApi.Net.Models;
 
 namespace VmmApi.Net.Jwt
 {
@@ -19,6 +19,14 @@ namespace VmmApi.Net.Jwt
         public async Task AuthenticateAsync(HttpAuthenticationContext context, CancellationToken cancellationToken)
         {
             var request = context.Request;
+            var diScope = request.GetDependencyScope();
+            var jwtIssuer = diScope.GetService(typeof(JwtIssuer)) as JwtIssuer;
+            var appSetting = diScope.GetService(typeof(AppSettings)) as AppSettings;
+
+            if (appSetting.Env == AppEnums.Env.Local)
+            {
+                return;
+            }
 
             var authorization = request.Headers.Authorization;
 
@@ -34,8 +42,6 @@ namespace VmmApi.Net.Jwt
                 return;
             }
 
-            var diScope = context.Request.GetDependencyScope();
-            var jwtIssuer = diScope.GetService(typeof(JwtIssuer)) as JwtIssuer;
 
             var token = authorization.Parameter;
             var principal = await AuthenticateJwtToken(token, jwtIssuer);
