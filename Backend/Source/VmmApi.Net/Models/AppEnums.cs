@@ -9,8 +9,8 @@ namespace VmmApi.Net.Models
     {
         public enum Env
         {
-            Local,
-            Production
+            Production,
+            Local
         }
     }
 }
