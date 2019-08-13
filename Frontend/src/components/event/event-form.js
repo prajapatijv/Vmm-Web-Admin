@@ -1,4 +1,5 @@
 import React from 'react'
+import DatePicker from 'react-datepicker'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -7,6 +8,7 @@ import { InputBox } from '../shared/input-box'
 import { SelectBox } from '../shared/select-box'
 import { TextAreaBox } from '../shared/textarea-box'
 import { CheckBox } from '../shared/check-box'
+import { DatePickerBox } from '../shared/date-picker'
 
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
@@ -70,11 +72,14 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="startDate" component={InputBox} placeholder="Start Date" floatinglabel={true} />
+                                <Field type="text" name="startDate" component={DatePickerBox} placeholder="Start Date" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="endDate" component={InputBox} placeholder="End Date" floatinglabel={true} />
+                                <Field type="text" name="endDate" component={DatePickerBox} placeholder="End Date" floatinglabel={true} />
                             </div>
+                            
+
+
                             <div className="form-row mb-3">
                                 <Field type="datetime" name="time" component={InputBox} placeholder="Time" floatinglabel={true} />
                             </div>
