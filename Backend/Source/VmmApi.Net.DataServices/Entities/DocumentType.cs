@@ -3,11 +3,11 @@
 namespace VmmApi.Net.DataServices.Entities
 {
     [Table("Document_Type_Master")]
-    public class DocumentType
+    public class DocumentType : ByteEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Document_Type_Id")]
-        public byte Id { get; set; }
+        public override byte Id { get => base.Id; set => base.Id = value; }
 
         [Column("Description")]
         public string Description { get; set; }

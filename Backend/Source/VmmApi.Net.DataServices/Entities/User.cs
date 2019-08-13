@@ -3,11 +3,11 @@
 namespace VmmApi.Net.DataServices.Entities
 {
     [Table("Admin")]
-    public class User
+    public class User : IntEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("AdminId")]
-        public int Id { get; set; }
+        public override int Id { get => base.Id; set => base.Id = value; }
 
         [Column("UserName")]
         public string UserName { get; set; }

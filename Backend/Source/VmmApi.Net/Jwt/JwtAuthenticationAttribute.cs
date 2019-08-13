@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
 using VmmApi.Net.Models;
+using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Jwt
 {
@@ -21,12 +22,12 @@ namespace VmmApi.Net.Jwt
             var request = context.Request;
             var diScope = request.GetDependencyScope();
             var jwtIssuer = diScope.GetService(typeof(JwtIssuer)) as JwtIssuer;
-            var appSetting = diScope.GetService(typeof(AppSettings)) as AppSettings;
+            var config = diScope.GetService(typeof(IConfigurationProvider)) as IConfigurationProvider;
 
-            /*if (appSetting.Env == AppEnums.Env.Local)
+            if (config.AppSettings.Env == AppEnums.Env.Local)
             {
                 return;
-            }*/
+            }
 
             var authorization = request.Headers.Authorization;
 
