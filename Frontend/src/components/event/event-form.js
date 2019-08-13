@@ -1,5 +1,4 @@
 import React from 'react'
-import DatePicker from 'react-datepicker'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'

@@ -8,7 +8,7 @@ import './input-box.scss'
 
 export const DatePickerBox = ({
     field, // { name, value, onChange, onBlur }
-    form: { touched, errors, /*handleChange,*/ }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+    form: { touched, errors, /*handleChange,*/ setFieldValue}, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
     ...props
 }) => {
     var cls = classNames({
@@ -23,17 +23,22 @@ export const DatePickerBox = ({
       })
 
     const [date, setDate] = useState(new Date())
+    
+    const onAcceptDate = (value) => {
+        setDate(value)
+        setFieldValue(field.name, date)
+    } 
 
     return (
         <div className={clsig} >
             <DatePicker
-                customInput={<DatePickerInputMarkUp props={props} cls={cls}/>}
+                customInput={<DatePickerInputMarkUp value={date}  props={props} cls={cls}/>}
                 placeholderText = {props.placeholder}
                 isClearable={true}
                 dateFormat="dd-MMM-yyyy"
                 selected={date}
                 minDate={date}
-                onChange={(value) => setDate(value)}
+                onChange={(value) => onAcceptDate(value)}
                 field={field} props={props} touched={touched} errors={errors}  />
             <ErrorMessage className="invalid-feedback" component="div" name={field.name} />
         </div>
