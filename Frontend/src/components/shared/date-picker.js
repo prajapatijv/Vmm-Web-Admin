@@ -27,14 +27,14 @@ export const DatePickerBox = ({
     return (
         <div className={clsig} >
             <DatePicker
+                customInput={<DatePickerInputMarkUp props={props} cls={cls}/>}
                 placeholderText = {props.placeholder}
                 isClearable={true}
                 dateFormat="dd-MMM-yyyy"
                 selected={date}
                 minDate={date}
                 onChange={(value) => setDate(value)}
-                field={field} props={props} touched={touched} errors={errors} className={cls} />
-            <FloatingLabel props={props} />
+                field={field} props={props} touched={touched} errors={errors}  />
             <ErrorMessage className="invalid-feedback" component="div" name={field.name} />
         </div>
     )
@@ -47,6 +47,29 @@ const FloatingLabel = ({ props }) => {
     )
 }
 
+const DatePickerInputMarkUp = ({onChange, placeholder, value, isSecure, id, onClick, props, cls}) => (
+    <React.Fragment>
+    <input
+        onChange={onChange}
+        placeholder={placeholder}
+        value={value}
+        isSecure={isSecure}
+        id={id}
+        onClick={onClick}
+        className={cls}
+    />
+    <FloatingLabel props={props} />
+    </React.Fragment>
+);
+
+DatePickerInputMarkUp.propTypes = {
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    placeholder: PropTypes.string,
+    value: PropTypes.string,
+    id: PropTypes.string,
+    props: PropTypes.object
+}
 
 DatePickerBox.propTypes = {
     form: PropTypes.object,
