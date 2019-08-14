@@ -28,20 +28,28 @@ export const ColorPicker = ({
         setShow(false)
     }
 
+    const popover = {
+        position: 'absolute',
+        zIndex: '2',
+        left:'90px'
+      }
+
     const divStyle = {
-        width: "80px", height: "40px", "background-color": color, "margin-right": "15px", "border-radius": "5px"
+        width: "80px", height: "40px", "backgroundColor": color, "marginRight": "15px", "borderRadius": "5px"
     }
 
     return (
+        <React.Fragment>
+        <div className="shadow p-3 rounded" style={divStyle}> <span className="badge badge-secondary">{color}</span></div>
+        <div className="btn-group" role="group">
+            <button type="button" className="btn btn-secondary" onClick={() => setShow(true)}>{props.label}</button>
+            <button type="button" className="btn btn-secondary dropdown-toggle dropdown-toggle-split" onClick={() => setShow(true)}>
+            </button>
+        </div>
+
         <div className={clsig} >
-            <div className="shadow p-3 rounded" style={divStyle}> <span className="badge badge-secondary">{color}</span></div>
-            <div className="btn-group" role="group">
-                <button type="button" className="btn btn-secondary" onClick={() => setShow(true)}>{props.label}</button>
-                <button type="button" className="btn btn-secondary dropdown-toggle dropdown-toggle-split" onClick={() => setShow(true)}>
-                </button>
-            </div>
             {show &&
-                <div className="card mb-3">
+                <div className="card mb-3" style={popover}>
                     <div className="card-body">
                         <SketchPicker
                             color={color}
@@ -54,6 +62,7 @@ export const ColorPicker = ({
                 </div>
             }
         </div>
+        </React.Fragment>
     )
 }
 
@@ -63,7 +72,7 @@ ColorPicker.propTypes = {
     form: PropTypes.object,
     field: PropTypes.object,
     props: PropTypes.object,
-    touched: PropTypes.bool,
+    touched: PropTypes.object,
     errors: PropTypes.array,
     cls: PropTypes.object,
     label: PropTypes.string,

@@ -45,9 +45,9 @@ const FloatingLabel = ({props}) => {
 TextArea.propTypes = {
   field: PropTypes.object,
   props: PropTypes.object,
-  touched: PropTypes.bool,
-  errors: PropTypes.array,
-  cls: PropTypes.object,
+  touched: PropTypes.object,
+  errors: PropTypes.object,
+  cls: PropTypes.any
 }
 
 FloatingLabel.propTypes = {

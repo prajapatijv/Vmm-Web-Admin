@@ -63,9 +63,9 @@ const FloatingLabel = ({props}) => {
 TextBox.propTypes = {
   field: PropTypes.object,
   props: PropTypes.object,
-  touched: PropTypes.bool,
+  touched: PropTypes.string,
   errors: PropTypes.array,
-  cls: PropTypes.object
+  cls: PropTypes.string
 }
 
 FloatingLabel.propTypes = {

@@ -22,14 +22,15 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
         eventTypeId: Yup.number().required(),
         eventName: Yup.string().min(2).max(50).required(),
         description: Yup.string().min(2).max(200).required(),
-        startDate: Yup.date().required(),
+        startDate: Yup.string().required(),
         endDate: Yup.date().required(),
         time:Yup.string().notRequired(),
-        address1:Yup.number().notRequired(),
-        address2:Yup.number().notRequired(),
-        city:Yup.number().required(),
+        address1:Yup.string().notRequired(),
+        address2:Yup.string().notRequired(),
+        city:Yup.string().required(),
         contactNumber:Yup.string().notRequired(),
-        contactEmail:Yup.string().notRequired()
+        contactEmail:Yup.string().notRequired(),
+        active: Yup.string().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -76,7 +77,6 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             <div className="form-row mb-3">
                                 <Field type="text" name="endDate" component={DatePickerBox} placeholder="End Date" floatinglabel={true} />
                             </div>
-                            
 
 
                             <div className="form-row mb-3">
@@ -89,8 +89,8 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                                 <Field type="text" name="city" component={InputBox} placeholder="City" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="eventContact" component={InputBox} placeholder="Contact" floatinglabel={true} />
-                                <Field type="text" name="eventEmail" component={InputBox} placeholder="Email" floatinglabel={true} />
+                                <Field type="text" name="contactNumber" component={InputBox} placeholder="Contact" floatinglabel={true} />
+                                <Field type="text" name="contactEmail" component={InputBox} placeholder="Email" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
                                 <Field type="checkbox" name="active" component={CheckBox} label="Active"/>

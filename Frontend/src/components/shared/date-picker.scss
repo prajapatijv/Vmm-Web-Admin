@@ -1,13 +1,14 @@
 @import '../../stylesheets/mixins.scss';
 
 form {
-.input-group.floating-label {
+.input-group.floating-label.date-picker {
     margin-bottom: 1rem;
     position: relative;
 
     input {
       height: 3.125rem;
       padding: .75rem;
+      padding-top: 1.5rem;
 
       &.is-valid {
         border: 0px;
@@ -37,9 +38,14 @@ form {
       border: 1px solid transparent;
       border-radius: .25rem;
       transition: all .1s ease-in-out;        
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+      font-size: 12px;
+      color: #777;
+      z-index: 10;
     }
 
-    input {
+    /*input {
       @include placeholder {
         color: transparent;
       }
@@ -56,6 +62,6 @@ form {
       font-size: 12px;
       color: #777;
       z-index: 10;
-    }
+    }*/
   }
 }

@@ -33,9 +33,9 @@ const Check = ({ field, props, touched, errors, cls }) =>
   Check.propTypes = {
     field: PropTypes.object,
     props: PropTypes.object,
-    touched: PropTypes.bool,
+    touched: PropTypes.object,
     errors: PropTypes.array,
-    cls: PropTypes.object
+    cls: PropTypes.string
   }
   
   CheckBox.propTypes = {
