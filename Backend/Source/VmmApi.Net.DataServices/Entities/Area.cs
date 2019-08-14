@@ -3,11 +3,11 @@
 namespace VmmApi.Net.DataServices.Entities
 {
     [Table("Area_Master")]
-    public class Area
+    public class Area : ByteEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Area_Id")]
-        public byte Id { get; set; }
+        public override byte Id { get => base.Id; set => base.Id = value; }
 
         [Column("Area_Name")]
         public string AreaName { get; set; }

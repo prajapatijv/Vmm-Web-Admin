@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VmmApi.Net.DataServices.Entities
 {
     [Table("EVENT_DETAIL")]
-    public class Event
+    public class Event : IntEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Event_Id")]
-        public int Id { get; set; }
+        public override int Id { get => base.Id; set => base.Id = value; }
 
         [Column("Title")]
         public string EventName { get; set; }

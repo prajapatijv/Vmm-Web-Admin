@@ -28,9 +28,9 @@ namespace VmmApi.Net.Services
         public UserViewModel AuthenticateUser(TokenRequest request)
         {
 
-            //var authUser = userService.Authenticate(request.Username, request.Password);
-            var authUser = new User()
-                {Id = 1, UserName = "jit", FirstName = "First", LastName = "last", Password = "test"};
+            var authUser = userService.Authenticate(request.Username, request.Password);
+            /*var authUser = new User()
+                {Id = 1, UserName = "jit", FirstName = "First", LastName = "last", Password = "test"};*/
 
             if (authUser == null) return null;
 

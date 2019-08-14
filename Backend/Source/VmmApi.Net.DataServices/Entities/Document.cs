@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VmmApi.Net.DataServices.Entities
 {
 
     [Table("DOCUMENT_MASTER")]
-    public class Document
+    public class Document : IntEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Document_Id")]
-        public int Id { get; set; }
+        public override int Id { get => base.Id; set => base.Id = value; }
+
 
         [Column("Title")]
         public string Title { get; set; }
