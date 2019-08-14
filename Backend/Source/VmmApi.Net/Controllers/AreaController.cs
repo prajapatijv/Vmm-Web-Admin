@@ -1,4 +1,6 @@
 ﻿using System.Web.Http;
+using VmmApi.Net.DataServices.Entities;
+using VmmApi.Net.Models;
 using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
@@ -19,5 +21,26 @@ namespace VmmApi.Net.Controllers
             var areas = this.areaService.GetAllAreas();
             return Ok(areas);
         }
+
+        [HttpPost]
+        [Route("")]
+        public IHttpActionResult Post(Area area)
+        {
+            this.areaService.Save(area);
+            return Get();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            if (id > 0)
+            {
+                this.areaService.Delete(id);
+            }
+
+            return Ok();
+        }
+
     }
 }

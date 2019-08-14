@@ -26,16 +26,6 @@ namespace VmmApi.Net.Services
             this.documentTypeService = documentTypeService;
         }
 
-        public void Delete(int id)
-        {
-            var entity = this.GetById(id);
-            if (entity != null)
-            {
-                this.dbContext.Documents.Remove(entity);
-                this.dbContext.SaveChanges();
-            }
-        }
-
         public DocumentViewModel GetAllDocuments()
         {
             return new DocumentViewModel
@@ -61,5 +51,16 @@ namespace VmmApi.Net.Services
 
             this.dbContext.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            var entity = this.GetById(id);
+            if (entity != null)
+            {
+                this.dbContext.Documents.Remove(entity);
+                this.dbContext.SaveChanges();
+            }
+        }
+
     }
 }
