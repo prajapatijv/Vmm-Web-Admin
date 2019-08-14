@@ -5,7 +5,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
-    [Route("api/documents")]
+    [RoutePrefix("api/documents")]
     public class DocumentController : BaseController
     {
         private readonly IDocumentService documentService;
@@ -16,6 +16,7 @@ namespace VmmApi.Net.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public IHttpActionResult Get()
         {
             var documents = this.documentService.GetAllDocuments();

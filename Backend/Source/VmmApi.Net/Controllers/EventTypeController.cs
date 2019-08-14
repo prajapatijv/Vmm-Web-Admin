@@ -5,7 +5,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
-    [Route("api/eventTypes")]
+    [RoutePrefix("api/eventTypes")]
     public class EventTypeController : BaseController
     {
         private readonly IEventTypeService eventTypeService;
@@ -16,6 +16,7 @@ namespace VmmApi.Net.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public IHttpActionResult Get()
         {
             var eventTypes = this.eventTypeService.GetAllEventTypes();
