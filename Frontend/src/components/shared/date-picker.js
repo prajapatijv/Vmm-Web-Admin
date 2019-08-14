@@ -23,12 +23,8 @@ export const DatePickerBox = ({
         'date-picker':true
     })
 
-    const [minDt, ] = useState(new Date())
-    const [dt, setDt] = useState(new Date())
-
-    const onAcceptDate = (date) => {
-        setDt(date)
-        setFieldValue(field.name, date)
+    const onChange = (name, value) => {
+        setFieldValue(name, value)
     }
 
     return (
@@ -36,11 +32,12 @@ export const DatePickerBox = ({
             <DatePicker
                 //customInput={<DatePickerInputMarkUp value={dt} props={props} cls={cls} />}
                 //placeholderText={props.placeholder}
-                isClearable={true}
+                //isClearable={true}
                 dateFormat="dd-MMM-yyyy"
-                selected={dt}
-                minDate={minDt}
-                onChange={(date, event) => onAcceptDate(date, event)}
+                selected={(field.value && new Date(field.value)) || null}
+                onChange={val => {
+                    onChange(field.name, val);
+                }}
                 field={field} props={props} touched={touched} errors={errors} className={cls} />
             <FloatingLabel props={props} />                
             <ErrorMessage className="invalid-feedback" component="div" name={field.name} />

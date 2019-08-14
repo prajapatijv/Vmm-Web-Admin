@@ -72,15 +72,16 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                             </div>
 
                             <div className="form-row mb-3">
-                                <Field type="text" name="startDate" component={DatePickerBox} placeholder="Start Date" floatinglabel={true} />
-                            </div>
-                            <div className="form-row mb-3">
-                                <Field type="text" name="endDate" component={DatePickerBox} placeholder="End Date" floatinglabel={true} />
+                                <div className="col-md-4 mb-3">
+                                    <Field type="text" name="startDate" component={DatePickerBox} placeholder="Start Date" floatinglabel={true} />
+                                </div>
+                                <div className="col-md-4 mb-3">
+                                    <Field type="text" name="endDate" component={DatePickerBox} placeholder="End Date" floatinglabel={true} />
+                                </div>
                             </div>
 
-
                             <div className="form-row mb-3">
-                                <Field type="datetime" name="time" component={InputBox} placeholder="Time" floatinglabel={true} />
+                                <Field type="datetime" name="time" component={InputBox} placeholder="Event Time notes" floatinglabel={true} />
                             </div>
 
                             <div className="form-row mb-3">
@@ -89,8 +90,12 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                                 <Field type="text" name="city" component={InputBox} placeholder="City" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-3">
-                                <Field type="text" name="contactNumber" component={InputBox} placeholder="Contact" floatinglabel={true} />
-                                <Field type="text" name="contactEmail" component={InputBox} placeholder="Email" floatinglabel={true} />
+                                <div className="col-md-6 mb-3">
+                                    <Field type="text" name="contactNumber" component={InputBox} placeholder="Contact" floatinglabel={true} />
+                                </div>
+                                <div className="col-md-6 mb-3">
+                                    <Field type="text" name="contactEmail" component={InputBox} placeholder="Email" floatinglabel={true} />
+                                </div>
                             </div>
                             <div className="form-row mb-3">
                                 <Field type="checkbox" name="active" component={CheckBox} label="Active"/>
