@@ -20,12 +20,10 @@ export const ColorPicker = ({
     })
 
     const [show, setShow] = useState(false)
-    const [color, setColor] = useState('#D3D3D3')
 
 
-    const onAcceptColor = () => {
+    const onAcceptColor = (color) => {
         setFieldValue(field.name, color)
-        setShow(false)
     }
 
     const popover = {
@@ -35,15 +33,15 @@ export const ColorPicker = ({
       }
 
     const divStyle = {
-        width: "80px", height: "40px", "backgroundColor": color, "marginRight": "15px", "borderRadius": "5px"
+        width: "80px", height: "40px", "backgroundColor": field.value, "marginRight": "15px", "borderRadius": "5px"
     }
 
     return (
         <React.Fragment>
-        <div className="shadow p-3 rounded" style={divStyle}> <span className="badge badge-secondary">{color}</span></div>
+        <div className="shadow p-3 rounded" style={divStyle}> <span className="badge badge-secondary">{field.value}</span></div>
         <div className="btn-group" role="group">
-            <button type="button" className="btn btn-secondary" onClick={() => setShow(true)}>{props.label}</button>
-            <button type="button" className="btn btn-secondary dropdown-toggle dropdown-toggle-split" onClick={() => setShow(true)}>
+            <button type="button" className="btn btn-light" onClick={() => setShow(true)}>{props.label}</button>
+            <button type="button" className="btn btn-light dropdown-toggle dropdown-toggle-split" onClick={() => setShow(true)}>
             </button>
         </div>
 
@@ -52,12 +50,12 @@ export const ColorPicker = ({
                 <div className="card mb-3" style={popover}>
                     <div className="card-body">
                         <SketchPicker
-                            color={color}
-                            onChangeComplete={(c) => setColor(c.hex)}
+                            color={field.value}
+                            onChangeComplete={(c) => onAcceptColor(c.hex)}
                             field={field} props={props} touched={touched} errors={errors} cls={cls} />
                     </div>
                     <div className="card-footer bg-transparent border-light">
-                        <button type="button" className="btn btn-block btn-primary" onClick={onAcceptColor}>Ok</button>
+                        <button type="button" className="btn btn-block btn-primary" onClick={() => setShow(false)}>Ok</button>
                     </div>
                 </div>
             }
