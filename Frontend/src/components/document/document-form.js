@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import { InputBox } from '../shared/input-box'
 import { CheckBox } from '../shared/check-box'
 import { SelectBox } from '../shared/select-box'
+import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
@@ -53,29 +54,37 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                         <form className="needs-validation"
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
-                            <div className="form-row mb-3">
+                            <div className="form-row mb-2">
+                                <div className="col-md-5">
+                                    <Field type="text" name="documentTypeId" component={SelectBox} options={_documentTypes} placeholder="Document Type" floatinglabel={true} />
+                                </div>
+                                <div className="col-md-5 ml-auto">
+                                    <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel={true} />
+                                </div>
+                            </div>
+
+                            <div className="form-row mb-2">
                                 <Field type="text" name="title" component={InputBox} placeholder="Title" floatinglabel={true} />
                             </div>
-                            <div className="form-row mb-3">
+                            <div className="form-row mb-2">
                                 <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel={true} />
                             </div>
-                            <div className="form-row mb-3">
-                                <Field type="datetime" name="publishDate" component={InputBox} placeholder="Publish Date" floatinglabel={true} />
+                            <div className="form-row mb-2">
+                                <div className="col-md-4">
+                                    <Field type="text" name="publishDate" component={DatePickerBox} placeholder="Publish Date" floatinglabel={true} />
+                                </div>
+                                <div className="col-md-4">
+                                    <Field type="text" name="expiryDate" component={DatePickerBox} placeholder="Expiry Date" floatinglabel={true} />
+                                </div>
                             </div>
-                            <div className="form-row mb-3">
-                                <Field type="datetime" name="expiryDate" component={InputBox} placeholder="Expiry Date" floatinglabel={true} />
-                            </div>
-                            <div className="form-row mb-3">
+                            
+                            <div className="form-row mb-2">
                                 <Field type="text" name="documentPath" component={InputBox} placeholder="Document Path" floatinglabel={true} />
                             </div>
-                            <div className="form-row mb-3">
-                                <Field type="text" name="documentTypeId" component={SelectBox} options={_documentTypes} placeholder="Document Type" floatinglabel={true} />
-                            </div>
-                            <div className="form-row mb-3">
-                                <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel={true} />
-                            </div>
-                            <div className="form-row mb-3">
-                                <Field type="text" name="groupYear" component={InputBox} placeholder="Group Year" floatinglabel={true} />
+                            <div className="form-row mb-2">
+                                <div className="col-md-4 mb-3">
+                                    <Field type="text" name="groupYear" component={InputBox} placeholder="Group Year" floatinglabel={true} />
+                                </div>
                             </div>
 
                             <ButtonBar

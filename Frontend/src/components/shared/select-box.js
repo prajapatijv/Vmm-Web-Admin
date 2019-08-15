@@ -38,7 +38,7 @@ const SelectInput = ({ field, props, touched, errors, cls, options }) => {
       invalid={touched[field.name] && errors[field.name] ? "false" : "true"}
       {...field} {...props} 
     > 
-      <option key='-1' value="DEFAULT" >Please select {props.placeholder.toLowerCase()}...</option>
+      <option key='-1' value="DEFAULT" >Please select {props.placeholder.toLowerCase()}</option>
       {options.map((item) => <option key={item.id} value={item.id}>{item.description}</option>)}
     </select>
   )

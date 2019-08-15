@@ -24,12 +24,12 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
         description: Yup.string().min(2).max(200).required(),
         startDate: Yup.string().required(),
         endDate: Yup.date().required(),
-        time:Yup.string().notRequired(),
-        address1:Yup.string().notRequired(),
-        address2:Yup.string().notRequired(),
-        city:Yup.string().required(),
-        contactNumber:Yup.string().notRequired(),
-        contactEmail:Yup.string().notRequired(),
+        time: Yup.string().notRequired(),
+        address1: Yup.string().notRequired(),
+        address2: Yup.string().notRequired(),
+        city: Yup.string().required(),
+        contactNumber: Yup.string().notRequired(),
+        contactEmail: Yup.string().notRequired(),
         active: Yup.string().notRequired()
     })
 
@@ -59,46 +59,52 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                         <form className="needs-validation"
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
-                            <div className="form-row mb-3">
-                                <Field type="text" name="eventTypeId" component={SelectBox} placeholder="Event Type" options={_eventTypes} floatinglabel={true} />
+                            <div className="form-row mb-2">
+                                <div className="col-md-5">
+                                    <Field type="text" name="eventTypeId" component={SelectBox} placeholder="Event Type" options={_eventTypes} floatinglabel={true} />
+                                </div>
+                                <div className="col-md-5 ml-auto">
+                                    <Field type="checkbox" name="active" component={CheckBox} label="Active" />
+                                </div>
                             </div>
 
-                            <div className="form-row mb-3">
+                            <div className="form-row mb-2">
                                 <Field type="text" name="eventName" component={InputBox} placeholder="Evant Name" floatinglabel={true} />
                             </div>
-                            
-                            <div className="form-row mb-3">
+
+                            <div className="form-row mb-2">
                                 <Field type="text" name="description" component={TextAreaBox} placeholder="Description" floatinglabel={true} />
                             </div>
 
-                            <div className="form-row mb-3">
-                                <div className="col-md-4 mb-3">
+                            <div className="form-row mb-2">
+                                <div className="col-md-4">
                                     <Field type="text" name="startDate" component={DatePickerBox} placeholder="Start Date" floatinglabel={true} />
                                 </div>
-                                <div className="col-md-4 mb-3">
+                                <div className="col-md-4">
                                     <Field type="text" name="endDate" component={DatePickerBox} placeholder="End Date" floatinglabel={true} />
                                 </div>
                             </div>
 
-                            <div className="form-row mb-3">
+                            <div className="form-row mb-2">
                                 <Field type="datetime" name="time" component={InputBox} placeholder="Event Time notes" floatinglabel={true} />
                             </div>
 
-                            <div className="form-row mb-3">
+                            <div className="form-row mb-2">
                                 <Field type="text" name="address1" component={InputBox} placeholder="Address" floatinglabel={true} />
-                                <Field type="text" name="address2" component={InputBox} placeholder="Address" floatinglabel={true} />
-                                <Field type="text" name="city" component={InputBox} placeholder="City" floatinglabel={true} />
+                                <div className="col-md-7">
+                                    <Field type="text" name="address2" component={InputBox} placeholder="Address" floatinglabel={true} />
+                                </div>
+                                <div className="col-md-5">
+                                    <Field type="text" name="city" component={InputBox} placeholder="City" floatinglabel={true} />
+                                </div>
                             </div>
-                            <div className="form-row mb-3">
-                                <div className="col-md-6 mb-3">
+                            <div className="form-row mb-2">
+                                <div className="col-md-6">
                                     <Field type="text" name="contactNumber" component={InputBox} placeholder="Contact" floatinglabel={true} />
                                 </div>
-                                <div className="col-md-6 mb-3">
+                                <div className="col-md-6">
                                     <Field type="text" name="contactEmail" component={InputBox} placeholder="Email" floatinglabel={true} />
                                 </div>
-                            </div>
-                            <div className="form-row mb-3">
-                                <Field type="checkbox" name="active" component={CheckBox} label="Active"/>
                             </div>
 
                             <ButtonBar
