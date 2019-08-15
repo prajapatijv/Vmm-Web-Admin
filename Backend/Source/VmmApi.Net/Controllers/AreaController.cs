@@ -5,7 +5,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
-    [Route("api/areas")]
+    [RoutePrefix("api/areas")]
     public class AreaController : BaseController
     {
         private readonly IAreaService areaService;
@@ -16,6 +16,7 @@ namespace VmmApi.Net.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public IHttpActionResult Get()
         {
             var areas = this.areaService.GetAllAreas();
