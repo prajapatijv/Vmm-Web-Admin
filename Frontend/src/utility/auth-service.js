@@ -8,7 +8,13 @@ const AUTHTOKEN ='AUTHTOKEN_'
 
 export const GetAuth = () => {
     const thisUser = GetItem(THISUSERNAME)
-    return GetItem(`${AUTHTOKEN}${thisUser}`) || ""
+    const authToken = GetItem(`${AUTHTOKEN}${thisUser}`) || ""
+    if (authToken !== "") {
+        SetItem(THISUSERNAME, thisUser)
+        axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`
+    }
+
+    return authToken !== ""
 }
 
 export const SetAuth = (authResponse) => {
@@ -22,6 +28,8 @@ export const SetAuth = (authResponse) => {
         return false
     }
 }
+
+export const GetUserName = () => GetItem(THISUSERNAME)
 
 export const RemoveAuth = (userName) => {
     RemoveItem(THISUSERNAME)
