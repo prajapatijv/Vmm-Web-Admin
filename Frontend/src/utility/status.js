@@ -17,9 +17,9 @@ export function* HandleSaveSuccess (typeContext, payload)  {
 }
 
 
-export function* HandleDeleteSuccess (typeContext, payload)  {
+export function* HandleDeleteSuccess (typeContext, id)  {
     const type = `DELETE_${typeContext}_SUCCEED`
-    yield put({ "type": type, payload: payload })
+    yield put({ "type": type, payload: id })
     yield put({"type": C.ADD_INFO_SUCCESS, payload: "Deleted"})
 }
 

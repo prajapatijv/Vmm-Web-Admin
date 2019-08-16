@@ -63,7 +63,15 @@ app.post('/api/authenticate', (req, res) => {
     const authToken = generateToken(req)
     res.status(200).json({ "userName": req.body.userName, "authToken": authToken })
 })
-app.post('/api/*', (req, res) => { console.log(req.body); res.status(200).json(req.body) })
+//Posts
+app.post('/api/users', (req, res) => { var response = {}; response.users = users; res.status(200).json(response) })
+app.post('/api/items', (req, res) => { var response = {}; response.items = items; res.status(200).json(response) })
+app.post('/api/documenttypes', (req, res) => { var response = {}; response.documenttypes = documenttypes; res.status(200).json(response) })
+app.post('/api/eventtypes', (req, res) => { var response = {}; response.eventtypes = eventtypes; res.status(200).json(response) })
+app.post('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
+app.post('/api/documents', (req, res) => { var response = {}; response.documents = documents; res.status(200).json(response) })
+app.post('/api/events', (req, res) => { var response = {}; response.events = events; res.status(200).json(response) })
+
 app.delete('/api/*/:id', (req, res) => res.status(200).json({}))
 
 //Gets

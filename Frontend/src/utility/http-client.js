@@ -66,9 +66,9 @@ export function* remove(params) {
 
     try {
         const apiUrl = GetApiUrl(params)
-        const response = yield (call(deleteApi, apiUrl, params.id))
+        yield (call(deleteApi, apiUrl, params.id))
 
-        yield HandleDeleteSuccess(contextObj.actionContext.SINGULAR, response.data)
+        yield HandleDeleteSuccess(contextObj.actionContext.SINGULAR, params.id)
 
         //Cleanup cache
         RemoveItem(contextObj.actionContextPlural) 

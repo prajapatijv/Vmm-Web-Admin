@@ -36,7 +36,10 @@ const template = (contextObj, state, action, defaultEntity, filterByFn) => {
         }
 
         case `SAVE_${contextObj.actionContext.SINGULAR}_SUCCEED`: {
-            return { ...state, [contextObj.actionContext.singular]:undefined, saving: false }
+            return { ...state, 
+                [contextObj.actionContext.singular]:undefined, 
+                [contextObj.actionContext.plural]: action.payload[contextObj.actionContext.plural],
+                saving: false }
         }
 
         case `SAVE_${contextObj.actionContext.SINGULAR}_FAILED`: {
@@ -48,7 +51,9 @@ const template = (contextObj, state, action, defaultEntity, filterByFn) => {
         }
 
         case `DELETE_${contextObj.actionContext.SINGULAR}_SUCCEED`: {
-            return { ...state, deleting: false }
+            return { ...state, deleting: false, 
+                [contextObj.actionContext.plural]: state[contextObj.actionContext.plural].filter(obj => obj.id !== action.payload)
+            }
         }
 
         case `DELETE_${contextObj.actionContext.SINGULAR}_FAILED`: {
