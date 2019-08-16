@@ -86,6 +86,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                             </div>
                             
                             <FilePond name="documentPath" 
+                                        server='http://localhost:3333/api/file'
                                         onupdatefiles={onfileUpload}
                                         allowMultiple={false} labelIdle="Upload or drop document" />
 

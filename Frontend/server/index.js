@@ -5,6 +5,7 @@ const { port = 3333 } = require('minimist')(process.argv)
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
+//const fileUpload = require('express-fileupload')
 
 const users = require('./data/users.json')
 const items = require('./data/items.json')
@@ -13,6 +14,7 @@ const eventtypes = require('./data/eventtypes.json')
 const areas = require('./data/areas.json')
 const documents = require('./data/documents.json')
 const events = require('./data/events.json')
+
 const TOKEN_KEY = 'jwtsecret'
 
 //Server setup
@@ -23,7 +25,7 @@ const logger = (req, res, next) => {
 
 const jwtVerify = (req, res, next) => {
 
-    if (req.url.endsWith("authenticate") || req.method === "OPTIONS") {
+    if (req.url.endsWith("authenticate") || req.url.endsWith("file")  || req.method === "OPTIONS") {
         next()
         return
     }
@@ -51,6 +53,7 @@ const jwtVerify = (req, res, next) => {
 const app = express()
     .use(jwtVerify)
     .use(logger)
+    //.use(fileUpload)
     .use(bodyParser.urlencoded({ extended: true }))
     .use(bodyParser.json()) // for parsing application/json    
     .use(delay(1000, 2000))
@@ -63,6 +66,7 @@ app.post('/api/authenticate', (req, res) => {
     const authToken = generateToken(req)
     res.status(200).json({ "userName": req.body.userName, "authToken": authToken })
 })
+
 //Posts
 app.post('/api/users', (req, res) => { var response = {}; response.users = users; res.status(200).json(response) })
 app.post('/api/items', (req, res) => { var response = {}; response.items = items; res.status(200).json(response) })
@@ -82,6 +86,11 @@ app.get('/api/eventtypes', (req, res) => { var response = {}; response.eventtype
 app.get('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
 app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documenttypes = documenttypes; res.status(200).json(response) })
 app.get('/api/events', (req, res) => { var response = {}; response.events = events; response.eventtypes = eventtypes; res.status(200).json(response) })
+
+//filepond endpoints
+app.post('/api/file', (req, res) => res.status(200).json("success"))
+app.post('/api/file', (req, res) =>  res.status(200))
+//app.head('/api/file', (req, res) =>  res.status(200))
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)
