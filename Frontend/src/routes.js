@@ -57,9 +57,9 @@ const NotFound = ({ location }) =>
 const ProtectedRoute = ({ component: Component, ...props }) => {
   
   const authToken = GetAuth()
-
+  
   return(
-    authToken !== "" ? 
+    authToken ? 
         <Component {...props} /> : <Redirect noThrow to='/login' />   
   )
 }

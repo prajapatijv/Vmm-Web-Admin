@@ -13,9 +13,7 @@ const DocumentTypeForm = ({ documenttype, onClose, onSave, onDelete, saving, del
 
     const schema = Yup.object().shape({
         id:Yup.number(),
-        name: Yup.string().min(2).max(50).required(),
-        shortName: Yup.string().min(2).max(50).required(),
-        active: Yup.boolean().notRequired()
+        description: Yup.string().min(2).max(50).required()
     })
 
     const onSaveEntity = (values, actions) => {
