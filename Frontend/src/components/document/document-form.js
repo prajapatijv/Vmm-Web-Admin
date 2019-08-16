@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -9,6 +9,9 @@ import { SelectBox } from '../shared/select-box'
 import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+
+import { FilePond, registerPlugin } from 'react-filepond'
+import 'filepond/dist/filepond.min.css'
 
 const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting }) => {
 
@@ -37,6 +40,10 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
         onDelete(id)
     }
 
+    const [files, setFiles] = useState([])
+
+    const onfileUpload = (fileList) => {
+    }
 
     return (
         document ?
@@ -78,9 +85,10 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                 </div>
                             </div>
                             
-                            <div className="form-row mb-2">
-                                <Field type="text" name="documentPath" component={InputBox} placeholder="Document Path" floatinglabel={true} />
-                            </div>
+                            <FilePond name="documentPath" 
+                                        onupdatefiles={onfileUpload}
+                                        allowMultiple={false} labelIdle="Upload or drop document" />
+
                             <div className="form-row mb-2">
                                 <div className="col-md-4 mb-3">
                                     <Field type="text" name="groupYear" component={InputBox} placeholder="Group Year" floatinglabel={true} />
