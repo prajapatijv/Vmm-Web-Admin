@@ -38,3 +38,4 @@ msbuild.wrn
 /Backend/Source/vmm-api/packages
 /Backend/Source/VmmApi.Net/Properties/PublishProfiles/FolderProfile.pubxml
 /Backend/Source/VmmApi.Net/logs/logfile*.txt
+/Backend/Source/VmmApi.Net/Uploaded

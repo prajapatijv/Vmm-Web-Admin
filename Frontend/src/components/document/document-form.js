@@ -13,11 +13,14 @@ import ButtonBar from '../shared/button-bar'
 import { FilePond, registerPlugin } from 'react-filepond'
 import 'filepond/dist/filepond.min.css'
 
+import { Config } from '../../AppConfig'
+
 const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting }) => {
 
     const _init = { ...document }
     const _documentTypes = documenttypes || []
     //const _options = _documentTypes.map((item) => {return { value:item.id, label:item.description }})
+    const serverPath = `${Config.API_URL}/file`
 
     const schema = Yup.object().shape({
         id: Yup.number(),
@@ -86,7 +89,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                             </div>
                             
                             <FilePond name="documentPath" 
-                                        server='http://localhost:3333/api/file'
+                                        server={serverPath}
                                         onupdatefiles={onfileUpload}
                                         allowMultiple={false} labelIdle="Upload or drop document" />
 
