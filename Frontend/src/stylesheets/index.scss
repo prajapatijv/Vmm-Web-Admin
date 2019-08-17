@@ -20,6 +20,10 @@ code {
   display: flex;
   width: 100%;
   align-items: stretch;
+
+  .container-fluid {
+    overflow: hidden;
+  }
 }
 
 .app-page {
@@ -27,6 +31,12 @@ code {
     height: calc(100vh - 80px);
     padding: 0 0.0rem 0 0;
     border-right: 0.1rem aliceblue solid;
+    //background-color: #f8f9fa;
+
+    .list-group {
+      max-height:calc(100vh);
+      overflow: auto;
+    }
 
     .active {
       border-left: 4px solid blueviolet;
@@ -37,7 +47,9 @@ code {
 
   .app-form {
     padding: 0 1.5rem;
-  }
+    max-height:calc(100vh - 60px);
+    overflow: auto;
+ }
 
   .modal-header {
     padding: 0 0 10px 0;
