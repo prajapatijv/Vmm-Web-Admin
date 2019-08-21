@@ -14,7 +14,7 @@ import 'filepond/dist/filepond.min.css'
 
 import { Config } from '../../AppConfig'
 
-const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting }) => {
+const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...popup }
     const serverPath = `${Config.API_URL}/file`
@@ -88,6 +88,7 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting }) => {
                                 deleting={deleting}
                                 dirty={props.dirty}
                                 isValid={props.isValid}
+                                allowDelete={allowDelete}
                             />
                         </form>
                     </React.Fragment>

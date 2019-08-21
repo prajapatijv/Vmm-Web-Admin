@@ -2,7 +2,8 @@ import React from 'react';
 import { Plus } from 'react-feather'
 import PropTypes from 'prop-types'
 
-const SearchBar = ({ onAdd, onSearch, placeholder }) =>
+const SearchBar = ({ onAdd, onSearch, placeholder, allowAdd }) => 
+    allowAdd &&
     <div className="input-group">
         <input type="text" className="form-control app-search"
             placeholder={placeholder} aria-label={placeholder}
@@ -13,6 +14,7 @@ const SearchBar = ({ onAdd, onSearch, placeholder }) =>
             </button>
         </div>
     </div>
+
 
 export default SearchBar
 

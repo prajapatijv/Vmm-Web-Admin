@@ -7,7 +7,7 @@ import { InputBox } from '../shared/input-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const DocumentTypeForm = ({ documenttype, onClose, onSave, onDelete, saving, deleting }) => {
+const DocumentTypeForm = ({ documenttype, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...documenttype }
 
@@ -53,6 +53,7 @@ const DocumentTypeForm = ({ documenttype, onClose, onSave, onDelete, saving, del
                                 deleting={deleting}
                                 dirty={props.dirty}
                                 isValid={props.isValid}
+                                allowDelete={allowDelete}
                             />
                         </form>
                     </React.Fragment>
@@ -73,6 +74,7 @@ DocumentTypeForm.propTypes = {
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
+    allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
 }

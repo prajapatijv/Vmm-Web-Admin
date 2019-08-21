@@ -15,7 +15,7 @@ import 'filepond/dist/filepond.min.css'
 
 import { Config } from '../../AppConfig'
 
-const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting }) => {
+const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...document }
     const _documentTypes = documenttypes || []
@@ -106,6 +106,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                 deleting={deleting}
                                 dirty={props.dirty}
                                 isValid={props.isValid}
+                                allowDelete={allowDelete}
                             />
                         </form>
                     </React.Fragment>
@@ -128,7 +129,8 @@ DocumentForm.propTypes = {
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
     handleSubmit: PropTypes.func,
-    handleReset: PropTypes.func
+    handleReset: PropTypes.func,
+    allowDelete:PropTypes.bool
 }
 
 /*

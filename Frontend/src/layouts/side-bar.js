@@ -28,7 +28,7 @@ const Sidebar = () => {
 
         <div className="sidebar-sticky pt-3">
             <ul className="nav nav-pills flex-column">
-                <NavItem path="/popup" displayName="Popup" icon={<MessageSquare/>} />
+                <NavItem path="/popups" displayName="Popup" icon={<MessageSquare/>} />
                 <NavItem path="/documents" displayName="Documents" icon={<BookOpen/>} />
                 <NavItem path="/events" displayName="Events" icon={<Calendar/>} />
             </ul>

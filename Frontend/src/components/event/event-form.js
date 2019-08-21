@@ -12,7 +12,7 @@ import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, deleting }) => {
+const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...event }
     const _eventTypes = eventtypes || []
@@ -114,6 +114,7 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                                 deleting={deleting}
                                 dirty={props.dirty}
                                 isValid={props.isValid}
+                                allowDelete={allowDelete}
                             />
                         </form>
                     </React.Fragment>
@@ -135,6 +136,7 @@ EventForm.propTypes = {
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
+    allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
 }

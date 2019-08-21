@@ -7,7 +7,7 @@ import { InputBox } from '../shared/input-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const AreaForm = ({ area, onClose, onSave, onDelete, saving, deleting }) => {
+const AreaForm = ({ area, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...area }
 
@@ -53,6 +53,7 @@ const AreaForm = ({ area, onClose, onSave, onDelete, saving, deleting }) => {
                                 deleting={deleting}
                                 dirty={props.dirty}
                                 isValid={props.isValid}
+                                allowDelete={allowDelete}
                             />
                         </form>
                     </React.Fragment>
@@ -73,6 +74,7 @@ AreaForm.propTypes = {
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
+    allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
 }

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { bindActionCreators } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import withPageActions from './with-page-action'
-import { WithBasicLayout }  from '../layouts'
+import { WithBasicLayout } from '../layouts'
 
 import PropTypes from 'prop-types'
 
-const WithPageContainer = (WrappedComponent, props, context ) => {
+const WithPageContainer = (WrappedComponent, props, context) => {
 
     const contextObj = props.config.mappings[context]
 
@@ -15,21 +15,24 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
     //Exapmles: users, items
     const listName = contextObj.actionContext.plural
     //Exapmles: user, item
-    const entityName  = contextObj.actionContext.singular
+    const entityName = contextObj.actionContext.singular
 
     //Generate actions
     const actions = withPageActions(contextObj, props.config)
 
     const mapActions = bindActionCreators(actions, useDispatch());
 
+    const addAllowed = contextObj.actionContext.allowAdd === undefined ? true : Boolean(contextObj.actionContext.allowAdd)
+    const deleteAllowed = contextObj.actionContext.allowDelete === undefined ? true : Boolean(contextObj.actionContext.allowDelete)
+    
     const mapState = (state) => {
         const localState = state[stateName]
         //const dynamicState = getDynamicState(localState, listName, entityName)
         return {
             [listName]: localState[listName],
-            [entityName]: (props.id === undefined || localState[entityName] !== undefined) ? 
-                                localState[entityName] : 
-                                localState[listName].find(u => parseInt(u.id) === parseInt(props.id)),
+            [entityName]: (props.id === undefined || localState[entityName] !== undefined) ?
+                localState[entityName] :
+                localState[listName].find(u => parseInt(u.id) === parseInt(props.id)),
             'documenttypes': localState.documenttypes,
             'eventtypes': localState.eventtypes,
             fetching: localState.fetching,
@@ -50,7 +53,7 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
 
         return dynamicState;
     }*/
-    
+
 
     const state = useSelector(mapState)
 
@@ -64,10 +67,12 @@ const WithPageContainer = (WrappedComponent, props, context ) => {
             <WrappedComponent
                 {...state}
                 onSearch={mapActions.fetch}
-                onAdd={() => { mapActions.add(); props.navigate(`/${listName}/0`)} }
-                onClose={() => {mapActions.close(); props.navigate(`/${listName}`) }}
+                onAdd={() => { mapActions.add(); props.navigate(`/${listName}/0`) }}
+                onClose={() => { mapActions.close(); props.navigate(`/${listName}`) }}
                 onSave={mapActions.save}
                 onDelete={mapActions.deleteEntity}
+                allowAdd = {addAllowed}
+                allowDelete = {deleteAllowed}
             />
         </WithBasicLayout>
     )

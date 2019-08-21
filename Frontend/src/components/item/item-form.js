@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const ItemForm = ({ item, onClose, onSave, onDelete, saving, deleting }) => {
+const ItemForm = ({ item, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...item }
 
@@ -68,6 +68,7 @@ const ItemForm = ({ item, onClose, onSave, onDelete, saving, deleting }) => {
                                 deleting={deleting}
                                 dirty={props.dirty}
                                 isValid={props.isValid}
+                                allowDelete={allowDelete}
                             />
                         </form>
                     </React.Fragment>
@@ -88,6 +89,7 @@ ItemForm.propTypes = {
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
+    allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
 }

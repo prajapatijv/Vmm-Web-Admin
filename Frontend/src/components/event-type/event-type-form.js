@@ -8,7 +8,7 @@ import { ColorPicker } from '../shared/color-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting }) => {
+const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...eventtype }
 
@@ -59,6 +59,7 @@ const EventTypeForm = ({ eventtype, onClose, onSave, onDelete, saving, deleting 
                                 deleting={deleting}
                                 dirty={props.dirty}
                                 isValid={props.isValid}
+                                allowDelete={allowDelete}
                             />
                         </form>
                     </React.Fragment>
@@ -79,6 +80,7 @@ EventTypeForm.propTypes = {
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
+    allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
 }
