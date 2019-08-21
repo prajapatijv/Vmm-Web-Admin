@@ -9,6 +9,7 @@ import eventtypes from './event-type-page/reducer'
 import areas from './area-page/reducer'
 import documents from './document-page/reducer'
 import events from './event-page/reducer'
+import popups from './popup-page/reducer'
 
 export default combineReducers({
     status,
@@ -19,5 +20,6 @@ export default combineReducers({
     eventtypeState:eventtypes,
     areaState:areas,
     documentState:documents,
-    eventState:events
+    eventState:events,
+    popupState:popups
 })

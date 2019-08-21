@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { ChevronLeft, ChevronRight, BarChart, PieChart, Settings, BookOpen, Calendar, Gitlab }  from 'react-feather'
+import { ChevronLeft, ChevronRight, BarChart, PieChart, Settings, BookOpen, Calendar, Gitlab, MessageSquare }  from 'react-feather'
 import classNames from 'classnames'
 
 import NavLink from '../components/shared/navlink'
@@ -28,6 +28,7 @@ const Sidebar = () => {
 
         <div className="sidebar-sticky pt-3">
             <ul className="nav nav-pills flex-column">
+                <NavItem path="/popup" displayName="Popup" icon={<MessageSquare/>} />
                 <NavItem path="/documents" displayName="Documents" icon={<BookOpen/>} />
                 <NavItem path="/events" displayName="Events" icon={<Calendar/>} />
             </ul>

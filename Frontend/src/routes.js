@@ -13,12 +13,14 @@ import EventTypePage from './containers/event-type-page/event-type'
 import EventPage from './containers/event-page/event'
 import AreaPage from './containers/area-page/area' 
 import DocumentPage from './containers/document-page/document'
+import PopupPage from './containers/popup-page/popup'
 
 const Routes = (props) =>
   <Router>
     <LoginPage {...props} path="/login"/>
     <ProtectedRoute component={HomePage} {...props} path="/" />
 
+    <ProtectedRoute component={PopupPage} {...props} path="popup" />
     <ProtectedRoute component={DocumentPage} {...props} path="documents" />
     <ProtectedRoute component={DocumentPage} {...props} path="documents/:id" />
     <ProtectedRoute component={EventPage} {...props} path="events" />
