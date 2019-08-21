@@ -20,7 +20,8 @@ const Routes = (props) =>
     <LoginPage {...props} path="/login"/>
     <ProtectedRoute component={HomePage} {...props} path="/" />
 
-    <ProtectedRoute component={PopupPage} {...props} path="popup" />
+    <ProtectedRoute component={PopupPage} {...props} path="popups" />
+    <ProtectedRoute component={PopupPage} {...props} path="popups/:id" />
     <ProtectedRoute component={DocumentPage} {...props} path="documents" />
     <ProtectedRoute component={DocumentPage} {...props} path="documents/:id" />
     <ProtectedRoute component={EventPage} {...props} path="events" />

@@ -16,7 +16,7 @@ const PopupPage = (props) => {
 const PopupLines = ({ popups }) =>
     popups.map((popup) =>
         <NavLink key={popup.id}
-            to={`/popup/${popup.id}`}
+            to={`/popups/${popup.id}`}
             activeClassName="active"
             className="app-list-item list-group-item-action"
         >{popup.description} 

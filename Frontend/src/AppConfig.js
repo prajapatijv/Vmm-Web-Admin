@@ -11,7 +11,7 @@ const _contextMappings = {
     'eventtype' : { 'apiContext': 'eventtypes', 'actionContext': { 'singular': 'eventtype', 'SINGULAR': 'EVENTTYPE', 'plural': 'eventtypes', 'PLURAL': 'EVENTTYPES' } },
     'area' : { 'apiContext': 'areas', 'actionContext': { 'singular': 'area', 'SINGULAR': 'AREA', 'plural': 'areas', 'PLURAL': 'AREAS' } },    
     'document' : { 'apiContext': 'documents', 'actionContext': { 'singular': 'document', 'SINGULAR': 'DOCUMENT', 'plural': 'documents', 'PLURAL': 'DOCUMENTS' } },    
-    'popup' : { 'apiContext': 'popup', 'actionContext': { 'singular': 'popup', 'SINGULAR': 'POPUP', 'plural': 'popups', 'PLURAL': 'POPUPS' } },    
+    'popup' : { 'apiContext': 'popups', 'actionContext': { 'singular': 'popup', 'SINGULAR': 'POPUP', 'plural': 'popups', 'PLURAL': 'POPUPS' } },    
 }
 
 export const Config = {

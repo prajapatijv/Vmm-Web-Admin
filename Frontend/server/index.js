@@ -14,7 +14,7 @@ const eventtypes = require('./data/eventtypes.json')
 const areas = require('./data/areas.json')
 const documents = require('./data/documents.json')
 const events = require('./data/events.json')
-const popup = require('./data/popup.json')
+const popups = require('./data/popup.json')
 
 const TOKEN_KEY = 'jwtsecret'
 
@@ -87,7 +87,7 @@ app.get('/api/eventtypes', (req, res) => { var response = {}; response.eventtype
 app.get('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
 app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documenttypes = documenttypes; res.status(200).json(response) })
 app.get('/api/events', (req, res) => { var response = {}; response.events = events; response.eventtypes = eventtypes; res.status(200).json(response) })
-app.get('/api/popup', (req, res) => { var response = {}; response.popup = popup; res.status(200).json(response) })
+app.get('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 
 //filepond endpoints
 app.post('/api/file', (req, res) => res.status(200).json("success"))

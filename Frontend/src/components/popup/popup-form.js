@@ -16,19 +16,13 @@ import { Config } from '../../AppConfig'
 
 const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting }) => {
 
-    const _init = { ...document }
+    const _init = { ...popup }
     const serverPath = `${Config.API_URL}/file`
 
     const schema = Yup.object().shape({
         id: Yup.number(),
         title: Yup.string().min(2).max(50).required(),
         description: Yup.string().min(2).max(50).required(),
-        publishDate: Yup.date().required(),
-        expiryDate: Yup.date().required(),
-        documentPath:Yup.string().required(),
-        documentTypeId:Yup.number().required(),
-        groupYear:Yup.number().notRequired(),
-        actions:Yup.boolean().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
