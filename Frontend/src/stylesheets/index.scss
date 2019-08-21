@@ -34,7 +34,7 @@ code {
     //background-color: #f8f9fa;
 
     .list-group {
-      max-height:calc(100vh);
+      max-height:calc(100vh - 130px);
       overflow: auto;
     }
 
