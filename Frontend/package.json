@@ -12,6 +12,7 @@
     "express": "^4.16.4",
     "express-delay": "^0.2.0",
     "filepond": "^4.4.13",
+    "filepond-plugin-file-validate-type": "^1.2.4",
     "formik": "^1.5.7",
     "js-cookie": "^2.2.0",
     "jsonwebtoken": "^8.5.1",

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -8,12 +8,15 @@ import { CheckBox } from '../shared/check-box'
 import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import { Config } from '../../AppConfig'
 
 import { FilePond, registerPlugin } from 'react-filepond'
+// Import the plugin code
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
 import 'filepond/dist/filepond.min.css'
 
-import { Config } from '../../AppConfig'
-import { yieldExpression } from '@babel/types';
+// Register the plugin
+registerPlugin(FilePondPluginFileValidateType)
 
 const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -40,6 +43,7 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
     }
 
     //const [files, setFiles] = useState([])
+    //const [showDocument,setShowDocument] = useState(true)
 
     const onfileUpload = (fileList) => {
     }
@@ -77,14 +81,21 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                             </div>
                             
                             <FilePond name="posterImage" 
+                                        acceptedFileTypes={['image/png','image/jpeg','image/jpg']}
                                         server={serverPath}
                                         onupdatefiles={onfileUpload}
                                         allowMultiple={false} labelIdle="Upload or drop image" />
 
+
+                            <div className="form-row mb-2">
+                                <Field type="checkbox" name="showDocument" component={CheckBox} label="Do you want to have document attachment?" />
+                            </div>
+
                             <FilePond name="documentLink" 
-                                        server={serverPath}
-                                        onupdatefiles={onfileUpload}
-                                        allowMultiple={false} labelIdle="Upload or drop document" />
+                                    acceptedFileTypes={['pdf']}
+                                    server={serverPath}
+                                    onupdatefiles={onfileUpload}
+                                    allowMultiple={false} labelIdle="Upload or drop document" />
 
                             <ButtonBar
                                 showDelete={popup.id !== 0}
