@@ -7,7 +7,8 @@ const ContainerKeys = {
     Area: 'area',
     Document:'document',
     Event:'event',
-    Popup:'popup'
+    Popup:'popup',
+    Query:'query'
 }
 
 export default ContainerKeys

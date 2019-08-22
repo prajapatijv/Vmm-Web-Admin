@@ -10,6 +10,7 @@ import areas from './area-page/reducer'
 import documents from './document-page/reducer'
 import events from './event-page/reducer'
 import popups from './popup-page/reducer'
+import queries from './query-page/reducer'
 
 export default combineReducers({
     status,
@@ -21,5 +22,6 @@ export default combineReducers({
     areaState:areas,
     documentState:documents,
     eventState:events,
-    popupState:popups
+    popupState:popups,
+    queryState:queries
 })

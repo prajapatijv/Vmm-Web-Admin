@@ -14,6 +14,7 @@ import EventPage from './containers/event-page/event'
 import AreaPage from './containers/area-page/area' 
 import DocumentPage from './containers/document-page/document'
 import PopupPage from './containers/popup-page/popup'
+import QueryPage from './containers/query-page/query'
 
 const Routes = (props) =>
   <Router>
@@ -26,6 +27,8 @@ const Routes = (props) =>
     <ProtectedRoute component={DocumentPage} {...props} path="documents/:id" />
     <ProtectedRoute component={EventPage} {...props} path="events" />
     <ProtectedRoute component={EventPage} {...props} path="events/:id" />
+    <ProtectedRoute component={QueryPage} {...props} path="queries" />
+    <ProtectedRoute component={QueryPage} {...props} path="queries/:id" />
 
     <ProtectedRoute component={Setting} {...props} path="settings" />
     <ProtectedRoute component={UserPage} {...props} path="users" />

@@ -12,6 +12,7 @@ const _contextMappings = {
     'area' : { 'apiContext': 'areas', 'actionContext': { 'singular': 'area', 'SINGULAR': 'AREA', 'plural': 'areas', 'PLURAL': 'AREAS' } },    
     'document' : { 'apiContext': 'documents', 'actionContext': { 'singular': 'document', 'SINGULAR': 'DOCUMENT', 'plural': 'documents', 'PLURAL': 'DOCUMENTS' } },    
     'popup' : { 'apiContext': 'popups', 'actionContext': { 'singular': 'popup', 'SINGULAR': 'POPUP', 'plural': 'popups', 'PLURAL': 'POPUPS' , 'allowAdd':0, 'allowDelete':0 } },    
+    'query' : { 'apiContext': 'queries', 'actionContext': { 'singular': 'query', 'SINGULAR': 'QUERY', 'plural': 'queries', 'PLURAL': 'QUERIES' } },    
 }
 
 export const Config = {

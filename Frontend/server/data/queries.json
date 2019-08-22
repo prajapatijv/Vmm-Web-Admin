@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,"name":"Name 1","email":"test@test.com","contact":"9998887770","query":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book","answer":"","date":"2019-08-22", "replied":1
+    },    
+    {
+        "id":2,"name":"Name 2","email":"test@test.com","contact":"9998887771","query":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.","answer":"","date":"2019-07-22", "replied":1
+    },    
+    {
+        "id":3,"name":"Name 3","email":"test@test.com","contact":"9998887772","query":"query description 3","answer":"","date":"2019-05-22", "replied":0
+    },    
+    {
+        "id":4,"name":"Name 4","email":"test@test.com","contact":"9998887773","query":"query description 4","answer":"","date":"2017-01-12", "replied":1
+    },    
+    {
+        "id":5,"name":"Name 5","email":"test@test.com","contact":"9998887775","query":"query description 5","answer":"","date":"2019-08-21", "replied":0
+    }
+]
