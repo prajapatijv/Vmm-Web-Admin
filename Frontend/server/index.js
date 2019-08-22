@@ -90,9 +90,7 @@ app.get('/api/events', (req, res) => { var response = {}; response.events = even
 app.get('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 
 //filepond endpoints
-app.post('/api/file', (req, res) => res.status(200).json("success"))
-app.post('/api/file', (req, res) =>  res.status(200))
-//app.head('/api/file', (req, res) =>  res.status(200))
+app.post('/api/file', (req, res) => res.status(200).json(new Date().toString()))
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)

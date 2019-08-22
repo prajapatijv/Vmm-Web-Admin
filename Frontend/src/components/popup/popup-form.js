@@ -8,14 +8,10 @@ import { CheckBox } from '../shared/check-box'
 import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import { FileUpolader } from '../shared/file-uploader'
+
 import { Config } from '../../AppConfig'
 
-import { FilePond, registerPlugin } from 'react-filepond'
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
-import 'filepond/dist/filepond.min.css'
-
-// Register the plugin
-registerPlugin(FilePondPluginFileValidateType)
 
 const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -79,22 +75,22 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                 </div>
                             </div>
                             
-                            <FilePond name="posterImage" 
+                            <FileUpolader name="posterImage" 
                                         acceptedFileTypes={['image/png','image/jpeg','image/jpg']}
                                         server={serverPath}
                                         onupdatefiles={onfileUpload}
-                                        allowMultiple={false} labelIdle="Upload or drop png,jpeg or jpg image" />
+                                        allowMultiple={false} labelIdle="Upload an image" />
 
 
                             <div className="form-row mb-2">
                                 <Field type="checkbox" name="showDocument" component={CheckBox} label="Do you want to have document attachment?" />
                             </div>
 
-                            <FilePond name="documentLink" 
+                            <FileUpolader name="documentLink" 
                                     acceptedFileTypes={['application/pdf']}
                                     server={serverPath}
                                     onupdatefiles={onfileUpload}
-                                    allowMultiple={false} labelIdle="Upload or drop PDF" />
+                                    allowMultiple={false} labelIdle="Upload document" />
 
                             <ButtonBar
                                 showDelete={popup.id !== 0}
