@@ -50,8 +50,12 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
                             <div className="form-row mb-2">
                                 <div className="card">
                                     <div className="card-body">
+                                        <h4 className="card-title text-muted">Contact Details</h4>
                                         <h5 className="card-title">{query.name}</h5>
                                         <h6 className="card-subtitle mb-2 text-muted">{query.contact} | {query.email} </h6>
+                                        <hr/>
+
+                                        <h4 className="card-title text-muted">Query</h4>
                                         <p className="card-text">{query.query}</p>
                                     </div>
                                 </div>
