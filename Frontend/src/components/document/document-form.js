@@ -9,11 +9,15 @@ import { SelectBox } from '../shared/select-box'
 import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import { Config } from '../../AppConfig'
 
 import { FilePond, registerPlugin } from 'react-filepond'
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
 import 'filepond/dist/filepond.min.css'
 
-import { Config } from '../../AppConfig'
+// Register the plugin
+registerPlugin(FilePondPluginFileValidateType)
+
 
 const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -43,7 +47,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
         onDelete(id)
     }
 
-    const [files, setFiles] = useState([])
+    //const [files, setFiles] = useState([])
 
     const onfileUpload = (fileList) => {
     }
@@ -89,9 +93,10 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                             </div>
                             
                             <FilePond name="documentPath" 
+                                        acceptedFileTypes={['application/pdf']}
                                         server={serverPath}
                                         onupdatefiles={onfileUpload}
-                                        allowMultiple={false} labelIdle="Upload or drop document" />
+                                        allowMultiple={false} labelIdle="Upload or drop PDF" />
 
                             <div className="form-row mb-2">
                                 <div className="col-md-4 mb-3">
