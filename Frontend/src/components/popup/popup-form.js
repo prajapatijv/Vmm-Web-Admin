@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -13,6 +13,7 @@ import { FilePond, registerPlugin } from 'react-filepond'
 import 'filepond/dist/filepond.min.css'
 
 import { Config } from '../../AppConfig'
+import { yieldExpression } from '@babel/types';
 
 const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -22,7 +23,11 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
     const schema = Yup.object().shape({
         id: Yup.number(),
         title: Yup.string().min(2).max(50).required(),
-        description: Yup.string().min(2).max(50).required(),
+        shortName: Yup.string().min(2).max(10).required(),
+        enabled: Yup.bool(),
+        posterImage: Yup.string().required(),
+        documentLink: Yup.string(),
+        publishDate: Yup.date()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -34,7 +39,7 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
         onDelete(id)
     }
 
-    const [files, setFiles] = useState([])
+    //const [files, setFiles] = useState([])
 
     const onfileUpload = (fileList) => {
     }
@@ -56,27 +61,27 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-2">
-                                <div className="col-md-5 ml-auto">
-                                    <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel={true} />
-                                </div>
+                                <Field type="checkbox" name="enabled" component={CheckBox} label="Active" floatinglabel={true} />
                             </div>
 
                             <div className="form-row mb-2">
                                 <Field type="text" name="title" component={InputBox} placeholder="Title" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-2">
-                                <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel={true} />
+                                <Field type="text" name="shortName" component={InputBox} placeholder="Short Name" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-2">
                                 <div className="col-md-4">
                                     <Field type="text" name="publishDate" component={DatePickerBox} placeholder="Publish Date" floatinglabel={true} />
                                 </div>
-                                <div className="col-md-4">
-                                    <Field type="text" name="expiryDate" component={DatePickerBox} placeholder="Expiry Date" floatinglabel={true} />
-                                </div>
                             </div>
                             
-                            <FilePond name="documentPath" 
+                            <FilePond name="posterImage" 
+                                        server={serverPath}
+                                        onupdatefiles={onfileUpload}
+                                        allowMultiple={false} labelIdle="Upload or drop image" />
+
+                            <FilePond name="documentLink" 
                                         server={serverPath}
                                         onupdatefiles={onfileUpload}
                                         allowMultiple={false} labelIdle="Upload or drop document" />
@@ -109,6 +114,7 @@ PopupForm.propTypes = {
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
+    allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
 }

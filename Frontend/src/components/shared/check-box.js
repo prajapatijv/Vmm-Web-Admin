@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import './check-box.scss'
 
 export const CheckBox = ({
   field, // { name, value, onChange, onBlur }
