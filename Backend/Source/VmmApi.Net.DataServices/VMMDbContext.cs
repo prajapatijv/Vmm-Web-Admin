@@ -15,5 +15,6 @@ namespace VmmApi.Net.DataServices
         public DbSet<EventType> EventTypes { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<QueryDetail> Queries { get; set; }
     }
 }
