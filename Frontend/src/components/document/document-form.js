@@ -91,6 +91,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                             </div>
                             
                             <FileUpolader
+                                    maxFileSize="30MB"
                                     name="documentPath" 
                                     acceptedFileTypes={['application/pdf']}
                                     server={serverPath}

@@ -9,6 +9,7 @@ import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 import { FileUpolader } from '../shared/file-uploader'
+import { ImageUpolader } from '../shared/image-uploader'
 
 import { Config } from '../../AppConfig'
 
@@ -82,7 +83,8 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                 </div>
                             </div>
                             
-                            <FileUpolader name="posterImage"
+                            <ImageUpolader name="posterImage"
+                                        maxFileSize="5MB"
                                         onProcessFile={onProcessPosterFile}
                                         acceptedFileTypes={['image/png','image/jpeg','image/jpg']}
                                         server={serverPath}
@@ -94,6 +96,7 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                             </div>
 
                             <FileUpolader name="documentLink" 
+                                    maxFileSize="30MB"
                                     onProcessFile={onProcessDocumentFile}
                                     acceptedFileTypes={['application/pdf']}
                                     server={serverPath}
