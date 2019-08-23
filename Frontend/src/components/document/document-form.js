@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -34,6 +34,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
     })
 
     const onSaveEntity = (values, actions) => {
+        values.documentPath = documentPath
         onSave(values)
         actions.setSubmitting(false)
     }
@@ -42,8 +43,12 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
         onDelete(id)
     }
 
-    const onfileUpload = (fileList) => {
-    }    
+    const [documentPath, setDocumentPath] = useState("")
+
+    const onProcessDocument = (error, file) => {
+        setDocumentPath(file.serverId)
+    }
+
   
     return (
         document ?
@@ -89,7 +94,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                     name="documentPath" 
                                     acceptedFileTypes={['application/pdf']}
                                     server={serverPath}
-                                    onupdatefiles={onfileUpload}
+                                    onProcessFile={onProcessDocument}
                                     allowMultiple={false} 
                                     label="Upload document" 
                                 />

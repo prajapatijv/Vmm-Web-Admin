@@ -9,16 +9,18 @@ import 'filepond/dist/filepond.min.css'
 registerPlugin(FilePondPluginFileValidateType)
 
 export const FileUpolader = (props) => {
-    const onfileUpload = (fileList) => {
-        props.onfileUpload(fileList)
+
+    const onProcessFile = (error, file) => {
+        props.onProcessFile(error, file)
     }
+
 
     return (
         <div>
             <FilePond name={props.name}
                 acceptedFileTypes={['application/pdf']}
                 server={props.serverPath}
-                onupdatefiles={onfileUpload}
+                onprocessfile={onProcessFile}
                 allowMultiple={props.allowMultiple} 
                 labelIdle={props.label}
                 {...props}/>        
@@ -29,7 +31,7 @@ export const FileUpolader = (props) => {
 FileUpolader.propTypes = {
     name: PropTypes.string,
     serverPath: PropTypes.string,
-    onfileUpload: PropTypes.func,
+    onProcessFile: PropTypes.func,
     allowMultiple: PropTypes.bool,
     label: PropTypes.string
 }

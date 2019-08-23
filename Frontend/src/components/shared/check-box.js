@@ -35,7 +35,7 @@ const Check = ({ field, props, touched, errors, cls }) =>
     field: PropTypes.object,
     props: PropTypes.object,
     touched: PropTypes.object,
-    errors: PropTypes.array,
+    errors: PropTypes.object,
     cls: PropTypes.string
   }
   

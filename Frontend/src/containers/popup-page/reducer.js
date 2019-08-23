@@ -18,7 +18,11 @@ const popups = (state=initialState, action) => {
 const defaultPopup = { 
     id:0,
     title:"",
-    description:""
+    shortName:"",
+    enabled:true,
+    posterImage:"",
+    documentLink:"",
+    publishDate:""
 }
 
 const initialState = {

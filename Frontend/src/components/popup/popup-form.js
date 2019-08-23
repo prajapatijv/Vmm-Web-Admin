@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -23,12 +23,14 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
         title: Yup.string().min(2).max(50).required(),
         shortName: Yup.string().min(2).max(10).required(),
         enabled: Yup.bool(),
-        posterImage: Yup.string().required(),
-        documentLink: Yup.string(),
-        publishDate: Yup.date()
+        //posterImage: Yup.string().required(),
+        //documentLink: Yup.string().notRequired(),
+        publishDate: Yup.date().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
+        values.posterImage = posterImage
+        values.documentLink = document
         onSave(values)
         actions.setSubmitting(false)
     }
@@ -37,10 +39,15 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
         onDelete(id)
     }
 
-    //const [files, setFiles] = useState([])
-    //const [showDocument,setShowDocument] = useState(true)
+    const [posterImage, setPosterImage] = useState("")
+    const [document, setDocument] = useState("")
 
-    const onfileUpload = (fileList) => {
+    const onProcessPosterFile = (error, file) => {
+        setPosterImage(file.serverId)
+    }
+
+    const onProcessDocumentFile = (error, file) => {
+        setDocument(file.serverId)
     }
 
     return (
@@ -75,10 +82,10 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                 </div>
                             </div>
                             
-                            <FileUpolader name="posterImage" 
+                            <FileUpolader name="posterImage"
+                                        onProcessFile={onProcessPosterFile}
                                         acceptedFileTypes={['image/png','image/jpeg','image/jpg']}
                                         server={serverPath}
-                                        onupdatefiles={onfileUpload}
                                         allowMultiple={false} labelIdle="Upload an image" />
 
 
@@ -87,9 +94,9 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                             </div>
 
                             <FileUpolader name="documentLink" 
+                                    onProcessFile={onProcessDocumentFile}
                                     acceptedFileTypes={['application/pdf']}
                                     server={serverPath}
-                                    onupdatefiles={onfileUpload}
                                     allowMultiple={false} labelIdle="Upload document" />
 
                             <ButtonBar
@@ -124,7 +131,3 @@ PopupForm.propTypes = {
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
 }
-
-/*
-<Field type="select" name="documentTypeId" component={SelectBox} options = {_options} floatinglabel="0"/>
-*/

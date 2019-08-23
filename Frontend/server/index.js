@@ -77,6 +77,7 @@ app.post('/api/eventtypes', (req, res) => { var response = {}; response.eventtyp
 app.post('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
 app.post('/api/documents', (req, res) => { var response = {}; response.documents = documents; res.status(200).json(response) })
 app.post('/api/events', (req, res) => { var response = {}; response.events = events; res.status(200).json(response) })
+app.post('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 
 app.delete('/api/*/:id', (req, res) => res.status(200).json({}))
 
@@ -92,7 +93,7 @@ app.get('/api/popups', (req, res) => { var response = {}; response.popups = popu
 app.get('/api/queries', (req, res) => { var response = {}; response.queries = queries; res.status(200).json(response) })
 
 //filepond endpoints
-app.post('/api/file', (req, res) => res.status(200).json(new Date().toString()))
+app.post('/api/file', (req, res) => res.status(200).json(new Date().toUTCString()))
 
 const generateToken = (req) => {
     const user = users.find(u => u.userName === req.body.userName)
