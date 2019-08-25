@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Web.Hosting;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
 using VmmApi.Net.Models;
@@ -15,15 +17,23 @@ namespace VmmApi.Net.Services
 
     }
 
-    public class DocumentService: IDocumentService
+    public class DocumentService: IDocumentService 
     {
         private readonly IDocumentTypeService documentTypeService;
+        private readonly IFtpService ftpService;
+        private readonly IConfigurationProvider configurationProvider;
+
         private readonly VmmDbContext dbContext;
 
-        public DocumentService(VmmDbContext dbContext, IDocumentTypeService documentTypeService)
+        public DocumentService(VmmDbContext dbContext, 
+            IDocumentTypeService documentTypeService, 
+            IFtpService ftpService, 
+            IConfigurationProvider configurationProvider)
         {
             this.dbContext = dbContext;
             this.documentTypeService = documentTypeService;
+            this.configurationProvider = configurationProvider;
+            this.ftpService = ftpService;
         }
 
         public DocumentViewModel GetAllDocuments()
@@ -42,6 +52,17 @@ namespace VmmApi.Net.Services
 
         public void Save(Document document)
         {
+            if (!string.IsNullOrEmpty(document.DocumentPath))
+            {
+                var documentType = this.documentTypeService.GetById(document.DocumentTypeId);
+
+                string uri = $"ftp://{configurationProvider.AppSettings.FTPServer}/httpdocs/Content/Read/{documentType.Description}";
+                string filePath = Path.Combine(HostingEnvironment.MapPath("~/Uploaded"), document.DocumentPath);
+                this.ftpService.FtpUpload(uri,
+                    configurationProvider.AppSettings.FTPUserName,
+                    configurationProvider.AppSettings.FtpPassword, filePath);
+            }
+
             this.dbContext.Documents.Add(document);
 
             if (document.Id > 0)
