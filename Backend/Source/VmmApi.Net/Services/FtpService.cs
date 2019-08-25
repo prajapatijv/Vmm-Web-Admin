@@ -16,10 +16,17 @@ namespace VmmApi.Net.Services
     {
         public void FtpUpload(string uri, string userName, string password, string filePath)
         {
-            using (WebClient webClient = new WebClient())
+            try
             {
-                webClient.Credentials = new NetworkCredential(userName, password);
-                webClient.UploadFileTaskAsync(uri, WebRequestMethods.Ftp.UploadFile, filePath);
+                using (WebClient webClient = new WebClient())
+                {
+                    webClient.Credentials = new NetworkCredential(userName, password);
+                    webClient.UploadFile(uri, WebRequestMethods.Ftp.UploadFile, filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

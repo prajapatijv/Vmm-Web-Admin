@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web.Hosting;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
+using VmmApi.Net.Extensions;
 using VmmApi.Net.Models;
 
 namespace VmmApi.Net.Services
@@ -27,7 +29,7 @@ namespace VmmApi.Net.Services
 
         public DocumentService(VmmDbContext dbContext, 
             IDocumentTypeService documentTypeService, 
-            IFtpService ftpService, 
+            IFtpService ftpService,
             IConfigurationProvider configurationProvider)
         {
             this.dbContext = dbContext;
@@ -56,11 +58,12 @@ namespace VmmApi.Net.Services
             {
                 var documentType = this.documentTypeService.GetById(document.DocumentTypeId);
 
-                string uri = $"ftp://{configurationProvider.AppSettings.FTPServer}/httpdocs/Content/Read/{documentType.Description}";
-                string filePath = Path.Combine(HostingEnvironment.MapPath("~/Uploaded"), document.DocumentPath);
+                string documentName = $"{document.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}".SanotizeFileName();
+                string uri = $"ftp://{configurationProvider.AppSettings.FTPServer}/httpdocs/Content/Read/{documentType.Description}/{documentName}";
+                string filePath = Path.Combine(HostingEnvironment.MapPath("~/Uploaded"), document.DocumentPath.SanotizeFileName());
                 this.ftpService.FtpUpload(uri,
                     configurationProvider.AppSettings.FTPUserName,
-                    configurationProvider.AppSettings.FtpPassword, filePath);
+                    configurationProvider.AppSettings.FTPPassword, filePath);
             }
 
             this.dbContext.Documents.Add(document);

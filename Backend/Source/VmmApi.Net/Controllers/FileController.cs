@@ -1,19 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.Http;
+using VmmApi.Net.Extensions;
+using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
     [RoutePrefix("api/file")]
     public class FileController : ApiController
     {
+
+        public FileController()
+        {
+        }
+
         [HttpPost, Route("")]
         public HttpResponseMessage Upload()
         {
@@ -28,7 +32,8 @@ namespace VmmApi.Net.Controllers
                 HttpPostedFile httpPostedFile = httpContext.Request.Files[0];
                 if (httpPostedFile != null)
                 {
-                    fileName = $"{Guid.NewGuid().ToString()}_{httpPostedFile.FileName}";
+                    fileName =$"{Guid.NewGuid().ToString()}_{httpPostedFile.FileName}".SanotizeFileName();
+
                     // Construct file save path  
                     var fileSavePath = Path.Combine(HostingEnvironment.MapPath("~/Uploaded"), fileName);
 

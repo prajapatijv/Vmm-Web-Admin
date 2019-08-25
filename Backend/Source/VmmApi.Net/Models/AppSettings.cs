@@ -19,6 +19,6 @@ namespace VmmApi.Net.Models
 
         public string FTPServer { get; set; }
         public string FTPUserName { get; set; }
-        public string FtpPassword { get; set; }
+        public string FTPPassword { get; set; }
     }
 }

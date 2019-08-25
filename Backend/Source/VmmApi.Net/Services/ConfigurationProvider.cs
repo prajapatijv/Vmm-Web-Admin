@@ -39,7 +39,7 @@ namespace VmmApi.Net.Services
                 RefreshExpirationMinutes = GetSetting<int>("RefreshExpirationMinutes", 1500) * 60,
                 Env = (Env)Enum.Parse(typeof(Env), env),
                 FTPUserName = GetSetting<string>("FTPUserName", string.Empty),
-                FtpPassword = GetSetting<string>("FTPPassword", string.Empty),
+                FTPPassword = GetSetting<string>("FTPPassword", string.Empty),
                 FTPServer = GetSetting<string>("FTPServer", string.Empty)
             };
         }
