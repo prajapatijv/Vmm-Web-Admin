@@ -88,6 +88,7 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IEventService>().To<EventService>();
             kernel.Bind<IQueryService>().To<QueryService>();
             kernel.Bind<IFtpService>().To<FtpService>();
+            kernel.Bind<IFileService>().To<FileService>();
             kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>().InSingletonScope();
 
             var configProvider = kernel.Get<IConfigurationProvider>();

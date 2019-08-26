@@ -23,19 +23,21 @@ namespace VmmApi.Net.Services
     {
         private readonly IDocumentTypeService documentTypeService;
         private readonly IFtpService ftpService;
+        private readonly IFileService fileService;
         private readonly IConfigurationProvider configurationProvider;
-
         private readonly VmmDbContext dbContext;
 
         public DocumentService(VmmDbContext dbContext, 
             IDocumentTypeService documentTypeService, 
             IFtpService ftpService,
+            IFileService fileService,
             IConfigurationProvider configurationProvider)
         {
             this.dbContext = dbContext;
             this.documentTypeService = documentTypeService;
             this.configurationProvider = configurationProvider;
             this.ftpService = ftpService;
+            this.fileService = fileService;
         }
 
         public DocumentViewModel GetAllDocuments()
@@ -67,6 +69,8 @@ namespace VmmApi.Net.Services
                 this.ftpService.FtpUpload(uri,
                     configurationProvider.AppSettings.FTPUserName,
                     configurationProvider.AppSettings.FTPPassword, filePath);
+
+                this.fileService.DeleteFile(filePath);
             }
 
             this.dbContext.Documents.Add(document);
