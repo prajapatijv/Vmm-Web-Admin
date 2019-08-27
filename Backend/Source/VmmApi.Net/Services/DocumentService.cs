@@ -60,7 +60,9 @@ namespace VmmApi.Net.Services
             {
                 var documentType = this.documentTypeService.GetById(document.DocumentTypeId);
 
-                string filePath = Path.Combine(HostingEnvironment.MapPath("~/Uploaded"), document.DocumentPath.SanotizeFileName());
+                string filePath = Path.Combine(
+                    HostingEnvironment.MapPath($"~/{configurationProvider.AppSettings.FileUploadFolder}"), 
+                    document.DocumentPath.SanotizeFileName());
                 var file = new FileInfo(filePath);
 
                 string documentName = $"{document.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}{file.Extension}".SanotizeFileName();

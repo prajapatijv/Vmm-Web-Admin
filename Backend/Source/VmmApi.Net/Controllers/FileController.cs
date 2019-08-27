@@ -13,9 +13,10 @@ namespace VmmApi.Net.Controllers
     [RoutePrefix("api/file")]
     public class FileController : ApiController
     {
-
-        public FileController()
+        private readonly IConfigurationProvider configurationProvider;
+        public FileController(IConfigurationProvider configurationProvider)
         {
+            this.configurationProvider = configurationProvider
         }
 
         [HttpPost, Route("")]
@@ -32,10 +33,12 @@ namespace VmmApi.Net.Controllers
                 HttpPostedFile httpPostedFile = httpContext.Request.Files[0];
                 if (httpPostedFile != null)
                 {
-                    fileName =$"{Guid.NewGuid().ToString()}_{httpPostedFile.FileName}".SanotizeFileName();
+                    fileName = $"{Guid.NewGuid().ToString()}_{httpPostedFile.FileName}".SanotizeFileName();
 
                     // Construct file save path  
-                    var fileSavePath = Path.Combine(HostingEnvironment.MapPath("~/Uploaded"), fileName);
+                    var fileSavePath = Path.Combine(
+                        HostingEnvironment.MapPath($"~/{configurationProvider.AppSettings.FileUploadFolder}"),
+                        fileName);
 
                     // Save the uploaded file  
                     httpPostedFile.SaveAs(fileSavePath);

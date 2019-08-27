@@ -40,7 +40,8 @@ namespace VmmApi.Net.Services
                 Env = (Env)Enum.Parse(typeof(Env), env),
                 FTPUserName = GetSetting<string>("FTPUserName", string.Empty),
                 FTPPassword = GetSetting<string>("FTPPassword", string.Empty),
-                FTPServer = GetSetting<string>("FTPServer", string.Empty)
+                FTPServer = GetSetting<string>("FTPServer", string.Empty),
+                FileUploadFolder = GetSetting<string>("FileUploadFolder", "Upload")
             };
         }
 
