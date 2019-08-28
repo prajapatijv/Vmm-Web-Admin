@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Web.Hosting;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
 using VmmApi.Net.Models;
+using VmmApi.Net.Extensions;
+
 
 namespace VmmApi.Net.Services
 {
@@ -18,10 +22,19 @@ namespace VmmApi.Net.Services
     public class PopupService : IPopupService
     {
         private readonly VmmDbContext dbContext;
+        private readonly IConfigurationProvider configurationProvider;
+        private readonly IFtpService ftpService;
+        private readonly IFileService fileService;
 
-        public PopupService(VmmDbContext dbContext)
+        public PopupService(VmmDbContext dbContext,
+            IFtpService ftpService,
+            IFileService fileService,
+            IConfigurationProvider configurationProvider)
         {
             this.dbContext = dbContext;
+            this.ftpService = ftpService;
+            this.fileService = fileService;
+            this.configurationProvider = configurationProvider;
         }
 
         public PopupViewModel GetAllPopups()
@@ -51,12 +64,31 @@ namespace VmmApi.Net.Services
 
         public void Save(Popup popup)
         {
-            this.dbContext.Popups.Add(popup);
-
             if (popup.Id <= 0)
             {
                 throw new NotSupportedException("This operation is not supported");
             }
+
+            if (!string.IsNullOrEmpty(popup.PosterImage))
+            {
+                string filePath = Path.Combine(
+                            HostingEnvironment.MapPath($"~/{configurationProvider.AppSettings.FileUploadFolder}"),
+                            popup.PosterImage.SanotizeFileName());
+
+                var file = new FileInfo(filePath);
+                string popupImageName = $"{popup.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}{file.Extension}".SanotizeFileName();
+
+                string uri = $"ftp://{configurationProvider.AppSettings.FTPServer}/httpdocs/Content/Images/PopupImg/{popupImageName}";
+
+                this.ftpService.FtpUpload(uri,
+                    configurationProvider.AppSettings.FTPUserName,
+                    configurationProvider.AppSettings.FTPPassword, filePath);
+
+                this.fileService.DeleteFile(filePath);
+
+            }
+
+            this.dbContext.Popups.Add(popup);
 
             if (popup.Id > 0)
             {
