@@ -16,7 +16,7 @@ namespace VmmApi.Net.Controllers
         private readonly IConfigurationProvider configurationProvider;
         public FileController(IConfigurationProvider configurationProvider)
         {
-            this.configurationProvider = configurationProvider
+            this.configurationProvider = configurationProvider;
         }
 
         [HttpPost, Route("")]
