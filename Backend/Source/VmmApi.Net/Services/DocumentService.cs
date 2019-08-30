@@ -60,19 +60,19 @@ namespace VmmApi.Net.Services
             {
                 var documentType = this.documentTypeService.GetById(document.DocumentTypeId);
 
-                string filePath = Path.Combine(
-                    HostingEnvironment.MapPath($"~/{configurationProvider.AppSettings.FileUploadFolder}"), 
-                    document.DocumentPath.SanotizeFileName());
-                var file = new FileInfo(filePath);
+                var key = document.DocumentPath.SanotizeFileName();
+                var fileBytes = this.fileService.GetFile(key);
+                var extension = new FileInfo(key).Extension;
 
-                string documentName = $"{document.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}{file.Extension}".SanotizeFileName();
+                string documentName = $"{document.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}{extension}".SanotizeFileName();
                 string uri = $"ftp://{configurationProvider.AppSettings.FTPServer}/httpdocs/Content/Read/{documentType.Description}/{documentName}";
+
 
                 this.ftpService.FtpUpload(uri,
                     configurationProvider.AppSettings.FTPUserName,
-                    configurationProvider.AppSettings.FTPPassword, filePath);
+                    configurationProvider.AppSettings.FTPPassword, fileBytes);
 
-                this.fileService.DeleteFile(filePath);
+                this.fileService.RemoveFile(document.DocumentPath);
             }
 
             this.dbContext.Documents.Add(document);

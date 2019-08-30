@@ -92,6 +92,7 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IPopupService>().To<PopupService>();
 
             kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>().InSingletonScope();
+            kernel.Bind<FileCacheProvder>().ToSelf().InSingletonScope();
 
             var configProvider = kernel.Get<IConfigurationProvider>();
 
