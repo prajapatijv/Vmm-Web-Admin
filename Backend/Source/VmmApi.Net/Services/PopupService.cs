@@ -24,16 +24,16 @@ namespace VmmApi.Net.Services
         private readonly VmmDbContext dbContext;
         private readonly IConfigurationProvider configurationProvider;
         private readonly IFtpService ftpService;
-        private readonly IFileService fileService;
+        private readonly IFileCacheService fileCacheService;
 
         public PopupService(VmmDbContext dbContext,
             IFtpService ftpService,
-            IFileService fileService,
+            IFileCacheService fileCacheService,
             IConfigurationProvider configurationProvider)
         {
             this.dbContext = dbContext;
             this.ftpService = ftpService;
-            this.fileService = fileService;
+            this.fileCacheService = fileCacheService;
             this.configurationProvider = configurationProvider;
         }
 
@@ -69,24 +69,8 @@ namespace VmmApi.Net.Services
                 throw new NotSupportedException("This operation is not supported");
             }
 
-            if (!string.IsNullOrEmpty(popup.PosterImage))
-            {
-                string filePath = Path.Combine(
-                            HostingEnvironment.MapPath($"~/{configurationProvider.AppSettings.FileUploadFolder}"),
-                            popup.PosterImage.SanotizeFileName());
-
-                var file = new FileInfo(filePath);
-                string popupImageName = $"{popup.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}{file.Extension}".SanotizeFileName();
-
-                string uri = $"ftp://{configurationProvider.AppSettings.FTPServer}/httpdocs/Content/Images/PopupImg/{popupImageName}";
-
-                this.ftpService.FtpUpload(uri,
-                    configurationProvider.AppSettings.FTPUserName,
-                    configurationProvider.AppSettings.FTPPassword, filePath);
-
-                this.fileService.DeleteFile(filePath);
-
-            }
+            this.Upload(popup.PosterImage, popup.Title, "Content/Images/PopupImg");
+            this.Upload(popup.DocumentLink, popup.Title, "Content/Images/PopupImg");
 
             this.dbContext.Popups.Add(popup);
 
@@ -96,6 +80,29 @@ namespace VmmApi.Net.Services
             }
 
             this.dbContext.SaveChanges();
+        }
+
+        private void Upload(string docmentPath, string title, string uploadTo)
+        {
+            if (!string.IsNullOrEmpty(docmentPath))
+            {
+                var key = docmentPath.SanotizeFileName();
+                var fileBytes = this.fileCacheService.GetFile(key);
+                if (fileBytes != null)
+                {
+                    var extension = new FileInfo(key).Extension;
+
+                    string documentToUpload = $"{title}-{DateTime.Now.ToString("yyyy-MM-dd")}{extension}".SanotizeFileName();
+
+                    string uri = $"${configurationProvider.FtpSettings.FTPRootPath}/{uploadTo}/{documentToUpload}";
+
+                    this.ftpService.FtpUpload(uri,
+                        configurationProvider.FtpSettings.FTPUserName,
+                        configurationProvider.FtpSettings.FTPPassword, fileBytes);
+
+                    this.fileCacheService.RemoveFile(key);
+                }
+            }
         }
 
     }

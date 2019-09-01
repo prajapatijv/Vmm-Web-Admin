@@ -88,7 +88,7 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IEventService>().To<EventService>();
             kernel.Bind<IQueryService>().To<QueryService>();
             kernel.Bind<IFtpService>().To<FtpService>();
-            kernel.Bind<IFileService>().To<FileService>();
+            kernel.Bind<IFileCacheService>().To<FileCacheService>();
             kernel.Bind<IPopupService>().To<PopupService>();
 
             kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>().InSingletonScope();
@@ -98,10 +98,10 @@ namespace VmmApi.Net.App_Start
 
             var jwtIssuer = new JwtIssuer(options =>
                                           {
-                                              options.Audience = configProvider.AppSettings.Audience;
-                                              options.Issuer = configProvider.AppSettings.Issuer;
+                                              options.Audience = configProvider.JwtSettings.Audience;
+                                              options.Issuer = configProvider.JwtSettings.Issuer;
                                               options.ExpireSeconds =
-                                                  configProvider.AppSettings.AccessExpirationSeconds;
+                                                  configProvider.JwtSettings.AccessExpirationSeconds;
                                               options.SecurityKey = Guid.NewGuid().ToString();
                                           });
 

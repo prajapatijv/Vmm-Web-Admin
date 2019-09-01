@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Web;
-using System.Web.Hosting;
 using System.Web.Http;
 using VmmApi.Net.Extensions;
 using VmmApi.Net.Services;
@@ -14,12 +12,14 @@ namespace VmmApi.Net.Controllers
     public class FileController : ApiController
     {
         private readonly IConfigurationProvider configurationProvider;
-        private readonly IFileService fileService;
+        private readonly IFileCacheService fileCacheService;
 
-        public FileController(IConfigurationProvider configurationProvider, IFileService fileService)
+        public FileController(
+            IConfigurationProvider configurationProvider, 
+            IFileCacheService fileCacheService)
         {
             this.configurationProvider = configurationProvider;
-            this.fileService = fileService;
+            this.fileCacheService = fileCacheService;
         }
 
         [HttpPost, Route("")]
@@ -44,16 +44,7 @@ namespace VmmApi.Net.Controllers
                         fileData = binaryReader.ReadBytes((int)httpPostedFile.ContentLength);
                     }
 
-                    this.fileService.AddFile(fileName, fileData);
-
-                    // Construct file save path  
-                    //var fileSavePath = Path.Combine(
-                    //    HostingEnvironment.MapPath($"~/{configurationProvider.AppSettings.FileUploadFolder}"),
-                    //    fileName);
-
-                    //httpPostedFile.InputStream
-                    // Save the uploaded file  
-                    //httpPostedFile.SaveAs(fileSavePath);
+                    this.fileCacheService.AddFile(fileName, fileData);
                 }
             }
 

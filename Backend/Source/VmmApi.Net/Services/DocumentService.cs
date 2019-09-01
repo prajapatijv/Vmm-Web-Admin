@@ -23,21 +23,21 @@ namespace VmmApi.Net.Services
     {
         private readonly IDocumentTypeService documentTypeService;
         private readonly IFtpService ftpService;
-        private readonly IFileService fileService;
+        private readonly IFileCacheService fileCacheService;
         private readonly IConfigurationProvider configurationProvider;
         private readonly VmmDbContext dbContext;
 
         public DocumentService(VmmDbContext dbContext, 
             IDocumentTypeService documentTypeService, 
             IFtpService ftpService,
-            IFileService fileService,
+            IFileCacheService fileCacheService,
             IConfigurationProvider configurationProvider)
         {
             this.dbContext = dbContext;
             this.documentTypeService = documentTypeService;
             this.configurationProvider = configurationProvider;
             this.ftpService = ftpService;
-            this.fileService = fileService;
+            this.fileCacheService = fileCacheService;
         }
 
         public DocumentViewModel GetAllDocuments()
@@ -58,22 +58,23 @@ namespace VmmApi.Net.Services
         {
             if (!string.IsNullOrEmpty(document.DocumentPath))
             {
-                var documentType = this.documentTypeService.GetById(document.DocumentTypeId);
-
                 var key = document.DocumentPath.SanotizeFileName();
-                var fileBytes = this.fileService.GetFile(key);
+                var fileBytes = this.fileCacheService.GetFile(key);
                 if (fileBytes != null)
                 {
+
                     var extension = new FileInfo(key).Extension;
+                    var documentType = this.documentTypeService.GetById(document.DocumentTypeId);
+
 
                     string documentName = $"{document.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}{extension}".SanotizeFileName();
-                    string uri = $"ftp://{configurationProvider.AppSettings.FTPServer}/httpdocs/Content/Read/{documentType.Description}/{documentName}";
+                    string uri = $"{configurationProvider.FtpSettings.FTPRootPath}/Content/Read/{documentType.Description}/{documentName}";
 
                     this.ftpService.FtpUpload(uri,
-                        configurationProvider.AppSettings.FTPUserName,
-                        configurationProvider.AppSettings.FTPPassword, fileBytes);
+                        configurationProvider.FtpSettings.FTPUserName,
+                        configurationProvider.FtpSettings.FTPPassword, fileBytes);
 
-                    this.fileService.RemoveFile(key);
+                    this.fileCacheService.RemoveFile(key);
                 }
             }
 
