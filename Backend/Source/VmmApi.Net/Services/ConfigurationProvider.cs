@@ -11,6 +11,7 @@ namespace VmmApi.Net.Services
         AppSettings AppSettings { get; }
         JwtSettings JwtSettings { get; }
         FtpSettings FtpSettings { get; }
+        EmailSettings EmailSettings { get; }
     }
 
     public class ConfigurationProvider  : IConfigurationProvider
@@ -18,6 +19,7 @@ namespace VmmApi.Net.Services
         private AppSettings appSettings;
         private JwtSettings jwtSettings;
         private FtpSettings ftpSettings;
+        private EmailSettings emailSettings;
 
         public AppSettings AppSettings
         {
@@ -35,6 +37,12 @@ namespace VmmApi.Net.Services
         {
             get => this.ftpSettings;
             private set => this.ftpSettings = value;
+        }
+
+        public EmailSettings EmailSettings
+        {
+            get => this.emailSettings;
+            private set => this.emailSettings = value;
         }
 
         public ConfigurationProvider()
@@ -66,6 +74,18 @@ namespace VmmApi.Net.Services
                 Audience = GetSetting<string>("Audience", string.Empty),
                 AccessExpirationSeconds = GetSetting<int>("AccessExpirationMinutes", 1500) * 60,
                 RefreshExpirationMinutes = GetSetting<int>("RefreshExpirationMinutes", 1500) * 60,
+            };
+
+            this.emailSettings = new EmailSettings
+            {
+                FromEmail = GetSetting<string>("FromEmail", string.Empty),
+                SmtpAuthEmail = GetSetting<string>("SmtpAuthEmail", string.Empty),
+                SmtpAuthPassword = GetSetting<string>("SmtpAuthPassword", string.Empty),
+                SmtpEnableSSL = GetSetting<bool>("SmtpEnableSSL", false),
+                SmtpPort = GetSetting<byte>("SmtpPort", 0),
+                SmtpServer = GetSetting<string>("SmtpServer", string.Empty),
+                AdminContact = GetSetting<string>("AdminContact", ""),
+                ImgDomain = GetSetting<string>("ImgDomain", string.Empty)
             };
         }
 

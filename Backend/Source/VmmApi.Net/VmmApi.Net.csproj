@@ -170,6 +170,7 @@
     <Compile Include="Jwt\JwtIssuerOptions.cs" />
     <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\AppEnums.cs" />
+    <Compile Include="Models\EmailSettings.cs" />
     <Compile Include="Models\FtpSettings.cs" />
     <Compile Include="Models\JwtSettings.cs" />
     <Compile Include="Models\PopupViewModel.cs" />
