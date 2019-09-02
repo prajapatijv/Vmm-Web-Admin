@@ -98,6 +98,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                     onProcessFile={onProcessDocument}
                                     allowMultiple={false} 
                                     label="Upload document" 
+                                    savedFileName={document.documentPath}
                                 />
 
                             <div className="form-row mb-2">

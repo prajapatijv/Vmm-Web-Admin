@@ -99,7 +99,8 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                         onProcessFile={onProcessPosterFile}
                                         acceptedFileTypes={['image/png','image/jpeg','image/jpg']}
                                         server={serverPath}
-                                        allowMultiple={false} labelIdle="Upload an image" />
+                                        allowMultiple={false} labelIdle="Upload an image"
+                                        savedFileName={popup.posterImage} />
 
 
                             <div className="form-row mb-2">
@@ -111,7 +112,8 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                     onProcessFile={onProcessDocumentFile}
                                     acceptedFileTypes={['application/pdf']}
                                     server={serverPath}
-                                    allowMultiple={false} labelIdle="Upload document" />
+                                    allowMultiple={false} labelIdle="Upload document"
+                                    savedFileName={popup.documentLink} />
 
                             <ButtonBar
                                 showDelete={popup.id !== 0}

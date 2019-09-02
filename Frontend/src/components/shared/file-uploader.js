@@ -6,6 +6,7 @@ import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
 import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size'
 
 import 'filepond/dist/filepond.min.css'
+import './file-uploader.scss'
 
 // Register the plugin
 registerPlugin(FilePondPluginFileValidateType)
@@ -19,15 +20,16 @@ export const FileUpolader = (props) => {
 
 
     return (
-        <div>
+        <div className="container-filepond">
+            <h5><span className="badge badge-light border-top border-left border-right">{props.savedFileName}</span></h5>
             <FilePond name={props.name}
-                acceptedFileTypes={props.acceptedFileTypes}
-                server={props.serverPath}
-                onprocessfile={onProcessFile}
-                allowMultiple={props.allowMultiple} 
-                labelIdle={props.label}
-                maxFileSize={props.maxFileSize}
-                {...props}/>        
+                    acceptedFileTypes={props.acceptedFileTypes}
+                    server={props.serverPath}
+                    onprocessfile={onProcessFile}
+                    allowMultiple={props.allowMultiple}
+                    labelIdle={props.label}
+                    maxFileSize={props.maxFileSize}
+                    {...props} />
         </div>
     )
 };
@@ -39,5 +41,6 @@ FileUpolader.propTypes = {
     onProcessFile: PropTypes.func,
     allowMultiple: PropTypes.bool,
     label: PropTypes.string,
-    maxFileSize: PropTypes.string
+    maxFileSize: PropTypes.string,
+    savedFileName: PropTypes.string
 }
