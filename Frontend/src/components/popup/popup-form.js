@@ -22,11 +22,13 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
     const schema = Yup.object().shape({
         id: Yup.number(),
         title: Yup.string().min(2).max(50).required(),
-        shortName: Yup.string().min(2).max(10).required(),
+        shortName: Yup.string().min(2).max(30).required(),
         enabled: Yup.bool(),
-        //posterImage: Yup.string().required(),
-        //documentLink: Yup.string().notRequired(),
-        publishDate: Yup.date().notRequired()
+        posterImage: Yup.string().notRequired(),
+        documentLink: Yup.string().notRequired(),
+        publishDate: Yup.date().notRequired(),
+        expiryDate: Yup.date().notRequired(),
+        popupWidth: Yup.number().max(100)
     })
 
     const onSaveEntity = (values, actions) => {
@@ -68,7 +70,13 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-2">
-                                <Field type="checkbox" name="enabled" component={CheckBox} label="Active" floatinglabel={true} />
+                                <div className="col-md-5">
+                                    <Field type="number" name="popupWidth" component={InputBox} placeholder="Popup Width" floatinglabel={true} />
+                                </div>
+                                <div className="col-md-1"></div>
+                                <div className="col-md-5">
+                                    <Field type="checkbox" name="enabled" component={CheckBox} label="Active" floatinglabel={true} />
+                                </div>
                             </div>
 
                             <div className="form-row mb-2">
@@ -78,8 +86,11 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                 <Field type="text" name="shortName" component={InputBox} placeholder="Short Name" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-2">
-                                <div className="col-md-4">
+                                <div className="col-md-5">
                                     <Field type="text" name="publishDate" component={DatePickerBox} placeholder="Publish Date" floatinglabel={true} />
+                                </div>
+                                <div className="col-md-5">
+                                    <Field type="text" name="expiryDate" component={DatePickerBox} placeholder="Expiry Date" floatinglabel={true} />
                                 </div>
                             </div>
                             

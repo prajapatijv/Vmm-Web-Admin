@@ -1,5 +1,13 @@
 [
     {
-        "id":1,"title":"Title", "description":"Popup 1"
+        "id": 1,
+        "title": "This is popup title2",
+        "shortName": "cooikeName2",
+        "posterImage": "image2.png",
+        "documentLink": "pdf2.pdf",
+        "publishDate": "2019-08-28T00:12:00",
+        "expiryDate": "2019-12-31T00:12:00",
+        "enabled": true,
+        "popupWidth": 80
     }
 ]

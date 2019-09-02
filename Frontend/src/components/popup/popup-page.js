@@ -19,7 +19,7 @@ const PopupLines = ({ popups }) =>
             to={`/popups/${popup.id}`}
             activeClassName="active"
             className="app-list-item list-group-item-action"
-        >{popup.description} 
+        >{popup.title} 
         </NavLink>
     )
 
