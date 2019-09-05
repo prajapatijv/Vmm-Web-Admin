@@ -12,7 +12,8 @@ const defaultQuery = {
     answer:"",
     contact:"",
     email:"",
-    replied:0
+    replied:0,
+    sendReplyEmail:0
 }
 
 const initialState = {

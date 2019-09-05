@@ -62,11 +62,16 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
                                 
                             </div>
                             <div className="form-row mb-2">
-                                <Field type="text" name="answer" component={TextAreaBox} placeholder="Answer" floatinglabel={true} />
+                                <Field type="text" name="answer" component={TextAreaBox} placeholder="Answer" rows="5" floatinglabel={true} />
                             </div>
 
                             <div className="form-row mb-2">
-                                <Field type="checkbox" name="replied" component={CheckBox} label="Replied" floatinglabel={true} />
+                                <div className="col-8">
+                                    <Field type="checkbox" name="sendReplyEmail" component={CheckBox} label="Do you want to send reply email?" floatinglabel={true} />
+                                </div>
+                                <div className="col-3">
+                                    <Field type="checkbox" name="replied" component={CheckBox} label="Replied" floatinglabel={true} />
+                                </div>
                             </div>
 
                             <ButtonBar
