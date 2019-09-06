@@ -21,7 +21,7 @@ export const FileUpolader = (props) => {
 
     return (
         <div className="container-filepond">
-            <h5><span className="badge badge-light border-top border-left border-right">{props.savedFileName}</span></h5>
+            <h5><span className="badge badge-light">{props.savedFileName}</span></h5>
             <FilePond name={props.name}
                     acceptedFileTypes={props.acceptedFileTypes}
                     server={props.serverPath}
