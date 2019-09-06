@@ -29,16 +29,32 @@ export const DatePickerBox = ({
 
     return (
         <div className={clsig} >
-            <DatePicker
-                //customInput={<DatePickerInputMarkUp value={dt} props={props} cls={cls} />}
-                //placeholderText={props.placeholder}
-                //isClearable={true}
-                dateFormat="dd-MMM-yyyy"
-                selected={(field.value && new Date(field.value)) || null}
-                onChange={val => {
-                    onChange(field.name, val);
-                }}
-                field={field} props={props} touched={touched} errors={errors} className={cls} />
+            {props.showTime ? 
+                <DatePicker
+                    //customInput={<DatePickerInputMarkUp value={dt} props={props} cls={cls} />}
+                    //placeholderText={props.placeholder}
+                    //isClearable={true}
+                    dateFormat="dd-MMM-yyyy hh:mm aa"
+                    selected={(field.value && new Date(field.value)) || null}
+                    onChange={val => {
+                        onChange(field.name, val);
+                    }}
+                    field={field} props={props} touched={touched} errors={errors} className={cls} 
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={30}
+                    timeCaption="Time"
+                    />
+                    :
+                    <DatePicker
+                    dateFormat="dd-MMM-yyyy"
+                    selected={(field.value && new Date(field.value)) || null}
+                    onChange={val => {
+                        onChange(field.name, val);
+                    }}
+                    field={field} props={props} touched={touched} errors={errors} className={cls} 
+                    />
+                }
             <FloatingLabel props={props} />                
             <ErrorMessage className="invalid-feedback" component="div" name={field.name} />
         </div>
@@ -86,7 +102,8 @@ DatePickerBox.propTypes = {
     errors: PropTypes.array,
     floatinglabel: PropTypes.bool,
     cls: PropTypes.string,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    showTime: PropTypes.bool
 }
 
 FloatingLabel.propTypes = {

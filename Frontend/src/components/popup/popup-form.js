@@ -86,11 +86,11 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                 <Field type="text" name="shortName" component={InputBox} placeholder="Short Name" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-2">
-                                <div className="col-md-5">
-                                    <Field type="text" name="publishDate" component={DatePickerBox} placeholder="Publish Date" floatinglabel={true} />
+                                <div className="col-md-6">
+                                    <Field type="text" name="publishDate" component={DatePickerBox} placeholder="Publish Date"  showTime={true} floatinglabel={true} />
                                 </div>
-                                <div className="col-md-5">
-                                    <Field type="text" name="expiryDate" component={DatePickerBox} placeholder="Expiry Date" floatinglabel={true} />
+                                <div className="col-md-6">
+                                    <Field type="text" name="expiryDate" component={DatePickerBox} placeholder="Expiry Date" showTime={true} floatinglabel={true} />
                                 </div>
                             </div>
                             

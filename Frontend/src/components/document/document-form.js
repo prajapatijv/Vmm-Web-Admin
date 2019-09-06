@@ -82,11 +82,11 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                 <Field type="text" name="description" component={InputBox} placeholder="Description" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-2">
-                                <div className="col-md-4">
-                                    <Field type="text" name="publishDate" component={DatePickerBox} placeholder="Publish Date" floatinglabel={true} />
+                                <div className="col-md-5">
+                                    <Field type="text" name="publishDate" component={DatePickerBox} placeholder="Publish Date" showTime={true} floatinglabel={true} />
                                 </div>
-                                <div className="col-md-4">
-                                    <Field type="text" name="expiryDate" component={DatePickerBox} placeholder="Expiry Date" floatinglabel={true} />
+                                <div className="col-md-5">
+                                    <Field type="text" name="expiryDate" component={DatePickerBox} placeholder="Expiry Date" showTime={true} floatinglabel={true} />
                                 </div>
                             </div>
                             
