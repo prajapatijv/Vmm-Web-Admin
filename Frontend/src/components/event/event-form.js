@@ -23,14 +23,14 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
         eventName: Yup.string().min(2).max(50).required(),
         description: Yup.string().min(2).max(200).required(),
         startDate: Yup.string().required(),
-        endDate: Yup.date().required(),
+        endDate: Yup.string().required(),
         time: Yup.string().notRequired(),
         address1: Yup.string().notRequired(),
         address2: Yup.string().notRequired(),
         city: Yup.string().required(),
         contactNumber: Yup.string().notRequired(),
         contactEmail: Yup.string().notRequired(),
-        active: Yup.string().notRequired()
+        active: Yup.bool().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
