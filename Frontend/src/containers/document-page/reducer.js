@@ -17,7 +17,12 @@ const documents = (state=initialState, action) => {
 const defaultDocument = { 
     id:0,
     title:"",
-    description:""
+    description:"",
+    publishDate:"",
+    expiryDate:"",
+    documentPath:"",
+    documentTypeId:0,
+    groupYear:0
 }
 
 const initialState = {

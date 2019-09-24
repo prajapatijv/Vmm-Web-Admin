@@ -25,12 +25,12 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
         id: Yup.number(),
         title: Yup.string().min(2).max(50).required(),
         description: Yup.string().min(2).max(50).required(),
-        publishDate: Yup.date().required(),
-        expiryDate: Yup.date().required(),
-        documentPath:Yup.string().required(),
+        publishDate: Yup.string().required(),
+        expiryDate: Yup.string().required(),
+        documentPath:Yup.string().notRequired(),
         documentTypeId:Yup.number().required(),
         groupYear:Yup.number().notRequired(),
-        actions:Yup.boolean().notRequired()
+        active:Yup.bool().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -46,6 +46,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
     const [documentPath, setDocumentPath] = useState("")
 
     const onProcessDocument = (error, file) => {
+        debugger;   
         setDocumentPath(file.serverId)
     }
 
