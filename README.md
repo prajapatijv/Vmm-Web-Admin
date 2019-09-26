@@ -24,3 +24,6 @@
 * Ninject
 * JWT Token
 * Swagger
+
+# Preview
+[![Preview](http://admin.mokshmargdharm.org/preview/demo.png)](http://admin.mokshmargdharm.org/preview/demo.webm)
