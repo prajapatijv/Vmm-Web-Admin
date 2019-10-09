@@ -66,7 +66,7 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                         <div className="modal-header mb-3 py-0">
                             <PageTitle title="Popup" fetching={props.fetching} onClose={onClose} adding={popup.id === 0}></PageTitle>
                         </div>
-                        <form className="needs-validation"
+                        <form 
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-2">
@@ -102,10 +102,6 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                         allowMultiple={false} labelIdle="Upload an image"
                                         savedFileName={popup.posterImage} />
 
-
-                            <div className="form-row mb-2">
-                                <Field type="checkbox" name="showDocument" component={CheckBox} label="Do you want to have document attachment?" />
-                            </div>
 
                             <FileUpolader name="documentLink" 
                                     maxFileSize="30MB"

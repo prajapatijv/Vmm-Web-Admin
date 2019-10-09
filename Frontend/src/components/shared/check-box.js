@@ -4,8 +4,8 @@ import classNames from 'classnames'
 import './check-box.scss'
 
 export const CheckBox = ({
-  field, // { name, value, onChange, onBlur }
-  form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+  field,// { name, value, onChange, onBlur }
+  form: { touched, errors, setFieldValue, handleChange, values }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
   ...props
 }) => {
   var cls = classNames({
@@ -13,9 +13,14 @@ export const CheckBox = ({
     'is-invalid': touched[field.name] && errors[field.name]
   })
 
+  const onClick = (e) => {
+    setFieldValue(field.name, e.currentTarget.checked)
+    handleChange(e);
+  }
+
   return (
     <div className="custom-control custom-switch">
-      <Check field={field} props={props} touched={touched} errors={errors} cls={cls} />
+      <Check field={field} values={values} props={props} touched={touched} errors={errors} cls={cls} onClick={onClick} onChange={onClick}/>
       <label className="custom-control-label" htmlFor={field.name}>
         {props.label}
       </label>
@@ -23,9 +28,11 @@ export const CheckBox = ({
   )
 }
 
-const Check = ({ field, props, touched, errors, cls }) =>
+const Check = ({ field, props, touched, errors, cls, onClick}) =>
   <input className={cls} id={field.name}
-    invalid={touched[field.name] && errors[field.name] ? "false" : "true"}
+    invalid={touched[field.name] && errors[field.name] ? false : true}
+    onClick={onClick}
+    onChange={onClick}
     {...field} {...props}
   />
 
@@ -36,7 +43,8 @@ const Check = ({ field, props, touched, errors, cls }) =>
     props: PropTypes.object,
     touched: PropTypes.object,
     errors: PropTypes.object,
-    cls: PropTypes.string
+    cls: PropTypes.string,
+    onClick: PropTypes.func
   }
   
   CheckBox.propTypes = {
