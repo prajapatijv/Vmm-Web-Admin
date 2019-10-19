@@ -44,7 +44,7 @@ namespace VmmApi.Net.Services
                         webClient.UploadData(uri, WebRequestMethods.Ftp.UploadFile, fileBytes);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     throw;
                 }

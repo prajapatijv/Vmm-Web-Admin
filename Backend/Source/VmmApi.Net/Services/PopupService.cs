@@ -94,7 +94,7 @@ namespace VmmApi.Net.Services
 
                     string documentToUpload = $"{title}-{DateTime.Now.ToString("yyyy-MM-dd")}{extension}".SanotizeFileName();
 
-                    string uri = $"${configurationProvider.FtpSettings.FTPRootPath}/{uploadTo}/{documentToUpload}";
+                    string uri = $"{configurationProvider.FtpSettings.FTPRootPath}/{uploadTo}/{documentToUpload}";
 
                     this.ftpService.FtpUpload(uri,
                         configurationProvider.FtpSettings.FTPUserName,
