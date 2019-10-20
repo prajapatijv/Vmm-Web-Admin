@@ -69,8 +69,8 @@ namespace VmmApi.Net.Services
                 throw new NotSupportedException("This operation is not supported");
             }
 
-            this.Upload(popup.PosterImage, popup.Title, "Content/Images/PopupImg");
-            this.Upload(popup.DocumentLink, popup.Title, "Content/Images/PopupImg");
+            popup.PosterImage = this.Upload(popup.PosterImage, popup.Title, "Content/Images/PopupImg");
+            popup.DocumentLink = this.Upload(popup.DocumentLink, popup.Title, "Content/Images/PopupImg");
 
             this.dbContext.Popups.Add(popup);
 
@@ -82,7 +82,7 @@ namespace VmmApi.Net.Services
             this.dbContext.SaveChanges();
         }
 
-        private void Upload(string docmentPath, string title, string uploadTo)
+        private string Upload(string docmentPath, string title, string uploadTo)
         {
             if (!string.IsNullOrEmpty(docmentPath))
             {
@@ -101,8 +101,12 @@ namespace VmmApi.Net.Services
                         configurationProvider.FtpSettings.FTPPassword, fileBytes);
 
                     this.fileCacheService.RemoveFile(key);
+
+                    return documentToUpload;
                 }
             }
+
+            return string.Empty;
         }
 
     }
