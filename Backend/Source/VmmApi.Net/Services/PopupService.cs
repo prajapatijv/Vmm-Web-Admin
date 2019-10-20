@@ -92,7 +92,7 @@ namespace VmmApi.Net.Services
                 {
                     var extension = new FileInfo(key).Extension;
 
-                    string documentToUpload = $"{title}-{DateTime.Now.ToString("yyyy-MM-dd")}{extension}".SanotizeFileName();
+                    string documentToUpload = $"{title}{extension}".SanotizeFileName();
 
                     string uri = $"{configurationProvider.FtpSettings.FTPRootPath}/{uploadTo}/{documentToUpload}";
 

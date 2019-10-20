@@ -11,7 +11,6 @@ namespace VmmApi.Net.Extensions
         public static string SanotizeFileName(this string fileName)
         {
             var name = fileName.Trim(Path.GetInvalidFileNameChars());
-            name = name.Replace(" ", "");
             return name.Trim(Path.GetInvalidPathChars());
         }
 
