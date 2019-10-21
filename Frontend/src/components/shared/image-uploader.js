@@ -21,6 +21,9 @@ export const ImageUpolader = (props) => {
         props.onProcessFile(error, file)
     }
 
+    const onInit = () => {
+        props.onProcessFile(null, { serverId: props.savedFileName} )
+    }
 
     return (
         <div className="container-filepond">
@@ -29,6 +32,7 @@ export const ImageUpolader = (props) => {
                     acceptedFileTypes={props.acceptedFileTypes}
                     server={props.serverPath}
                     onprocessfile={onProcessFile}
+                    oninit={() => onInit()}
                     allowMultiple={props.allowMultiple}
                     labelIdle={props.label}
                     maxFileSize={props.maxFileSize}
