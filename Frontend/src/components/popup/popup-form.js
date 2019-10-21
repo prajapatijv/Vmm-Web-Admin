@@ -83,6 +83,7 @@ const PopupForm = ({ popup, onClose, onSave, onDelete, saving, deleting, allowDe
                                 <Field type="text" name="title" component={InputBox} placeholder="Title" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-2">
+                                <small id="shortNameHelp" className="form-text text-muted">Do not use spaces and special charactes.</small>
                                 <Field type="text" name="shortName" component={InputBox} placeholder="Short Name" floatinglabel={true} />
                             </div>
                             <div className="form-row mb-2">

@@ -46,7 +46,6 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
     const [documentPath, setDocumentPath] = useState("")
 
     const onProcessDocument = (error, file) => {
-        debugger;   
         setDocumentPath(file.serverId)
     }
 
