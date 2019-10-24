@@ -67,14 +67,16 @@ namespace VmmApi.Net.Services
                     var documentType = this.documentTypeService.GetById(document.DocumentTypeId);
 
 
-                    string documentName = $"{document.Title}-{DateTime.Now.ToString("yyyy-MM-dd")}{extension}".SanotizeFileName();
-                    string uri = $"{configurationProvider.FtpSettings.FTPRootPath}/Content/Read/{documentType.Description}/{documentName}";
+                    string documentName = $"{document.Title}{extension}".SanotizeFileName();
+                    string uri = $"{configurationProvider.FtpSettings.FTPRootPath}/Content/Read/{documentType.Description.SanotizeFileName()}/{documentName}";
 
                     this.ftpService.FtpUpload(uri,
                         configurationProvider.FtpSettings.FTPUserName,
                         configurationProvider.FtpSettings.FTPPassword, fileBytes);
 
                     this.fileCacheService.RemoveFile(key);
+
+                    document.DocumentPath = documentName;
                 }
             }
 
