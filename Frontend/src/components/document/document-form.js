@@ -16,13 +16,13 @@ import { Config } from '../../AppConfig'
 
 const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
-    if (document !== undefined && document.enabled !== undefined) {
+    /*if (document !== undefined && document.enabled !== undefined) {
         document.enabled = document.enabled === 1
     } else {
         if (document !== undefined) {
             document.enabled = true
         }
-    }
+    }*/
 
     const _init = { ...document }
     const _documentTypes = documenttypes || []
