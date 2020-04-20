@@ -16,6 +16,7 @@ const documents = (state=initialState, action) => {
 
 const defaultDocument = { 
     id:0,
+    enabled: true,
     title:"",
     description:"",
     publishDate:"",

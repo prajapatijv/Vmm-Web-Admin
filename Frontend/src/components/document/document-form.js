@@ -16,6 +16,14 @@ import { Config } from '../../AppConfig'
 
 const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
+    if (document !== undefined && document.enabled !== undefined) {
+        document.enabled = document.enabled === 1
+    } else {
+        if (document !== undefined) {
+            document.enabled = true
+        }
+    }
+
     const _init = { ...document }
     const _documentTypes = documenttypes || []
     //const _options = _documentTypes.map((item) => {return { value:item.id, label:item.description }})
@@ -30,11 +38,12 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
         documentPath:Yup.string().notRequired(),
         documentTypeId:Yup.number().required(),
         groupYear:Yup.number().notRequired(),
-        active:Yup.bool().notRequired()
+        enabled:Yup.bool().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
         values.documentPath = documentPath
+        values.enabled = values.enabled === true ? 1 : 0; 
         onSave(values)
         actions.setSubmitting(false)
     }
@@ -71,7 +80,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
                                     <Field type="text" name="documentTypeId" component={SelectBox} options={_documentTypes} placeholder="Document Type" floatinglabel={true} />
                                 </div>
                                 <div className="col-md-5 ml-auto">
-                                    <Field type="checkbox" name="active" component={CheckBox} label="Active" floatinglabel={true} />
+                                    <Field type="checkbox" name="enabled" component={CheckBox} label="Active" floatinglabel={true} />
                                 </div>
                             </div>
 

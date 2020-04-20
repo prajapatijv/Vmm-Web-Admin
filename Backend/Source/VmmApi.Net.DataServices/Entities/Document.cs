@@ -31,7 +31,7 @@ namespace VmmApi.Net.DataServices.Entities
         public byte DocumentTypeId { get; set; }
 
         [Column("Is_Active")]
-        public byte Active { get; set; }
+        public byte Enabled { get; set; }
 
         [Column("Creation_Date")]
         public DateTime? CreationDate { get; set; }
