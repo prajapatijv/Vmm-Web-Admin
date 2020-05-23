@@ -31,7 +31,7 @@ const DocumentForm = ({ document, documenttypes, onClose, onSave, onDelete, savi
 
     const schema = Yup.object().shape({
         id: Yup.number(),
-        title: Yup.string().min(2).max(50).required(),
+        title: Yup.string().min(2).max(100).required(),
         description: Yup.string().min(2).max(50).required(),
         publishDate: Yup.string().required(),
         expiryDate: Yup.string().required(),

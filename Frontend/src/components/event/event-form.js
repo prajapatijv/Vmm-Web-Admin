@@ -20,7 +20,7 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
     const schema = Yup.object().shape({
         id: Yup.number(),
         eventTypeId: Yup.number().required(),
-        eventName: Yup.string().min(2).max(50).required(),
+        eventName: Yup.string().min(2).max(100).required(),
         description: Yup.string().min(2).max(200).required(),
         startDate: Yup.string().required(),
         endDate: Yup.string().required(),
