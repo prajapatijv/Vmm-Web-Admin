@@ -45,5 +45,8 @@ namespace VmmApi.Net.DataServices.Entities
 
         [Column("Event_Time")]
         public string Time { get; set; }
+
+        [Column("Area_Id")]
+        public byte AreaId { get; set; }
     }
 }

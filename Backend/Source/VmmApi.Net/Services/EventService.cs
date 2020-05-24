@@ -17,12 +17,14 @@ namespace VmmApi.Net.Services
     public class EventService : IEventService
     {
         private readonly IEventTypeService eventTypeService;
+        private readonly IAreaService areaService;
         private readonly VmmDbContext dbContext;
 
-        public EventService(VmmDbContext dbContext, IEventTypeService eventTypeService)
+        public EventService(VmmDbContext dbContext, IEventTypeService eventTypeService, IAreaService areaService)
         {
             this.dbContext = dbContext;
             this.eventTypeService = eventTypeService;
+            this.areaService = areaService;
         }
 
         public EventViewModel GetAllEvents()
@@ -30,7 +32,8 @@ namespace VmmApi.Net.Services
             return new EventViewModel
             {
                 Events = this.dbContext.Events.ToList(),
-                Eventtypes = this.eventTypeService.GetAllEventTypes().Eventtypes
+                Eventtypes = this.eventTypeService.GetAllEventTypes().Eventtypes,
+                Areas = this.areaService.GetAllAreas().Areas
             };
         }
 

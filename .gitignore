@@ -40,3 +40,4 @@ msbuild.wrn
 /Backend/Source/VmmApi.Net/logs/logfile*.txt
 /Backend/Source/VmmApi.Net/Uploaded
 Backend/Source/VmmApi.Net/Web.config
+/Backend/Source/packages
