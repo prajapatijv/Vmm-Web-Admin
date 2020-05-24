@@ -39,3 +39,4 @@ msbuild.wrn
 /Backend/Source/VmmApi.Net/Properties/PublishProfiles/FolderProfile.pubxml
 /Backend/Source/VmmApi.Net/logs/logfile*.txt
 /Backend/Source/VmmApi.Net/Uploaded
+Backend/Source/VmmApi.Net/Web.config

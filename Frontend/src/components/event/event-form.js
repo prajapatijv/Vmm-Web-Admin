@@ -34,6 +34,7 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
     })
 
     const onSaveEntity = (values, actions) => {
+        values.active = values.active === true ? 1 : 0; 
         onSave(values)
         actions.setSubmitting(false)
     }
