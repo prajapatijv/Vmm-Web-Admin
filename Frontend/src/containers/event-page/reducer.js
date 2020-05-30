@@ -6,7 +6,7 @@ const events = (state = initialState, action) => {
 
     switch (action.type) {
         case `FETCH_EVENTS_SUCCEED`: {
-            return { ...eventState, "eventtypes": action.payload.data.eventtypes }
+            return { ...eventState, "eventtypes": action.payload.data.eventtypes, "areas": action.payload.data.areas }
         }
 
         default:
@@ -25,12 +25,14 @@ const defaultEvent = {
     address2: "", 
     city: "", 
     contactNumber: "", 
-    contactEmail: ""
+    contactEmail: "",
+    areasId: 0
 }
 
 const initialState = {
     events: [],
-    eventtypes: []
+    eventtypes: [],
+    areas: []
 }
 
 const byName = criteria => event => {

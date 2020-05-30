@@ -12,10 +12,17 @@ import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
+const EventForm = ({ event, eventtypes, areas, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...event }
     const _eventTypes = eventtypes || []
+    const _areas = areas.map(function(a) 
+    {
+        return {
+            id: a.id,
+            description: a.areaName
+        }
+    }) 
 
     const schema = Yup.object().shape({
         id: Yup.number(),
@@ -30,7 +37,8 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
         city: Yup.string().required(),
         contactNumber: Yup.string().notRequired(),
         contactEmail: Yup.string().notRequired(),
-        active: Yup.bool().notRequired()
+        active: Yup.bool().notRequired(),
+        areaId: Yup.number().required()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -98,7 +106,11 @@ const EventForm = ({ event, eventtypes, onClose, onSave, onDelete, saving, delet
                                 <div className="col-md-5">
                                     <Field type="text" name="city" component={InputBox} placeholder="City" floatinglabel={true} />
                                 </div>
+                                <div className="col-md-4">
+                                    <Field type="text" name="areaId" component={SelectBox} placeholder="Area" options={_areas} floatinglabel={true} />
+                                </div>
                             </div>
+
                             <div className="form-row mb-2">
                                 <div className="col-md-6">
                                     <Field type="text" name="contactNumber" component={InputBox} placeholder="Contact" floatinglabel={true} />
@@ -137,6 +149,7 @@ EventForm.propTypes = {
     deleting: PropTypes.bool,
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
+    areas: PropTypes.array,
     allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func
