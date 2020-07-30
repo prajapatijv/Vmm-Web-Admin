@@ -62,6 +62,8 @@ namespace VmmApi.Net.Services
             }
 
             this.dbContext.SaveChanges();
+
+            SendReplyEmail(query);
         }
 
         private void SendReplyEmail(QueryDetail queryDetail)
