@@ -25,7 +25,7 @@ const byName = criteria => query => {
         return true
     }
     else  {
-        return query.description.toLowerCase().match(criteria.toLowerCase()) 
+        return query.name.toLowerCase().match(criteria.toLowerCase()) 
     }
 }
 

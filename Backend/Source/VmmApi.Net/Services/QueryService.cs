@@ -32,7 +32,7 @@ namespace VmmApi.Net.Services
         {
             return new QueryViewModel
             {
-                Queries = this.dbContext.Queries.ToList()
+                Queries = this.dbContext.Queries.OrderByDescending(o => o.CreatedDate).ToList()
             };
         }
 
