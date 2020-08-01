@@ -12,8 +12,10 @@ const defaultQuery = {
     answer:"",
     contact:"",
     email:"",
-    replied:0,
-    sendReplyEmail:0
+    status:0,
+    sendReplyEmail:0,
+    createdDate:"",
+    statusDescr:""
 }
 
 const initialState = {

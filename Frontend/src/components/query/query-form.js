@@ -10,6 +10,10 @@ import ButtonBar from '../shared/button-bar'
 
 const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
+    if (query !== undefined) {
+        query.answer = query.answer === null ? "" : query.answer;
+    }
+    
     const _init = { ...query }
 
     const schema = Yup.object().shape({
@@ -19,7 +23,7 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
         contact: Yup.string().min(2).max(50).required(),
         email: Yup.string().min(2).max(50).required(),
         answer: Yup.string(),
-        replied: Yup.bool()
+        status: Yup.bool()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -70,7 +74,7 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
                                     <Field type="checkbox" name="sendReplyEmail" component={CheckBox} label="Do you want to send reply email?" floatinglabel={true} />
                                 </div>
                                 <div className="col-3">
-                                    <Field type="checkbox" name="replied" component={CheckBox} label="Replied" floatinglabel={true} />
+                                    <Field type="checkbox" name="status" component={CheckBox} label="Replied" floatinglabel={true} />
                                 </div>
                             </div>
 
