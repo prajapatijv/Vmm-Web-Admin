@@ -13,6 +13,8 @@ const DocumentPage = (props) => {
     )
 }
 
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
 const DocumentLines = ({ documents }) => {
 return(
     documents.map((document) =>
@@ -20,7 +22,24 @@ return(
             to={`/documents/${document.id}`}
             activeClassName="active"
             className="app-list-item list-group-item-action"
-        >{document.title} 
+        >
+            <li className="list-group-item-action d-flex justify-content-between align-items-center">
+                <div className="mb-1">{document.title}</div>
+                {document.active
+                        ? <span className="badge badge-success">Active</span>
+                        : <span className="badge badge-secondary">Expired</span>
+                    }
+            </li>
+            <li className="list-group-item-action d-flex justify-content-between align-items-center">
+                <div className="mb-1">
+                    <small>
+                        {new Date(document.publishDate).toLocaleDateString("gu-IN", options)}
+                        <span> થી </span> 
+                        {new Date(document.expiryDate).toLocaleDateString("gu-IN", options)}
+                    </small>
+                </div>
+            </li>
+
         </NavLink>
     )
 )
