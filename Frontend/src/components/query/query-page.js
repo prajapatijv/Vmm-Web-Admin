@@ -23,14 +23,14 @@ const QueryLines = ({ queries }) => {
                 activeClassName="active"
                 className="app-list-item list-group-item-action"
             >
-                <li className="list-group-item d-flex justify-content-between align-items-center">
+                <li className="list-group-item-action d-flex justify-content-between align-items-center">
                     <div className="mb-1">{query.name}</div>
                 </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
+                <li className="list-group-item-action d-flex justify-content-between align-items-center">
                     <p className="mb-1"><small>{new Date(query.createdDate).toLocaleDateString("gu-IN", options)}</small></p>
                     {query.status
-                        ? <span className="badge badge-success badge-pill">Replied</span>
-                        : <span className="badge badge-primary badge-pill">Pending</span>
+                        ? <span className="badge badge-success">Replied</span>
+                        : <span className="badge badge-primary">Pending</span>
                     }
                 </li>
             </NavLink>

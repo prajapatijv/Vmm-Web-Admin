@@ -31,7 +31,7 @@ namespace VmmApi.Net.Services
         {
             return new EventViewModel
             {
-                Events = this.dbContext.Events.ToList(),
+                Events = this.dbContext.Events.OrderByDescending(e => e.Active).OrderByDescending(e => e.StartDate),
                 Eventtypes = this.eventTypeService.GetAllEventTypes().Eventtypes,
                 Areas = this.areaService.GetAllAreas().Areas
             };
