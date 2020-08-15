@@ -44,7 +44,7 @@ namespace VmmApi.Net.Services
         {
             return new DocumentViewModel
             {
-                Documents = this.dbContext.Documents.OrderByDescending(o => o.CreationDate).ToList(),
+                Documents = this.dbContext.Documents.OrderByDescending(o => o.PublishDate).ToList(),
                 Documenttypes = this.documentTypeService.GetAllDocumentTypes().Documenttypes
             };
         }
