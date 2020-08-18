@@ -3,6 +3,7 @@ import React from 'react'
 import DocumentForm from './document-form'
 import NavLink from '../shared/navlink'
 import PageWrapper from '../shared/page-wrapper'
+import Status from '../shared/entitystatus'
 
 const DocumentPage = (props) => {
     return (
@@ -25,10 +26,7 @@ return(
         >
             <li className="list-group-item-action d-flex justify-content-between align-items-center">
                 <div className="mb-1">{document.title}</div>
-                {document.active
-                        ? <span className="badge badge-success">Active</span>
-                        : <span className="badge badge-secondary">Expired</span>
-                    }
+                <Status status={document.enabled}></Status>
             </li>
             <li className="list-group-item-action d-flex justify-content-between align-items-center">
                 <div className="mb-1">

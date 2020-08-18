@@ -3,6 +3,7 @@ import React from 'react'
 import EventForm from './event-form'
 import NavLink from '../shared/navlink'
 import PageWrapper from '../shared/page-wrapper'
+import Status from '../shared/entitystatus'
 
 const EventPage = (props) => {
     return (
@@ -15,6 +16,7 @@ const EventPage = (props) => {
 
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
+
 const EventLines = ({ events }) => {
 return(
     events.map((event) =>
@@ -25,10 +27,7 @@ return(
         >
             <li className="list-group-item-action d-flex justify-content-between align-items-center">
                 <div className="mb-1">{event.eventName}</div>
-                {event.active
-                        ? <span className="badge badge-success">Active</span>
-                        : <span className="badge badge-secondary">Expired</span>
-                    }
+                <Status status={event.active}></Status>
             </li>
             <li className="list-group-item-action d-flex justify-content-between align-items-center">
                 <div className="mb-1">
@@ -39,10 +38,9 @@ return(
                     </small>
                 </div>
             </li>
-
-
         </NavLink>
     )
 )
 }
 export default EventPage
+

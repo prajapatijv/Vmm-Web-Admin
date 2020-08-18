@@ -26,7 +26,6 @@ const logger = (req, res, next) => {
 }
 
 const jwtVerify = (req, res, next) => {
-
     if (req.url.endsWith("authenticate") || req.url.endsWith("file")  || req.method === "OPTIONS") {
         next()
         return
@@ -53,7 +52,7 @@ const jwtVerify = (req, res, next) => {
 }
 
 const app = express()
-    .use(jwtVerify)
+    // .use(jwtVerify)
     .use(logger)
     //.use(fileUpload)
     .use(bodyParser.urlencoded({ extended: true }))
@@ -88,7 +87,7 @@ app.get('/api/documenttypes', (req, res) => { var response = {}; response.docume
 app.get('/api/eventtypes', (req, res) => { var response = {}; response.eventtypes = eventtypes; res.status(200).json(response) })
 app.get('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
 app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documenttypes = documenttypes; res.status(200).json(response) })
-app.get('/api/events', (req, res) => { var response = {}; response.events = events; response.eventtypes = eventtypes; res.status(200).json(response) })
+app.get('/api/events', (req, res) => { var response = {}; response.events = events; response.eventtypes = eventtypes; response.areas = areas; res.status(200).json(response) })
 app.get('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 app.get('/api/queries', (req, res) => { var response = {}; response.queries = queries; res.status(200).json(response) })
 

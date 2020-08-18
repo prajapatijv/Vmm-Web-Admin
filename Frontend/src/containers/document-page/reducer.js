@@ -19,8 +19,8 @@ const defaultDocument = {
     enabled: true,
     title:"",
     description:"",
-    publishDate:"",
-    expiryDate:"",
+    publishDate: new Date(),
+    expiryDate: new Date(),
     documentPath:"",
     documentTypeId:0,
     groupYear:0

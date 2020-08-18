@@ -87,10 +87,10 @@ const EventForm = ({ event, eventtypes, areas, onClose, onSave, onDelete, saving
 
                             <div className="form-row mb-2">
                                 <div className="col-md-6">
-                                    <Field type="text" name="startDate" component={DatePickerBox} placeholder="Start Date" showTime={true} floatinglabel={true} />
+                                    <Field type="text" name="startDate" component={DatePickerBox} placeholder="Start Date" showTime={false} floatinglabel={true} />
                                 </div>
                                 <div className="col-md-6">
-                                    <Field type="text" name="endDate" component={DatePickerBox} placeholder="End Date" showTime={true} floatinglabel={true} />
+                                    <Field type="text" name="endDate" component={DatePickerBox} placeholder="End Date" showTime={false} floatinglabel={true} />
                                 </div>
                             </div>
 
