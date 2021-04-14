@@ -37,5 +37,9 @@ namespace VmmApi.Net.DataServices.Entities
 
         [Column("IsActive")]
         public Int16 Active { get; set; }
+
+        [Column("sendReplyEmail")]
+        public bool? SendReplyEmail { get; set; }
+
     }
 }

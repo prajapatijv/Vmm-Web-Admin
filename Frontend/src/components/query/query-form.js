@@ -18,12 +18,13 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
 
     const schema = Yup.object().shape({
         id: Yup.number(),
-        //name: Yup.string().min(2).max(50),
-        //query: Yup.string().min(2).max(50),
-        //contact: Yup.string().min(2).max(50),
-        //email: Yup.string().min(2).max(50),
+        name: Yup.string(),
+        query: Yup.string(),
+        contact: Yup.string(),
+        email: Yup.string(),
         answer: Yup.string(),
-        status: Yup.bool()
+        status: Yup.bool(),
+        sendReplyEmail: Yup.bool()
     })
 
     const onSaveEntity = (values, actions) => {
