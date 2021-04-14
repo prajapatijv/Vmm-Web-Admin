@@ -18,10 +18,10 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
 
     const schema = Yup.object().shape({
         id: Yup.number(),
-        name: Yup.string().min(2).max(50),
-        query: Yup.string().min(2).max(50),
-        contact: Yup.string().min(2).max(50),
-        email: Yup.string().min(2).max(50),
+        //name: Yup.string().min(2).max(50),
+        //query: Yup.string().min(2).max(50),
+        //contact: Yup.string().min(2).max(50),
+        //email: Yup.string().min(2).max(50),
         answer: Yup.string(),
         status: Yup.bool()
     })
@@ -84,7 +84,7 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
-                                isValid={true}
+                                isValid={props.isValid}
                                 allowDelete={allowDelete}
                             />
                         </form>
