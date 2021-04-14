@@ -30,9 +30,11 @@ namespace VmmApi.Net.Services
 
         public QueryViewModel GetAllQueries()
         {
+            var items = this.dbContext.Queries.OrderByDescending(o => o.CreatedDate).ToList();
+            items.ForEach(x => x.Answer = string.IsNullOrEmpty(x.Answer) ? string.Empty : x.Answer);
             return new QueryViewModel
             {
-                Queries = this.dbContext.Queries.OrderByDescending(o => o.CreatedDate).ToList()
+                Queries = items
             };
         }
 

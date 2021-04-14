@@ -10,18 +10,18 @@ import ButtonBar from '../shared/button-bar'
 
 const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
-    if (query !== undefined) {
-        query.answer = query.answer === null ? "" : query.answer;
-    }
+    //if (query !== undefined) {
+    //    query.answer = query.answer === null ? "" : query.answer;
+    //}
     
     const _init = { ...query }
 
     const schema = Yup.object().shape({
         id: Yup.number(),
-        name: Yup.string().min(2).max(50).required(),
-        query: Yup.string().min(2).max(50).required(),
-        contact: Yup.string().min(2).max(50).required(),
-        email: Yup.string().min(2).max(50).required(),
+        name: Yup.string().min(2).max(50),
+        query: Yup.string().min(2).max(50),
+        contact: Yup.string().min(2).max(50),
+        email: Yup.string().min(2).max(50),
         answer: Yup.string(),
         status: Yup.bool()
     })
@@ -84,7 +84,7 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
                                 saving={saving}
                                 deleting={deleting}
                                 dirty={props.dirty}
-                                isValid={props.isValid}
+                                isValid={true}
                                 allowDelete={allowDelete}
                             />
                         </form>
