@@ -25,9 +25,22 @@ namespace VmmApi.Net.Controllers
 
         [HttpPost]
         [Route("")]
-        public IHttpActionResult Post(QueryDetail queryDetail)
+        public IHttpActionResult Post(QueryDetailViewModel queryDetailVM)
         {
-            this.queryService.Save(queryDetail);
+            var queryDetail = new QueryDetail
+            {
+                Query = queryDetailVM.Query,
+                Active = queryDetailVM.Active,
+                Answer = queryDetailVM.Answer,
+                Contact = queryDetailVM.Contact,
+                CreatedDate = queryDetailVM.CreatedDate,
+                Email = queryDetailVM.Email,
+                Id = queryDetailVM.Id,
+                Name = queryDetailVM.Name,
+                Status = queryDetailVM.Status
+            };
+
+            this.queryService.Save(queryDetail, queryDetailVM.SendReplyEmail);
             return Get();
         }
 

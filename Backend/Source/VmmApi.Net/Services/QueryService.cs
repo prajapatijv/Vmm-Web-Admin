@@ -13,7 +13,7 @@ namespace VmmApi.Net.Services
     {
         QueryViewModel GetAllQueries();
         QueryDetail GetById(int id);
-        void Save(QueryDetail queryDetail);
+        void Save(QueryDetail query, bool sendReplyEmail);
         void Delete(int id);
     }
 
@@ -54,7 +54,7 @@ namespace VmmApi.Net.Services
             }
         }
 
-        public void Save(QueryDetail query)
+        public void Save(QueryDetail query, bool sendReplyEmail)
         {
             this.dbContext.Queries.Add(query);
 
@@ -65,13 +65,13 @@ namespace VmmApi.Net.Services
 
             this.dbContext.SaveChanges();
 
-            SendReplyEmail(query);
+            SendReplyEmail(query, sendReplyEmail);
         }
 
-        private void SendReplyEmail(QueryDetail queryDetail)
+        private void SendReplyEmail(QueryDetail queryDetail, bool sendReplyEmail)
         {
 
-            if (queryDetail.SendReplyEmail.HasValue && queryDetail.SendReplyEmail == true)
+            if (sendReplyEmail == true)
             {
                 var emailSettings = configurationProvider.EmailSettings;
                 var regard = "IT Samiti, Vallabh Manvoddharak Mandal, Anaval";
