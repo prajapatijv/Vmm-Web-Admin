@@ -4,6 +4,9 @@
         "eslint:recommended",
         "plugin:react/recommended"
     ],
+    "globals": {
+        "process": true
+      },
     "env": {
         "node": true,
         "commonjs": true,
