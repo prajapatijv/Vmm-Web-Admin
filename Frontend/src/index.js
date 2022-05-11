@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker'
 
@@ -22,12 +22,12 @@ if (Config.ENV !== Env.Production) {
 }
 
 window.addEventListener("error", (err) => HandleError(err.message, store.dispatch))
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-ReactDOM.render(
+root.render(
     <Provider store={store}>
         <App config={Config} />
-    </Provider>,
-    document.getElementById('root'))
+    </Provider>)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
