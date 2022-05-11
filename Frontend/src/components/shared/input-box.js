@@ -8,6 +8,8 @@ import './input-box.scss'
 export const InputBox = ({
   field, // { name, value, onChange, onBlur }
   form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+  floatinglabel,
+  prefix,
   ...props
 }) => {
   var cls = classNames({
@@ -18,8 +20,8 @@ export const InputBox = ({
 
   var clsig = classNames({
     'input-group':true,
-    'floating-label':props.floatinglabel,
-    'prefix-text':props.prefix
+    'floating-label': floatinglabel,
+    'prefix-text': prefix
   })
 
   if (props.prefix) {
@@ -74,4 +76,11 @@ FloatingLabel.propTypes = {
   name: PropTypes.string,
   placeholder:PropTypes.string,
   props: PropTypes.object
+}
+
+InputBox.propTypes = {
+  field: PropTypes.object,
+  form: PropTypes.object,
+  floatinglabel: PropTypes.bool,
+  prefix: PropTypes.bool
 }

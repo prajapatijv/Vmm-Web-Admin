@@ -45,7 +45,8 @@ const Check = ({ field, props, touched, errors, cls, values, onClick}) =>
     touched: PropTypes.object,
     errors: PropTypes.object,
     cls: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    values: PropTypes.any
   }
   
   CheckBox.propTypes = {
@@ -53,5 +54,6 @@ const Check = ({ field, props, touched, errors, cls, values, onClick}) =>
     form: PropTypes.object,
     props: PropTypes.object,
     floatinglabel: PropTypes.bool,
-    label: PropTypes.string
+    label: PropTypes.string,
+    values: PropTypes.any
   }

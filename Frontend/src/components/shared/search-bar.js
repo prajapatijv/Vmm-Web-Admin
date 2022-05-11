@@ -16,10 +16,11 @@ const SearchBar = ({ onAdd, onSearch, placeholder, allowAdd }) =>
     </div>
 
 
-export default SearchBar
-
 SearchBar.propTypes = {
     onAdd: PropTypes.func,
     onSearch: PropTypes.func,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    allowAdd: PropTypes.bool
 }
+
+export default SearchBar

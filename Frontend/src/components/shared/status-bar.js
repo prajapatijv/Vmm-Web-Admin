@@ -57,9 +57,21 @@ const Info = ({hasInfos, status, clearInfos}) =>
         </button>
     </div>
 
+Error.propTypes = {
+    hasErrors: PropTypes.bool,  
+    status: PropTypes.object,
+    clearErrors: PropTypes.bool
+}
+
+Info.propTypes = {
+    hasInfos: PropTypes.bool, 
+    status: PropTypes.object, 
+    clearInfos: PropTypes.bool
+}
 
 Statusbar.propTypes = {
     status: PropTypes.object,
     clearErrors: PropTypes.func,
-    clearInfos: PropTypes.func
+    clearInfos: PropTypes.func,
+    hasErrors: PropTypes.bool
 }
