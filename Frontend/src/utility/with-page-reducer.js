@@ -60,11 +60,13 @@ const template = (contextObj, state, action, defaultEntity, filterByFn) => {
             return { ...state, deleting: false }
         }
 
-        case `DOWNLOAD_${contextObj.actionContext.PLURAL}`:
+        case `DOWNLOAD_${contextObj.actionContext.PLURAL}`: {
             return {...state, fetching:true , error:null}
-            
-        case `DOWNLOAD_${contextObj.actionContext.PLURAL}_SUCCEED`:
+        }
+
+        case `DOWNLOAD_${contextObj.actionContext.PLURAL}_SUCCEED`: {
             return {...state, fetching:false , error:null}
+        }
 
         default:
             return state

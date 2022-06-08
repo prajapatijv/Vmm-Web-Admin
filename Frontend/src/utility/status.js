@@ -23,4 +23,9 @@ export function* HandleDeleteSuccess (typeContext, id)  {
     yield put({"type": C.ADD_INFO_SUCCESS, payload: "Deleted"})
 }
 
+export function* HandleDownloadSuccess (typeContext)  {
+    const type = `DOWNLOAD_${typeContext}_SUCCEED`
+    yield put({ "type": type })
+    yield put({"type": C.ADD_INFO_SUCCESS, payload: `Download complete`})
+}
 

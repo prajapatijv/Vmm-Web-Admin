@@ -7,7 +7,6 @@ import { WithBasicLayout } from '../layouts'
 import PropTypes from 'prop-types'
 
 const WithPageContainer = (WrappedComponent, props, context) => {
-
     const contextObj = props.config.mappings[context]
 
     //Exapmles: userState, itemState
@@ -39,7 +38,8 @@ const WithPageContainer = (WrappedComponent, props, context) => {
             'areas': localState.areas,
             fetching: localState.fetching,
             saving: localState.saving,
-            deleting: localState.deleting
+            deleting: localState.deleting,
+            listName: listName
         }
     }
 
@@ -73,7 +73,7 @@ const WithPageContainer = (WrappedComponent, props, context) => {
                 onClose={() => { mapActions.close(); props.navigate(`/${listName}`) }}
                 onSave={mapActions.save}
                 onDelete={mapActions.deleteEntity}
-                onDownload={mapActions.download}
+                onDownload={() => mapActions.download(state[state.listName])}
                 allowAdd = {addAllowed}
                 allowDelete = {deleteAllowed}
                 allowDownload = {allowDownload}

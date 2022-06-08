@@ -1,7 +1,7 @@
 import { call, put, delay } from 'redux-saga/effects'
 import axios from "axios"
 import { GetItem, SetItem, RemoveItem } from './cache'
-import { HandleSuccess, HandleError, HandleSaveSuccess, HandleDeleteSuccess } from './status'
+import { HandleSuccess, HandleError, HandleSaveSuccess, HandleDeleteSuccess, HandleDownloadSuccess } from './status'
 import { navigate } from '@reach/router'
 import { jsonToCsv } from './json-csv'
 
@@ -97,44 +97,9 @@ export function* post(apiUrl, payload, successType, errorType) {
 
 export function* download(params) {
     const contextObj = params.contextObj;
-    jsonToCsv(inputJSON, params.contextObj.actionContext.plural, true);
-    yield put({ "type": `DOWNLOAD_${contextObj.actionContext.PLURAL}_SUCCEED` });
+    jsonToCsv(params.payload, params.contextObj.actionContext.plural, true);
+    yield HandleDownloadSuccess(contextObj.actionContext.PLURAL)
 }
-
-const inputJSON = [
-    {
-        Name: "Steve Rogers",
-        "Hero Name": "Captain America",
-        Color: "Blue & Red",
-        Weapon: "Grit & Discipline"
-    },
-    {
-        Name: "Tony Stark",
-        "Hero Name": "Ironman",
-        Color: "Red & Gold",
-        Weapon: "Money & Mind"
-    },
-    {
-        Name: "Dr. Banner",
-        "Hero Name": "Hulk",
-        Color: "Green",
-        Weapon: "Mind & Anger"
-    },
-    {
-        Name: "Dr. Strange",
-        "Hero Name": "Dr. Strange",
-        Color: "Red",
-        Weapon: "Magic"
-    },
-    {
-        Name: "Thor",
-        "Hero Name": "Thor",
-        Color: "Multi",
-        Weapon: "Immortality"
-    }
-];
-
-
 
 const GetApiUrl = (params) => {
     return `${params.config.API_URL}/${params.contextObj.apiContext}`

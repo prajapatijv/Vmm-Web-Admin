@@ -18,7 +18,7 @@ export const jsonToCsv = (jsonData, reportTitle, includeHeader) => {
         rowHeader = rowHeader.slice(0, -1);
 
         //append Label row with line break
-        CSV += rowHeader + "\r\n";
+        CSV += rowHeader.toUpperCase() + "\r\n";
     }
 
     //1st loop is to extract each row
@@ -29,7 +29,7 @@ export const jsonToCsv = (jsonData, reportTitle, includeHeader) => {
             row += '"' + arrData[i][index2] + '",';
         }
 
-        row.slice(0, row.length - 1);
+        row = row.slice(0, row.length - 1);
 
         //add a line break after each row
         CSV += row + "\r\n";
