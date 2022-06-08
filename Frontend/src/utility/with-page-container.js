@@ -24,7 +24,8 @@ const WithPageContainer = (WrappedComponent, props, context) => {
 
     const addAllowed = contextObj.actionContext.allowAdd === undefined ? true : Boolean(contextObj.actionContext.allowAdd)
     const deleteAllowed = contextObj.actionContext.allowDelete === undefined ? true : Boolean(contextObj.actionContext.allowDelete)
-    
+    const allowDownload = contextObj.actionContext.allowDownload === undefined ? true : Boolean(contextObj.actionContext.allowDownload)
+
     const mapState = (state) => {
         const localState = state[stateName]
         //const dynamicState = getDynamicState(localState, listName, entityName)
@@ -74,6 +75,7 @@ const WithPageContainer = (WrappedComponent, props, context) => {
                 onDelete={mapActions.deleteEntity}
                 allowAdd = {addAllowed}
                 allowDelete = {deleteAllowed}
+                allowDownload = {allowDownload}
             />
         </WithBasicLayout>
     )
