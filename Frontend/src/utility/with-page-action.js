@@ -4,7 +4,8 @@ const withPageActions = (contextObj, config) => {
         add: () => ({ type: `ADD_${contextObj.actionContext.SINGULAR}`, contextObj, config }),
         close: () => ({ type: `CLOSE_${contextObj.actionContext.SINGULAR}`, contextObj, config}),
         save: (entity) => ({ type: `SAVE_${contextObj.actionContext.SINGULAR}`, entity, contextObj, config }),
-        deleteEntity: (id) => ({ type: `DELETE_${contextObj.actionContext.SINGULAR}`, id, contextObj, config})
+        deleteEntity: (id) => ({ type: `DELETE_${contextObj.actionContext.SINGULAR}`, id, contextObj, config}),
+        download: () => ({ type: `DOWNLOAD_${contextObj.actionContext.PLURAL}`, contextObj, config}),
     }
 }
 

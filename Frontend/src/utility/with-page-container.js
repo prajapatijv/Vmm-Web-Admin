@@ -73,6 +73,7 @@ const WithPageContainer = (WrappedComponent, props, context) => {
                 onClose={() => { mapActions.close(); props.navigate(`/${listName}`) }}
                 onSave={mapActions.save}
                 onDelete={mapActions.deleteEntity}
+                onDownload={mapActions.download}
                 allowAdd = {addAllowed}
                 allowDelete = {deleteAllowed}
                 allowDownload = {allowDownload}

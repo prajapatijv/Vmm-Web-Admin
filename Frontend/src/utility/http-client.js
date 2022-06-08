@@ -3,6 +3,7 @@ import axios from "axios"
 import { GetItem, SetItem, RemoveItem } from './cache'
 import { HandleSuccess, HandleError, HandleSaveSuccess, HandleDeleteSuccess } from './status'
 import { navigate } from '@reach/router'
+import { jsonToCsv } from './json-csv'
 
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
@@ -22,15 +23,15 @@ export function* fetch(params, throttle = false) {
         if (throttle && params.criteria !== "") { yield delay(500) }
 
         const apiUrl = GetApiUrl(params)
-        var cached = GetItem(contextObj.actionContext.PLURAL) 
-        
+        var cached = GetItem(contextObj.actionContext.PLURAL)
+
         const response = (cached === null || params.criteria === "") ? yield (call(fetchApi, apiUrl)) : cached
         const data = (cached === null || params.criteria === "") ? response.data : cached
 
         yield put({ "type": `FETCH_${contextObj.actionContext.PLURAL}_SUCCEED`, payload: { data: data, criteria: params.criteria } })
 
         //Load cache
-        SetItem(contextObj.actionContext.PLURAL, data) 
+        SetItem(contextObj.actionContext.PLURAL, data)
 
     } catch (error) {
         yield HandleError(`FETCH_${contextObj.actionContext.PLURAL}_FAILED`, error)
@@ -39,7 +40,7 @@ export function* fetch(params, throttle = false) {
 
 
 export function* save(params) {
-    
+
     const contextObj = params.contextObj
 
     try {
@@ -49,12 +50,12 @@ export function* save(params) {
         yield HandleSaveSuccess(contextObj.actionContext.SINGULAR, response.data)
 
         //Cleanup cache
-        RemoveItem(contextObj.actionContext.PLURAL) 
+        RemoveItem(contextObj.actionContext.PLURAL)
 
         //Navigate route
         if (undefined !== response.data.id)
             navigate(`/${contextObj.apiContext}/${response.data.id}`)
-            
+
     } catch (error) {
         yield HandleError(`SAVE_${contextObj.actionContext.SINGULAR}_FAILED`, error)
     }
@@ -71,8 +72,8 @@ export function* remove(params) {
         yield HandleDeleteSuccess(contextObj.actionContext.SINGULAR, params.id)
 
         //Cleanup cache
-        RemoveItem(contextObj.actionContextPlural) 
-        
+        RemoveItem(contextObj.actionContextPlural)
+
         //Navigate route
         navigate(`/${contextObj.apiContext}`)
     } catch (error) {
@@ -88,11 +89,52 @@ export function* post(apiUrl, payload, successType, errorType) {
         yield HandleSuccess(successType, response.data)
 
         return response.data;
-            
+
     } catch (error) {
         yield HandleError(errorType, error)
     }
 }
+
+export function* download(params) {
+    const contextObj = params.contextObj;
+    jsonToCsv(inputJSON, params.contextObj.actionContext.plural, true);
+    yield put({ "type": `DOWNLOAD_${contextObj.actionContext.PLURAL}_SUCCEED` });
+}
+
+const inputJSON = [
+    {
+        Name: "Steve Rogers",
+        "Hero Name": "Captain America",
+        Color: "Blue & Red",
+        Weapon: "Grit & Discipline"
+    },
+    {
+        Name: "Tony Stark",
+        "Hero Name": "Ironman",
+        Color: "Red & Gold",
+        Weapon: "Money & Mind"
+    },
+    {
+        Name: "Dr. Banner",
+        "Hero Name": "Hulk",
+        Color: "Green",
+        Weapon: "Mind & Anger"
+    },
+    {
+        Name: "Dr. Strange",
+        "Hero Name": "Dr. Strange",
+        Color: "Red",
+        Weapon: "Magic"
+    },
+    {
+        Name: "Thor",
+        "Hero Name": "Thor",
+        Color: "Multi",
+        Weapon: "Immortality"
+    }
+];
+
+
 
 const GetApiUrl = (params) => {
     return `${params.config.API_URL}/${params.contextObj.apiContext}`

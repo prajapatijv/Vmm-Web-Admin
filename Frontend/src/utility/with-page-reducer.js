@@ -58,7 +58,13 @@ const template = (contextObj, state, action, defaultEntity, filterByFn) => {
 
         case `DELETE_${contextObj.actionContext.SINGULAR}_FAILED`: {
             return { ...state, deleting: false }
-        }        
+        }
+
+        case `DOWNLOAD_${contextObj.actionContext.PLURAL}`:
+            return {...state, fetching:true , error:null}
+            
+        case `DOWNLOAD_${contextObj.actionContext.PLURAL}_SUCCEED`:
+            return {...state, fetching:false , error:null}
 
         default:
             return state
