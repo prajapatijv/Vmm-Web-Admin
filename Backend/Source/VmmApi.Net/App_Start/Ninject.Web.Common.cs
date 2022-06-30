@@ -90,6 +90,7 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IFtpService>().To<FtpService>();
             kernel.Bind<IFileCacheService>().To<FileCacheService>();
             kernel.Bind<IPopupService>().To<PopupService>();
+            kernel.Bind<IJoinSamitiService>().To<JoinSamitiService>();
 
             kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>().InSingletonScope();
             kernel.Bind<FileCacheProvder>().ToSelf().InSingletonScope();

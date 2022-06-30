@@ -5,7 +5,7 @@ namespace VmmApi.Net.Models
 {
     public class JoinSamitiViewModel
     {
-        public List<JoinSamiti> JoinSamitiRequests { get; set; }
+        public List<JoinSamiti> JoinSamitis { get; set; }
         public List<SamitiType> SamitiTypes { get; set; }
     }
 }

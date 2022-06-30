@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VmmApi.Net.DataServices.Entities
 {
+    [Table("SAMITI_TYPE_MASTER")]
+
     public class SamitiType : GuidEntity
     {
         [Column("SamitiTypeId")]

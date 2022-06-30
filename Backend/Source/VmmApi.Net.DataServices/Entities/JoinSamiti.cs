@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VmmApi.Net.DataServices.Entities
 {
+    [Table("SamitiJoin_Details")]
     public class JoinSamiti: IntEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -36,7 +37,7 @@ namespace VmmApi.Net.DataServices.Entities
         [Column("Comments")]
         public string Comments { get; set; }
 
-        [Column("RequestDate")]
+        [Column("Request_Date")]
         public DateTime RequestDate { get; set; }
     }
 }
