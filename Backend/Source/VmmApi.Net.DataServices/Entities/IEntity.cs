@@ -1,4 +1,6 @@
-﻿namespace VmmApi.Net.DataServices.Entities
+﻿using System;
+
+namespace VmmApi.Net.DataServices.Entities
 {
     public interface IEntity<T>
     {
@@ -14,5 +16,11 @@
     {
         public virtual byte Id { get; set; }
     }
+
+    public abstract class GuidEntity : IEntity<Guid>
+    {
+        public virtual Guid Id { get; set; }
+    }
+
 
 }

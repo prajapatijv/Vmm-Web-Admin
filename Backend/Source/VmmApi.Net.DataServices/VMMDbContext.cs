@@ -17,5 +17,7 @@ namespace VmmApi.Net.DataServices
         public DbSet<Event> Events { get; set; }
         public DbSet<QueryDetail> Queries { get; set; }
         public DbSet<Popup> Popups { get; set; }
+        public DbSet<JoinSamiti> JoinSamitiRequests { get; set; }
+        public DbSet<SamitiType> SamitiTypes { get; set; }
     }
 }
