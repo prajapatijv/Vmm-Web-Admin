@@ -16,7 +16,7 @@ const JoinSamitiPage = (props) => {
 const JoinSamitiLines = ({ joinsamitis }) =>
     joinsamitis.map((joinsamiti) =>
         <NavLink key={joinsamiti.id}
-            to={`/joinsamiti/${joinsamiti.id}`}
+            to={`/joinsamitis/${joinsamiti.id}`}
             activeClassName="active"
             className="app-list-item list-group-item-action"
         >{joinsamiti.personName} 

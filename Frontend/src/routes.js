@@ -40,8 +40,8 @@ const Routes = (props) =>
     <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes/:id" />
     <ProtectedRoute component={AreaPage} {...props} path="areas" />
     <ProtectedRoute component={AreaPage} {...props} path="areas/:id" />
-    <ProtectedRoute component={JoinSamitiPage} {...props} path="joinsamiti" />
-    <ProtectedRoute component={JoinSamitiPage} {...props} path="joinsamiti/:id" />
+    <ProtectedRoute component={JoinSamitiPage} {...props} path="joinsamitis" />
+    <ProtectedRoute component={JoinSamitiPage} {...props} path="joinsamitis/:id" />
     <NotFound default />
   </Router>
 

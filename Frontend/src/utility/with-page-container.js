@@ -36,6 +36,7 @@ const WithPageContainer = (WrappedComponent, props, context) => {
             'documenttypes': localState.documenttypes,
             'eventtypes': localState.eventtypes,
             'areas': localState.areas,
+            'samititypes': localState.samititypes,
             fetching: localState.fetching,
             saving: localState.saving,
             deleting: localState.deleting,

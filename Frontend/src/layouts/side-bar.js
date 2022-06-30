@@ -32,7 +32,7 @@ const Sidebar = () => {
                 <NavItem path="/documents" displayName="Documents" icon={<BookOpen/>} />
                 <NavItem path="/events" displayName="Events" icon={<Calendar/>} />
                 <NavItem path="/queries" displayName="Queries" icon={<HelpCircle/>} />
-                <NavItem path="/joinsamiti" displayName="Join Samiti" icon={<UserPlus/>} />
+                <NavItem path="/joinsamitis" displayName="Join Samiti" icon={<UserPlus/>} />
             </ul>
 
             <hr/>

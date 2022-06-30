@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 
-import { InputBox } from '../shared/input-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import { CheckBox } from '../shared/check-box'
 
 const JoinSamitiForm = ({ joinsamiti, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -42,8 +42,21 @@ const JoinSamitiForm = ({ joinsamiti, onClose, onSave, onDelete, saving, deletin
                         <form className="needs-validation"
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
+                            <div className="form-row mb-2">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h4 className="card-title text-muted">Contact Details</h4>
+                                    <h5 className="card-title">{joinsamiti.personName}</h5>
+                                    <h6 className="card-subtitle mb-2 text-muted">{joinsamiti.contactNumber} | {joinsamiti.emailId} </h6>
+                                    <h6 className="card-subtitle mb-2 text-muted">{joinsamiti.village}, {joinsamiti.district} </h6>
+                                    <hr/>
+
+                                    <h4 className="card-title text-muted">Interested In</h4>
+                                </div>
+                            </div>
+                            </div> 
                             <div className="form-row mb-3">
-                                <Field type="text" name="areaName" component={InputBox} placeholder="Area Name" floatinglabel={true} />
+                                <Field type="checkbox" name="contacted" component={CheckBox} label="Replied" floatinglabel={true} />
                             </div>
 
                             <ButtonBar
