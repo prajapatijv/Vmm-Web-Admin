@@ -1,0 +1,26 @@
+[
+    {
+        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c77",
+        "sequence": "1",
+        "samitiName": "Name 1",
+        "description": "Description  1"
+    },
+    {
+        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c78",
+        "sequence": "2",
+        "samitiName": "Name 2",
+        "description": "Description  2"
+    },
+    {
+        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c79",
+        "sequence": "3",
+        "samitiName": "Name 3",
+        "description": "Description  3"
+    }, 
+    {
+        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c80",
+        "sequence": "4",
+        "samitiName": "Name 4",
+        "description": "Description  4"
+    }
+]

@@ -15,6 +15,7 @@ import AreaPage from './containers/area-page/area'
 import DocumentPage from './containers/document-page/document'
 import PopupPage from './containers/popup-page/popup'
 import QueryPage from './containers/query-page/query'
+import JoinSamitiPage from './containers/join-samiti/joinsamiti'
 
 const Routes = (props) =>
   <Router>
@@ -39,6 +40,8 @@ const Routes = (props) =>
     <ProtectedRoute component={EventTypePage} {...props} path="/eventtypes/:id" />
     <ProtectedRoute component={AreaPage} {...props} path="areas" />
     <ProtectedRoute component={AreaPage} {...props} path="areas/:id" />
+    <ProtectedRoute component={JoinSamitiPage} {...props} path="joinsamiti" />
+    <ProtectedRoute component={JoinSamitiPage} {...props} path="joinsamiti/:id" />
     <NotFound default />
   </Router>
 

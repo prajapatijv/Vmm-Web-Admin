@@ -11,6 +11,7 @@ import documents from './document-page/reducer'
 import events from './event-page/reducer'
 import popups from './popup-page/reducer'
 import queries from './query-page/reducer'
+import joinsamitis from './join-samiti/reducer'
 
 export default combineReducers({
     status,
@@ -23,5 +24,6 @@ export default combineReducers({
     documentState:documents,
     eventState:events,
     popupState:popups,
-    queryState:queries
+    queryState:queries,
+    joinsamitiState:joinsamitis
 })

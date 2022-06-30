@@ -8,7 +8,8 @@ const ContainerKeys = {
     Document:'document',
     Event:'event',
     Popup:'popup',
-    Query:'query'
+    Query:'query',
+    JoinSamiti: 'joinsamiti'
 }
 
 export default ContainerKeys

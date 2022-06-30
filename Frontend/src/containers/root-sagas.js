@@ -5,7 +5,7 @@ import withPageSaga from '../utility/with-page-saga'
 import { addErrorSaga } from './status-bar/actions'
 import { Config } from '../AppConfig'
 
-const {user, item , documenttype, event, eventtype, area, document, popup, query } = Config.mappings
+const {user, item , documenttype, event, eventtype, area, document, popup, query, joinsamiti } = Config.mappings
 
 export default function* rootSaga() {
     yield all([
@@ -20,6 +20,7 @@ export default function* rootSaga() {
         ...withPageSaga(area),
         ...withPageSaga(document),
         ...withPageSaga(popup),
-        ...withPageSaga(query)
+        ...withPageSaga(query),
+        ...withPageSaga(joinsamiti)
     ])
 }
