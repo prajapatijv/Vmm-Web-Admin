@@ -21,8 +21,8 @@
         "village": "OLPAD.394540 ",
         "taluka": "OLPAD ",
         "district": "SURAT",
-        "contacted": null,
-        "comments": null,
+        "contacted": 1,
+        "comments": "this is the comment",
         "requestDate": "2022-06-25T10:42:00"
       },
       {
@@ -35,7 +35,7 @@
         "taluka": "Umbargon ",
         "district": "Valsad ",
         "contacted": 1,
-        "comments": null,
+        "comments": "this is another comment",
         "requestDate": "2022-06-21T12:45:00"
       },
       {

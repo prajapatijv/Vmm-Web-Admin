@@ -19,7 +19,8 @@ const defaultJoinSamiti = {
 }
 
 const initialState = {
-    joinsamitis:[]
+    joinsamitis:[],
+    samititypes:[]
 } 
 
 const byName = criteria => joinsamiti => {

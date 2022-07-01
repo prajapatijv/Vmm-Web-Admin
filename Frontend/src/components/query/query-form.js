@@ -7,6 +7,7 @@ import { TextAreaBox } from '../shared/textarea-box'
 import { CheckBox } from '../shared/check-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import './query-form.scss'
 
 const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -53,7 +54,7 @@ const QueryForm = ({ query, onClose, onSave, onDelete, saving, deleting, allowDe
                             onSubmit={props.handleSubmit}
                             onReset={props.handleReset}>
                             <div className="form-row mb-2">
-                                <div className="card">
+                                <div className="card full-width-card">
                                     <div className="card-body">
                                         <h4 className="card-title text-muted">Contact Details</h4>
                                         <h5 className="card-title">{query.name}</h5>

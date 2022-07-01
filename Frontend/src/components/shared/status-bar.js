@@ -60,13 +60,13 @@ const Info = ({hasInfos, status, clearInfos}) =>
 Error.propTypes = {
     hasErrors: PropTypes.bool,  
     status: PropTypes.object,
-    clearErrors: PropTypes.bool
+    clearErrors: PropTypes.func
 }
 
 Info.propTypes = {
     hasInfos: PropTypes.bool, 
     status: PropTypes.object, 
-    clearInfos: PropTypes.bool
+    clearInfos: PropTypes.func
 }
 
 Statusbar.propTypes = {

@@ -30,7 +30,7 @@ export const CheckBox = ({
 
 const Check = ({ field, props, touched, errors, cls, values, onClick}) =>
   <input className={cls} id={field.name}
-    invalid={touched[field.name] && errors[field.name] ? false : true}
+    invalid={touched[field.name] && errors[field.name] ? "false" : "true"}
     onClick={onClick}
     onChange={onClick}
     {...field} {...props}
