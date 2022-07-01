@@ -34,7 +34,7 @@
         "village": "Umbargon solasumba  bhutiya faliya ",
         "taluka": "Umbargon ",
         "district": "Valsad ",
-        "contacted": null,
+        "contacted": 1,
         "comments": null,
         "requestDate": "2022-06-21T12:45:00"
       },
@@ -47,7 +47,7 @@
         "village": "Fulvadi",
         "taluka": "Mandavi",
         "district": "Surat",
-        "contacted": null,
+        "contacted": 0,
         "comments": null,
         "requestDate": "2022-06-16T23:50:00"
       },
@@ -60,7 +60,7 @@
         "village": "બારતાડ (ખાનપુર J",
         "taluka": "Vansda",
         "district": "નવસારી",
-        "contacted": null,
+        "contacted": 1,
         "comments": null,
         "requestDate": "2022-06-13T03:48:00"
       }       

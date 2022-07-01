@@ -1,26 +1,158 @@
 [
     {
-        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c77",
-        "sequence": "1",
-        "samitiName": "Name 1",
-        "description": "Description  1"
-    },
-    {
-        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c78",
-        "sequence": "2",
-        "samitiName": "Name 2",
-        "description": "Description  2"
-    },
-    {
-        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c79",
-        "sequence": "3",
-        "samitiName": "Name 3",
-        "description": "Description  3"
-    }, 
-    {
-        "samitiTypeId": "0352cf0f-2e7a-4aee-801d-7f27f8344c80",
-        "sequence": "4",
-        "samitiName": "Name 4",
-        "description": "Description  4"
-    }
+        "id": "ad88e766-68d9-424c-bf7e-18a6c80e5358",
+        "sequence": 1,
+        "samitiName": "મંડપ સમિતિ",
+        "description": "ઉત્સવ અગાઉ ૧૫ દિવસ અને ઉત્સવ બાદ ૫ દિવસ સેવા આપી શકે એવા યુવાન ભાઈઓ"
+      },
+      {
+        "id": "4dc56a0a-2e3f-4f05-b8d8-46a74f00ea9d",
+        "sequence": 2,
+        "samitiName": "વ્યાસપીઠ સમિતિ",
+        "description": "ઉત્સવ દરમ્યાન સેવા આપી શકે એવા યુવાન ભાઈઓ"
+      },
+      {
+        "id": "0afab910-7ff4-4403-919e-1e43ead9b6cd",
+        "sequence": 3,
+        "samitiName": "સુર-રોશની સમિતિ",
+        "description": "ઈલેક્ટ્રીશીયન, વાયરમેન, ફોટોગ્રાફર, વિડીઓગ્રાફર, સાઉન્ડ ઇન્જિનિઅર, ઓડીઓ અને વિડીઓ મિક્સર ઓપરેટર, હેલ્પર વિગેરે"
+      },
+      {
+        "id": "58655bba-f5b6-425e-b5b5-284434e64473",
+        "sequence": 4,
+        "samitiName": "શણગાર સમિતિ",
+        "description": "માળી, ફૂલ શણગાર વિગેરેનું કામ જાણનાર ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "3fef097c-e34d-4ab8-9d4f-39027717e171",
+        "sequence": 5,
+        "samitiName": "જલધારા સમિતિ",
+        "description": "ઉત્સવ દરમ્યાન પરબમાં સેવા આપી શકે એવા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "e489ab2e-bc41-41f1-ba7d-139a1469f5e5",
+        "sequence": 6,
+        "samitiName": "સફાઈ સમિતિ",
+        "description": "ઉત્સવ અગાઉ, ઉત્સવ દરમ્યાન તથા ઉત્સવ બાદ સફાઈકામમાં સેવા આપી શકે એવા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "8f5ae089-b081-47d6-a8ee-b0d64f43ce13",
+        "sequence": 7,
+        "samitiName": "સુરક્ષા સમિતિ",
+        "description": "પોલીસ વિભાગ, હોમ ગાર્ડ, સીક્યુરીટી ગાર્ડ, જી.આર.ડી. ના સભ્યો, ફાયર સેફટી તથા ડીઝાસ્ટર મેનેજમેન્ટ સાથે સંકળાયેલ તેમજ અન્ય ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "c9a0d942-5465-4d7b-9cc7-2aac57a11d13",
+        "sequence": 8,
+        "samitiName": "રસોડા સમિતિ",
+        "description": "રસોઈના જાણકાર, રસોડામાં કામ કરી શકે એવા તથા કેટરિંગ વ્યવસાય સાથે સંકળાયેલ ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "5e59ec4c-7e56-44dd-bd99-72650f279261",
+        "sequence": 9,
+        "samitiName": "ભોજન પાસ સમિતિ",
+        "description": "ભોજન પાસ વિતરણમાં મદદ કરી શકે એવા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "bdb4b2fa-644f-41ae-8a23-047f747accd1",
+        "sequence": 10,
+        "samitiName": "વાહન વ્યવહાર સમિતિ",
+        "description": "ઉત્સવ દરમ્યાન ટ્રાફિક નિયંત્રણ અને વાહન પાર્કિંગ કરાવી વાહનોની કાળજી રાખી શકે  એવા ભાઈઓ "
+      },
+      {
+        "id": "cfa29046-0df9-44de-ab16-7028c7c40677",
+        "sequence": 11,
+        "samitiName": "દાન પ્રદાન સમિતિ",
+        "description": "વેચાણ સ્ટોલ ઉપર સેવા આપી શકે તથા હિસાબી કામકાજ, ટેલી સોફ્ટવેર વિગેરેનો અનુભવ ધરાવતા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "e5ca18f8-5289-4b58-927a-deac52d3c794",
+        "sequence": 12,
+        "samitiName": "મોબાઈલ સમિતિ",
+        "description": "ઉત્સવ દરમ્યાન જવાબદારીપૂર્વક મોબાઈલની આપ-લે કરી સેવા આપી શકે એવા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "344247f7-2727-4de2-a9f8-467742a8bbff",
+        "sequence": 13,
+        "samitiName": "તબીબી સમિતિ",
+        "description": "ડોક્ટર્સ, નર્સિંગ, કમ્પાઉન્ડર, ફાર્માસિસ્ટ વિગેરે"
+      },
+      {
+        "id": "4e829198-403e-405c-be81-a1292703e189",
+        "sequence": 14,
+        "samitiName": "સામાજિક સેવા સમિતિ",
+        "description": "સામાજિક ક્ષેત્રે સેવાનો અનુભવ ધરાવતા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "4ba42f96-787f-4b8c-9025-41c01df6cf50",
+        "sequence": 15,
+        "samitiName": "સંગીત સમિતિ",
+        "description": "સંગીત ક્ષેત્રે જ્ઞાન ધરાવતા ભાઈઓ"
+      },
+      {
+        "id": "b91068ae-fdf8-4891-95b8-99f2b51563f9",
+        "sequence": 16,
+        "samitiName": "બાળ સંસ્કાર સમિતિ",
+        "description": "બાળ સંસ્કાર કેન્દ્રના સંચાલક બની શકે એવા ભાઈઓ અને બહેનો "
+      },
+      {
+        "id": "55a562fc-1c4b-49b2-847f-2b0ec813d69e",
+        "sequence": 17,
+        "samitiName": "ભવન સંચાલન સમિતિ",
+        "description": "ઉત્સવ તથા દર પૂનમ, દર શનિવાર અને દર રવિવાર ના દિવસોએ ભવનોના સંચાલન –વ્યસ્થાપનમાં સેવા આપી શકે એવા ભાઈઓ અને બહેનો "
+      },
+      {
+        "id": "0baec10f-3b6a-448c-9ab5-d39d720ad2d7",
+        "sequence": 18,
+        "samitiName": "પાદુકા પૂજન / પુર્ણાહુતિ સમિતિ",
+        "description": "પાદુકા પૂજન / પુર્ણાહુતિ દરમ્યાન સેવા આપી શકે એવા ભાઈઓ"
+      },
+      {
+        "id": "20393f92-8a25-4d65-bd7c-6d38b843eaa2",
+        "sequence": 19,
+        "samitiName": "સુશોભન સમિતિ",
+        "description": "DTC, ફેશન ડીઝાઇન, ઈન્ટીરિયર ડીઝાઇન, આર્કિટેક,  ક્રિએટીવીટી દ્વારા રંગોળી અને ડીઝાઇન ડેકોરેશન તૈયાર કરી શકે એવા ભાઈઓ અને બહેનો "
+      },
+      {
+        "id": "75bfaf0d-9d01-445e-8384-cefff5c2ac22",
+        "sequence": 20,
+        "samitiName": "પૂજન સમિતિ",
+        "description": "ઉત્સવ દરમ્યાન પાદુકા પૂજન શરુ થાય ત્યાંથી પાદુકા પૂજન પૂર્ણ થાય ત્યાં સુધી જવાબદારી પૂર્વક વિનમ્ર ભાવે સેવા આપી શકે એવા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "95bc563f-f3cf-46cb-8e00-70305c74d759",
+        "sequence": 21,
+        "samitiName": "પાથરણા સમિતિ",
+        "description": "ઉત્સવ દરમ્યાન મંડપ તથા રહેઠાણની જગ્યામાં પાથરણા પાથરવાનો અનુભવ ધરાવતા ભાઈઓ"
+      },
+      {
+        "id": "4a17e7e6-9d9d-4555-b9e7-114d911cf2bf",
+        "sequence": 22,
+        "samitiName": "એકાઉન્ટ સમિતિ",
+        "description": "ચાર્ટડ એકાઉન્ટ, હિસાબનીશ, ટેલી સોફ્ટવેર અને હિસાબી કામકાજનો અનુભવ ધરવતા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "935b3584-de08-42f5-b89a-de3f1bf8c3ed",
+        "sequence": 23,
+        "samitiName": "પગરખાં સમિતિ",
+        "description": "ઉત્સવ દરમ્યાન સેવા આપી શકે એવા ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "74e4c53b-63f8-4ab3-b9aa-9bc5a56ea5b1",
+        "sequence": 24,
+        "samitiName": "અલ્પાહાર સમિતિ",
+        "description": "રસોઈયા, હોટલ તથા કેટરિંગ વ્યવસાય સાથે સંકળાયેલ ભાઈઓ અને બહેનો"
+      },
+      {
+        "id": "c519bf5c-0b31-4244-a5f7-46ce4b5c3a00",
+        "sequence": 25,
+        "samitiName": "આઈટી સમિતિ",
+        "description": "1) Web Developer  ( .Net MVC, PHP, Programming Languages)\r\n                            2) Graphics Designer ( CoralDraw, PhotoShop, Illustrator )\r\n                            3) Web Designer ( BootSrap/Foundation UI, AJAX, JQuery, JSON)\r\n                            4) Video Editor ( Win Movie Maker, Video Editing, Adobe Premier, DVD Making, CorelDraw, Photoshop, DVD Making, Audio & Video Editing, Video Converting Tool)\r\n                            5) Animator ( 2D & 3D, Maya, VFX, Digital Painting)\r\n                            6) Data Entry Operator ( MS Office, Typing Skills)\r\n                            7) Networking Specialist ( Hardware and Networking )\r\n                            8) Accounting Software Operator ( Tally ERP)"
+      },
+      {
+        "id": "3603719e-91f8-43b3-9551-c2ceaf013189",
+        "sequence": 26,
+        "samitiName": "વિશેષ",
+        "description": "વકીલ, આર્કિટેક, ઇન્ટીરીયર ડિઝાયનર, વિવિધ સરકારી વિભાગો અને સંસ્થાઓ સાથે સંકળાયેલ સેવા આપી શકે એવા ભાઈઓ અને બહેનો"
+      }
 ]

@@ -34,7 +34,7 @@ const Check = ({ field, props, touched, errors, cls, values, onClick}) =>
     onClick={onClick}
     onChange={onClick}
     {...field} {...props}
-    checked={values[field.name]}
+    checked={values[field.name] ? values[field.name]: false}
   />
 
 
