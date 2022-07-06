@@ -10,7 +10,7 @@ import './joinsamiti-form.scss'
 
 const JoinSamitiForm = ({ joinsamiti, samititypes, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
     const _init = { ...joinsamiti }
-    const samiti = samititypes && samititypes.find(_ => _.id == joinsamiti.samitiTypeId);
+    const samiti = joinsamiti && samititypes && samititypes.find(_ => _.id == joinsamiti.samitiTypeId);
 
     const schema = Yup.object().shape({
         id:Yup.number(),
@@ -50,11 +50,11 @@ const JoinSamitiForm = ({ joinsamiti, samititypes, onClose, onSave, onDelete, sa
                                     <h6 className="card-subtitle mb-2 text-muted">{joinsamiti.contactNumber} | {joinsamiti.emailId} </h6>
                                     <h6 className="card-subtitle mb-2 text-muted">{joinsamiti.village}, {joinsamiti.district} </h6>
                                     <hr/>
-                                    <h4 className="card-title text-muted">Interested In</h4>
+                                    <h5 className="card-title text-muted">Interested In</h5>
                                     <h5 className="card-title">{samiti.samitiName}</h5>
                                     <h6 className="card-subtitle mb-2 text-muted">{samiti.description} </h6>
                                     <hr/>
-                                    <h4 className="card-title text-muted">Reply</h4>
+                                    <h5 className="card-title text-muted">Reply</h5>
                                     <h6 className="card-subtitle mb-2 text-muted">{joinsamiti.comments} </h6>
                                 </div>
                             </div>
