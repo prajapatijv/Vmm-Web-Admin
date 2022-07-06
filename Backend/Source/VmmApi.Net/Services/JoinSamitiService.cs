@@ -25,8 +25,8 @@ namespace VmmApi.Net.Services
 
             return new JoinSamitiViewModel
             {
-                JoinSamitis = items,
-                SamitiTypes = samitiTypes
+                Joinsamitis = items,
+                Samititypes = samitiTypes
             };
         }
     }
