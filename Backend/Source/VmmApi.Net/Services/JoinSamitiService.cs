@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using VmmApi.Net.DataServices;
+using VmmApi.Net.DataServices.Entities;
 using VmmApi.Net.Models;
 
 namespace VmmApi.Net.Services
@@ -7,6 +8,12 @@ namespace VmmApi.Net.Services
     public interface IJoinSamitiService
     {
         JoinSamitiViewModel GetAll();
+
+        JoinSamiti GetById(int id);
+
+        void Save(JoinSamiti joinSamiti);
+
+        void Delete(int id);
     }
 
     public class JoinSamitiService : IJoinSamitiService
@@ -16,6 +23,21 @@ namespace VmmApi.Net.Services
         public JoinSamitiService(VmmDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public void Delete(int id)
+        {
+            var entity = this.GetById(id);
+            if (entity != null)
+            {
+                this.dbContext.JoinSamitiRequests.Remove(entity);
+                this.dbContext.SaveChanges();
+            }
+        }
+
+        public JoinSamiti GetById(int id)
+        {
+            return this.dbContext.JoinSamitiRequests.FirstOrDefault(e => e.Id == id);
         }
 
         public JoinSamitiViewModel GetAll()
@@ -28,6 +50,18 @@ namespace VmmApi.Net.Services
                 Joinsamitis = items,
                 Samititypes = samitiTypes
             };
+        }
+
+        public void Save(JoinSamiti joinSamiti)
+        {
+            this.dbContext.JoinSamitiRequests.Add(joinSamiti);
+
+            if (joinSamiti.Id > 0)
+            {
+                this.dbContext.Entry(joinSamiti).State = System.Data.Entity.EntityState.Modified;
+            }
+
+            this.dbContext.SaveChanges();
         }
     }
 

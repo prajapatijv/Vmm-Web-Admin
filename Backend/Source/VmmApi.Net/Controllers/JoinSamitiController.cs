@@ -22,5 +22,17 @@ namespace VmmApi.Net.Controllers
             var joinSamitiViewModel = this.joinSamitiService.GetAll();
             return Ok(joinSamitiViewModel);
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            if (id > 0)
+            {
+                this.joinSamitiService.Delete(id);
+            }
+
+            return Ok();
+        }
     }
 }
