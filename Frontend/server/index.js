@@ -92,7 +92,7 @@ app.get('/api/documents', (req, res) => { var response = {}; response.documents 
 app.get('/api/events', (req, res) => { var response = {}; response.events = events; response.eventtypes = eventtypes; response.areas = areas; res.status(200).json(response) })
 app.get('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 app.get('/api/queries', (req, res) => { var response = {}; response.queries = queries; res.status(200).json(response) })
-app.get('/api/join-samiti', (req, res) => { var response = {}; response.joinsamitis = joinsamitis; response.samititypes = samititypes; res.status(200).json(response) })
+app.get('/api/joinsamitis', (req, res) => { var response = {}; response.joinsamitis = joinsamitis; response.samititypes = samititypes; res.status(200).json(response) })
 
 //filepond endpoints
 app.post('/api/file', (req, res) => res.status(200).json(new Date().toUTCString()))

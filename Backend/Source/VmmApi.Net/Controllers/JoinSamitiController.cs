@@ -5,7 +5,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
-    [RoutePrefix("api/join-samiti")]
+    [RoutePrefix("api/joinsamitis")]
     public class JoinSamitiController : BaseController
     {
         private readonly IJoinSamitiService joinSamitiService;

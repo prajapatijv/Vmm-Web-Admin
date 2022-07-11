@@ -13,7 +13,7 @@ const _contextMappings = {
     'document' : { 'apiContext': 'documents', 'actionContext': { 'singular': 'document', 'SINGULAR': 'DOCUMENT', 'plural': 'documents', 'PLURAL': 'DOCUMENTS', 'allowDownload':1 } },    
     'popup' : { 'apiContext': 'popups', 'actionContext': { 'singular': 'popup', 'SINGULAR': 'POPUP', 'plural': 'popups', 'PLURAL': 'POPUPS' , 'allowAdd':0, 'allowDelete':0 , 'allowDownload':0} },    
     'query' : { 'apiContext': 'queries', 'actionContext': { 'singular': 'query', 'SINGULAR': 'QUERY', 'plural': 'queries', 'PLURAL': 'QUERIES', 'allowDownload':1 } },    
-    'joinsamiti' : { 'apiContext': 'join-samiti', 'actionContext': { 'singular': 'joinsamiti', 'SINGULAR': 'JOINSAMITI', 'plural': 'joinsamitis', 'PLURAL': 'JOINSAMITIS', 'allowDownload':1 } },    
+    'joinsamiti' : { 'apiContext': 'joinsamitis', 'actionContext': { 'singular': 'joinsamiti', 'SINGULAR': 'JOINSAMITI', 'plural': 'joinsamitis', 'PLURAL': 'JOINSAMITIS', 'allowDownload':1 } },    
 }
 
 export const Config = {
