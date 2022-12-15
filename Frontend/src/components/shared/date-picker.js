@@ -3,6 +3,7 @@ import { ErrorMessage } from 'formik'
 import DatePicker from 'react-datepicker'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import moment from 'moment-timezone'
 import "react-datepicker/dist/react-datepicker.css"
 import './date-picker.scss'
 
@@ -24,7 +25,7 @@ export const DatePickerBox = ({
     })
 
     const onChange = (name, value) => {
-        setFieldValue(name, value)
+        setFieldValue(name, moment(value).format('YYYY-MM-DD HH:mm:ss'));
     }
 
     return (
