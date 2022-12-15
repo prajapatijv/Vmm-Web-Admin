@@ -9,7 +9,7 @@
     "bootstrap": "^4.5.0",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-delay": "^0.2.0",
     "filepond": "^4.19.2",
     "filepond-plugin-file-validate-size": "^2.2.1",
