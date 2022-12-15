@@ -11,6 +11,7 @@ import { DatePickerBox } from '../shared/date-picker'
 
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import moment from 'moment-timezone'
 
 const EventForm = ({ event, eventtypes, areas, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -42,7 +43,9 @@ const EventForm = ({ event, eventtypes, areas, onClose, onSave, onDelete, saving
     })
 
     const onSaveEntity = (values, actions) => {
-        values.active = values.active === true ? 1 : 0; 
+        values.active = values.active === true ? 1 : 0;
+        values.startDate = moment(values.startDate).format('YYYY-MM-DD HH:mm:ss');
+        values.endDate = moment(values.endDate).format('YYYY-MM-DD HH:mm:ss'); 
         onSave(values)
         actions.setSubmitting(false)
     }
