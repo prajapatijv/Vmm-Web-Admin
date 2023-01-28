@@ -178,6 +178,9 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\TalukaController.cs" />
+    <Compile Include="Controllers\DistrictController.cs" />
+    <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Controllers\PopupController.cs" />
     <Compile Include="Controllers\JoinSamitiController.cs" />
     <Compile Include="Controllers\QueryController.cs" />

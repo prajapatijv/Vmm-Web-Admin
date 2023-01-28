@@ -10,7 +10,7 @@ namespace VmmApi.Net.DataServices.Entities
         public override int Id { get => base.Id; set => base.Id = value; }
 
         [Column("district_name")]
-        public string StateName { get; set; }
+        public string DistrictName { get; set; }
 
         [Column("state_id")]
         public int StateId { get; set; }
