@@ -19,5 +19,8 @@ namespace VmmApi.Net.DataServices
         public DbSet<Popup> Popups { get; set; }
         public DbSet<JoinSamiti> JoinSamitiRequests { get; set; }
         public DbSet<SamitiType> SamitiTypes { get; set; }
+        public DbSet<State> State { get; set; }
+        public DbSet<District> District { get; set; }
+        public DbSet<Taluka> Taluka { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 using VmmApi.Net.DataServices;
 using VmmApi.Net.DataServices.Entities;
 using VmmApi.Net.Models;
@@ -18,13 +19,20 @@ namespace VmmApi.Net.Services
     {
         private readonly IEventTypeService eventTypeService;
         private readonly IAreaService areaService;
+        private readonly IStateService stateService;
+        private readonly IDistrictService districtService;
+        private readonly ITalukaService talukaService;
         private readonly VmmDbContext dbContext;
 
-        public EventService(VmmDbContext dbContext, IEventTypeService eventTypeService, IAreaService areaService)
+        public EventService(VmmDbContext dbContext, IEventTypeService eventTypeService, IAreaService areaService,
+            IStateService stateService, IDistrictService districtService, ITalukaService talukaService)
         {
             this.dbContext = dbContext;
             this.eventTypeService = eventTypeService;
             this.areaService = areaService;
+            this.stateService = stateService;
+            this.districtService = districtService;
+            this.talukaService = talukaService;    
         }
 
         public EventViewModel GetAllEvents()
@@ -33,7 +41,10 @@ namespace VmmApi.Net.Services
             {
                 Events = this.dbContext.Events.OrderByDescending(e => e.Active).OrderByDescending(e => e.StartDate),
                 Eventtypes = this.eventTypeService.GetAllEventTypes().Eventtypes,
-                Areas = this.areaService.GetAllAreas().Areas
+                Areas = this.areaService.GetAllAreas().Areas,
+                States = this.stateService.GetAllStates().States,
+                Districts = this.districtService.GetAllDistricts().Districts,
+                Taluka = this.talukaService.GetAllTaluka().Taluka
             };
         }
 
