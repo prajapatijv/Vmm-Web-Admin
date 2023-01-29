@@ -9,7 +9,10 @@ const ContainerKeys = {
     Event:'event',
     Popup:'popup',
     Query:'query',
-    JoinSamiti: 'joinsamiti'
+    JoinSamiti: 'joinsamiti',
+    State: 'state',
+    District: 'district',
+    Taluka: 'taluka'
 }
 
 export default ContainerKeys
