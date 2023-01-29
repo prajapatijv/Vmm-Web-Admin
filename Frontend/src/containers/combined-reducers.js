@@ -14,6 +14,7 @@ import queries from './query-page/reducer'
 import joinsamitis from './join-samiti/reducer'
 import states from './state-page/reducer'
 import districts from './district-page/reducer'
+import talukas from './taluka-page/reducer'
 
 export default combineReducers({
     status,
@@ -30,4 +31,5 @@ export default combineReducers({
     joinsamitiState:joinsamitis,
     stateState:states,
     districtState:districts,
+    talukaState:talukas,
 })

@@ -11,7 +11,7 @@ const events = (state = initialState, action) => {
                 "areas": action.payload.data.areas,
                 "states": action.payload.data.states,
                 "districts": action.payload.data.districts,
-                "taluka": action.payload.data.taluka
+                "talukas": action.payload.data.talukas
              }
         }
 
@@ -41,7 +41,7 @@ const initialState = {
     areas: [],
     states: [],
     districts: [],
-    taluka: []
+    talukas: []
 }
 
 const byName = criteria => event => {

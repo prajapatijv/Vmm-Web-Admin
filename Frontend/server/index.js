@@ -20,7 +20,7 @@ const joinsamitis = require('./data/joinsamiti.json')
 const samititypes = require('./data/samititypes.json')
 const states = require('./data/states.json')
 const districts = require('./data/districts.json')
-const taluka = require('./data/taluka.json')
+const talukas = require('./data/talukas.json')
 
 const TOKEN_KEY = 'jwtsecret'
 
@@ -84,7 +84,7 @@ app.post('/api/events', (req, res) => { var response = {}; response.events = eve
 app.post('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 app.post('/api/states', (req, res) => { var response = {}; response.states = states; res.status(200).json(response) })
 app.post('/api/districts', (req, res) => { var response = {}; response.districts = districts; res.status(200).json(response) })
-app.post('/api/taluka', (req, res) => { var response = {}; response.taluka = taluka; res.status(200).json(response) })
+app.post('/api/talukas', (req, res) => { var response = {}; response.talukas = talukas; res.status(200).json(response) })
 
 app.delete('/api/*/:id', (req, res) => res.status(200).json({}))
 
@@ -101,14 +101,14 @@ app.get('/api/events', (req, res) => { var response = {};
     response.areas = areas; 
     response.states = states, 
     response.districts = districts, 
-    response.taluka = taluka, 
+    response.talukas = talukas, 
     res.status(200).json(response) })
 app.get('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 app.get('/api/queries', (req, res) => { var response = {}; response.queries = queries; res.status(200).json(response) })
 app.get('/api/joinsamitis', (req, res) => { var response = {}; response.joinsamitis = joinsamitis; response.samititypes = samititypes; res.status(200).json(response) })
 app.get('/api/states', (req, res) => { var response = {}; response.states = states; res.status(200).json(response) })
 app.get('/api/districts', (req, res) => { var response = {}; response.districts = districts; res.status(200).json(response) })
-app.get('/api/taluka', (req, res) => { var response = {}; response.taluka = taluka; res.status(200).json(response) })
+app.get('/api/talukas', (req, res) => { var response = {}; response.talukas = talukas; res.status(200).json(response) })
 
 //filepond endpoints
 app.post('/api/file', (req, res) => res.status(200).json(new Date().toUTCString()))

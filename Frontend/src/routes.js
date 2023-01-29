@@ -18,6 +18,7 @@ import QueryPage from './containers/query-page/query'
 import JoinSamitiPage from './containers/join-samiti/joinsamiti'
 import StatePage from './containers/state-page/state'
 import DistrictPage from './containers/district-page/district'
+import TalukaPage from './containers/taluka-page/taluka'
 
 const Routes = (props) =>
   <Router>
@@ -50,6 +51,9 @@ const Routes = (props) =>
 
     <ProtectedRoute component={DistrictPage} {...props} path="districts" />
     <ProtectedRoute component={DistrictPage} {...props} path="districts/:id" />
+
+    <ProtectedRoute component={TalukaPage} {...props} path="talukas" />
+    <ProtectedRoute component={TalukaPage} {...props} path="talukas/:id" />
 
     <NotFound default />
   </Router>

@@ -47,7 +47,7 @@ const Setting = () =>
                 </div>
                 <div className="col-md-4 py-3">
                     <div className="card">
-                        <NavItem path="/taluka" displayName="Taluka" icon={<Compass />} />
+                        <NavItem path="/talukas" displayName="Taluka" icon={<Compass />} />
                     </div>
                 </div>
             </div>

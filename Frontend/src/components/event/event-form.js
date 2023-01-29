@@ -12,7 +12,7 @@ import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const EventForm = ({ event, eventtypes, areas, states, districts, taluka, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
+const EventForm = ({ event, eventtypes, areas, states, districts, talukas, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...event }
     const _eventTypes = eventtypes || []
@@ -37,7 +37,7 @@ const EventForm = ({ event, eventtypes, areas, states, districts, taluka, onClos
         }
     })
 
-    const _taluka = taluka.map(function (a) {
+    const _talukas = talukas.map(function (a) {
         return {
             id: a.id,
             description: a.talukaName
@@ -142,7 +142,7 @@ const EventForm = ({ event, eventtypes, areas, states, districts, taluka, onClos
                                     <Field type="text" name="districtId" component={SelectBox} placeholder="District" options={_districts} floatinglabel={true} />
                                 </div>
                                 <div className="col-md-4">
-                                    <Field type="text" name="talukaId" component={SelectBox} placeholder="Taluka" options={_taluka} floatinglabel={true} />
+                                    <Field type="text" name="talukaId" component={SelectBox} placeholder="Taluka" options={_talukas} floatinglabel={true} />
                                 </div>
                             </div>
 
@@ -187,7 +187,7 @@ EventForm.propTypes = {
     areas: PropTypes.array,
     states: PropTypes.array,
     districts: PropTypes.array,
-    taluka: PropTypes.array,
+    talukas: PropTypes.array,
     allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func

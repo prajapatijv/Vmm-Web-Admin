@@ -39,7 +39,7 @@ const WithPageContainer = (WrappedComponent, props, context) => {
             'samititypes': localState.samititypes,
             'states': localState.states,
             'districts': localState.districts,
-            'taluka': localState.taluka,
+            'talukas': localState.talukas,
             fetching: localState.fetching,
             saving: localState.saving,
             deleting: localState.deleting,
