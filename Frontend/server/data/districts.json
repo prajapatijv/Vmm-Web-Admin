@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "districtName": "અમદાવાદ",
+        "stateId": 1
+    },
+    {
+        "id": 2,
+        "districtName": "છોટા ઉદેપુર",
+        "stateId": 1
+    },
+    {
+        "id": 3,
+        "districtName": "ડાંગ",
+        "stateId": 1
+    },
+    {
+        "id": 4,
+        "districtName": "તાપી",
+        "stateId": 1
+    },
+    {
+        "id": 5,
+        "districtName": "દાહોદ",
+        "stateId": 1
+    },
+    {
+        "id": 6,
+        "districtName": "નર્મદા",
+        "stateId": 1
+    },
+    {
+        "id": 7,
+        "districtName": "નવસારી",
+        "stateId": 1
+    },
+    {
+        "id": 8,
+        "districtName": "પંચમહાલ",
+        "stateId": 1
+    },
+    {
+        "id": 9,
+        "districtName": "ભરૂચ",
+        "stateId": 1
+    },
+    {
+        "id": 10,
+        "districtName": "મહેસાણા",
+        "stateId": 1
+    },
+    {
+        "id": 11,
+        "districtName": "મહિસાગર",
+        "stateId": 1
+    },
+    {
+        "id": 12,
+        "districtName": "વડોદરા",
+        "stateId": 1
+    },
+    {
+        "id": 13,
+        "districtName": "વલસાડ",
+        "stateId": 1
+    },
+    {
+        "id": 14,
+        "districtName": "સુરત",
+        "stateId": 1
+    },
+    {
+        "id": 15,
+        "districtName": "नाशिक",
+        "stateId": 2
+    },
+    {
+        "id": 16,
+        "districtName": "नंदुरबार",
+        "stateId": 2
+    },
+    {
+        "id": 17,
+        "districtName": "पालघर",
+        "stateId": 2
+    },
+    {
+        "id": 18,
+        "districtName": "उदयपुर",
+        "stateId": 3
+    },
+    {
+        "id": 19,
+        "districtName": "દાદરા અને નગર હવેલી",
+        "stateId": 4
+    },
+    {
+        "id": 20,
+        "districtName": "દમણ",
+        "stateId": 4
+    },
+    {
+        "id": 21,
+        "districtName": "દીવ",
+        "stateId": 4
+    }
+]

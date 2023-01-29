@@ -18,6 +18,9 @@ const popups = require('./data/popup.json')
 const queries = require('./data/queries.json')
 const joinsamitis = require('./data/joinsamiti.json')
 const samititypes = require('./data/samititypes.json')
+const states = require('./data/states.json')
+const districts = require('./data/districts.json')
+const taluka = require('./data/taluka.json')
 
 const TOKEN_KEY = 'jwtsecret'
 
@@ -79,6 +82,9 @@ app.post('/api/areas', (req, res) => { var response = {}; response.areas = areas
 app.post('/api/documents', (req, res) => { var response = {}; response.documents = documents; res.status(200).json(response) })
 app.post('/api/events', (req, res) => { var response = {}; response.events = events; res.status(200).json(response) })
 app.post('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
+app.post('/api/states', (req, res) => { var response = {}; response.states = states; res.status(200).json(response) })
+app.post('/api/districts', (req, res) => { var response = {}; response.districts = districts; res.status(200).json(response) })
+app.post('/api/taluka', (req, res) => { var response = {}; response.taluka = taluka; res.status(200).json(response) })
 
 app.delete('/api/*/:id', (req, res) => res.status(200).json({}))
 
@@ -89,10 +95,20 @@ app.get('/api/documenttypes', (req, res) => { var response = {}; response.docume
 app.get('/api/eventtypes', (req, res) => { var response = {}; response.eventtypes = eventtypes; res.status(200).json(response) })
 app.get('/api/areas', (req, res) => { var response = {}; response.areas = areas; res.status(200).json(response) })
 app.get('/api/documents', (req, res) => { var response = {}; response.documents = documents; response.documenttypes = documenttypes; res.status(200).json(response) })
-app.get('/api/events', (req, res) => { var response = {}; response.events = events; response.eventtypes = eventtypes; response.areas = areas; res.status(200).json(response) })
+app.get('/api/events', (req, res) => { var response = {}; 
+    response.events = events; 
+    response.eventtypes = eventtypes; 
+    response.areas = areas; 
+    response.states = states, 
+    response.districts = districts, 
+    response.taluka = taluka, 
+    res.status(200).json(response) })
 app.get('/api/popups', (req, res) => { var response = {}; response.popups = popups; res.status(200).json(response) })
 app.get('/api/queries', (req, res) => { var response = {}; response.queries = queries; res.status(200).json(response) })
 app.get('/api/joinsamitis', (req, res) => { var response = {}; response.joinsamitis = joinsamitis; response.samititypes = samititypes; res.status(200).json(response) })
+app.get('/api/states', (req, res) => { var response = {}; response.states = states; res.status(200).json(response) })
+app.get('/api/districts', (req, res) => { var response = {}; response.districts = districts; res.status(200).json(response) })
+app.get('/api/taluka', (req, res) => { var response = {}; response.taluka = taluka; res.status(200).json(response) })
 
 //filepond endpoints
 app.post('/api/file', (req, res) => res.status(200).json(new Date().toUTCString()))

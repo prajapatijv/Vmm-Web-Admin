@@ -1,0 +1,647 @@
+[
+    {
+        "id": 1,
+        "talukaName": "अक्कलकुवा",
+        "districtId": 16
+    },
+    {
+        "id": 2,
+        "talukaName": "ऋषभदेव",
+        "districtId": 18
+    },
+    {
+        "id": 3,
+        "talukaName": "कलवन",
+        "districtId": 15
+    },
+    {
+        "id": 4,
+        "talukaName": "कोटड़ा",
+        "districtId": 18
+    },
+    {
+        "id": 5,
+        "talukaName": "खेरवाड़ा",
+        "districtId": 18
+    },
+    {
+        "id": 6,
+        "talukaName": "गिरवा",
+        "districtId": 18
+    },
+    {
+        "id": 7,
+        "talukaName": "जव्हार",
+        "districtId": 17
+    },
+    {
+        "id": 8,
+        "talukaName": "झाड़ोल",
+        "districtId": 18
+    },
+    {
+        "id": 9,
+        "talukaName": "डहाणू",
+        "districtId": 17
+    },
+    {
+        "id": 10,
+        "talukaName": "तलासरी",
+        "districtId": 17
+    },
+    {
+        "id": 11,
+        "talukaName": "नंदुरबार",
+        "districtId": 16
+    },
+    {
+        "id": 12,
+        "talukaName": "नवापुर",
+        "districtId": 16
+    },
+    {
+        "id": 13,
+        "talukaName": "नाशिक",
+        "districtId": 15
+    },
+    {
+        "id": 14,
+        "talukaName": "पैंठ",
+        "districtId": 15
+    },
+    {
+        "id": 15,
+        "talukaName": "पालघर",
+        "districtId": 17
+    },
+    {
+        "id": 16,
+        "talukaName": "मावली",
+        "districtId": 18
+    },
+    {
+        "id": 17,
+        "talukaName": "वल्लभनगर",
+        "districtId": 18
+    },
+    {
+        "id": 18,
+        "talukaName": "वसई",
+        "districtId": 17
+    },
+    {
+        "id": 19,
+        "talukaName": "शहादा",
+        "districtId": 16
+    },
+    {
+        "id": 20,
+        "talukaName": "सुरगना ",
+        "districtId": 15
+    },
+    {
+        "id": 21,
+        "talukaName": "सलुम्बर",
+        "districtId": 18
+    },
+    {
+        "id": 22,
+        "talukaName": "सिन्नर",
+        "districtId": 15
+    },
+    {
+        "id": 23,
+        "talukaName": "અંકલેશ્વર",
+        "districtId": 9
+    },
+    {
+        "id": 24,
+        "talukaName": "અમદાવાદ સિટી",
+        "districtId": 1
+    },
+    {
+        "id": 25,
+        "talukaName": "આમોદ",
+        "districtId": 9
+    },
+    {
+        "id": 26,
+        "talukaName": "ઉચ્છલ",
+        "districtId": 4
+    },
+    {
+        "id": 27,
+        "talukaName": "ઉમરગામ",
+        "districtId": 13
+    },
+    {
+        "id": 28,
+        "talukaName": "ઉમરપાડા",
+        "districtId": 14
+    },
+    {
+        "id": 29,
+        "talukaName": "ઊંઝા",
+        "districtId": 10
+    },
+    {
+        "id": 30,
+        "talukaName": "ઓલપાડ",
+        "districtId": 14
+    },
+    {
+        "id": 31,
+        "talukaName": "કુકરમુંડા",
+        "districtId": 4
+    },
+    {
+        "id": 32,
+        "talukaName": "કડાણા",
+        "districtId": 11
+    },
+    {
+        "id": 33,
+        "talukaName": "કડી",
+        "districtId": 10
+    },
+    {
+        "id": 34,
+        "talukaName": "કપરાડા",
+        "districtId": 13
+    },
+    {
+        "id": 35,
+        "talukaName": "કરજણ",
+        "districtId": 12
+    },
+    {
+        "id": 36,
+        "talukaName": "ક્વાંટ",
+        "districtId": 2
+    },
+    {
+        "id": 37,
+        "talukaName": "કામરેજ",
+        "districtId": 14
+    },
+    {
+        "id": 38,
+        "talukaName": "કાલોલ",
+        "districtId": 8
+    },
+    {
+        "id": 39,
+        "talukaName": "ખેરગામ",
+        "districtId": 7
+    },
+    {
+        "id": 40,
+        "talukaName": "ખેરાલુ",
+        "districtId": 10
+    },
+    {
+        "id": 41,
+        "talukaName": "ખાનપુર",
+        "districtId": 11
+    },
+    {
+        "id": 42,
+        "talukaName": "ગણદેવી",
+        "districtId": 7
+    },
+    {
+        "id": 43,
+        "talukaName": "ગરુડેશ્વર",
+        "districtId": 6
+    },
+    {
+        "id": 44,
+        "talukaName": "ગરબાડા",
+        "districtId": 5
+    },
+    {
+        "id": 45,
+        "talukaName": "ગોધરા",
+        "districtId": 8
+    },
+    {
+        "id": 46,
+        "talukaName": "ઘોઘંબા",
+        "districtId": 8
+    },
+    {
+        "id": 47,
+        "talukaName": "ચિખલી",
+        "districtId": 7
+    },
+    {
+        "id": 48,
+        "talukaName": "ચોર્યાસી",
+        "districtId": 14
+    },
+    {
+        "id": 49,
+        "talukaName": "છોટા ઉદેપુર",
+        "districtId": 2
+    },
+    {
+        "id": 50,
+        "talukaName": "જેતપુર-પાવી",
+        "districtId": 2
+    },
+    {
+        "id": 51,
+        "talukaName": "જંબુસર",
+        "districtId": 9
+    },
+    {
+        "id": 52,
+        "talukaName": "જલાલપોર",
+        "districtId": 7
+    },
+    {
+        "id": 53,
+        "talukaName": "જાંબુઘોડા",
+        "districtId": 8
+    },
+    {
+        "id": 54,
+        "talukaName": "જોટાણા",
+        "districtId": 10
+    },
+    {
+        "id": 55,
+        "talukaName": "ઝગડિયા",
+        "districtId": 9
+    },
+    {
+        "id": 56,
+        "talukaName": "ઝાલોદ",
+        "districtId": 5
+    },
+    {
+        "id": 57,
+        "talukaName": "ડભોઈ",
+        "districtId": 12
+    },
+    {
+        "id": 58,
+        "talukaName": "ડાંગ આહવા ",
+        "districtId": 3
+    },
+    {
+        "id": 59,
+        "talukaName": "ડોલવણ",
+        "districtId": 4
+    },
+    {
+        "id": 60,
+        "talukaName": "તિલકવાડા",
+        "districtId": 6
+    },
+    {
+        "id": 61,
+        "talukaName": "દેડિયાપાડા",
+        "districtId": 6
+    },
+    {
+        "id": 62,
+        "talukaName": "દેત્રોજ-રામપુરા",
+        "districtId": 1
+    },
+    {
+        "id": 63,
+        "talukaName": "દમણ",
+        "districtId": 20
+    },
+    {
+        "id": 64,
+        "talukaName": "દેવગઢ બારિયા",
+        "districtId": 5
+    },
+    {
+        "id": 65,
+        "talukaName": "દસ્ક્રોઈ",
+        "districtId": 1
+    },
+    {
+        "id": 66,
+        "talukaName": "દેસર",
+        "districtId": 12
+    },
+    {
+        "id": 67,
+        "talukaName": "દાદરા અને નગર હવેલી",
+        "districtId": 19
+    },
+    {
+        "id": 68,
+        "talukaName": "દાહોદ",
+        "districtId": 5
+    },
+    {
+        "id": 69,
+        "talukaName": "દીવ",
+        "districtId": 21
+    },
+    {
+        "id": 70,
+        "talukaName": "ધંધુકા",
+        "districtId": 1
+    },
+    {
+        "id": 71,
+        "talukaName": "ધરમપુર",
+        "districtId": 13
+    },
+    {
+        "id": 72,
+        "talukaName": "ધાનપુર",
+        "districtId": 5
+    },
+    {
+        "id": 73,
+        "talukaName": "ધોલેરા",
+        "districtId": 1
+    },
+    {
+        "id": 74,
+        "talukaName": "ધોળકા",
+        "districtId": 1
+    },
+    {
+        "id": 75,
+        "talukaName": "નેત્રંગ",
+        "districtId": 9
+    },
+    {
+        "id": 76,
+        "talukaName": "નવસારી",
+        "districtId": 7
+    },
+    {
+        "id": 77,
+        "talukaName": "નસવાડી",
+        "districtId": 2
+    },
+    {
+        "id": 78,
+        "talukaName": "નાંદોદ",
+        "districtId": 6
+    },
+    {
+        "id": 79,
+        "talukaName": "નિઝર",
+        "districtId": 4
+    },
+    {
+        "id": 80,
+        "talukaName": "પલસાણા",
+        "districtId": 14
+    },
+    {
+        "id": 81,
+        "talukaName": "પાદરા",
+        "districtId": 12
+    },
+    {
+        "id": 82,
+        "talukaName": "પારડી",
+        "districtId": 13
+    },
+    {
+        "id": 83,
+        "talukaName": "ફતેપુર",
+        "districtId": 5
+    },
+    {
+        "id": 84,
+        "talukaName": "બેચરાજી",
+        "districtId": 10
+    },
+    {
+        "id": 85,
+        "talukaName": "બરવાળા",
+        "districtId": 1
+    },
+    {
+        "id": 86,
+        "talukaName": "બારડોલી",
+        "districtId": 14
+    },
+    {
+        "id": 87,
+        "talukaName": "બાલાસિનોર",
+        "districtId": 11
+    },
+    {
+        "id": 88,
+        "talukaName": "બાવળા",
+        "districtId": 1
+    },
+    {
+        "id": 89,
+        "talukaName": "બોડેલી",
+        "districtId": 2
+    },
+    {
+        "id": 90,
+        "talukaName": "ભરૂચ",
+        "districtId": 9
+    },
+    {
+        "id": 91,
+        "talukaName": "મહુવા",
+        "districtId": 14
+    },
+    {
+        "id": 92,
+        "talukaName": "મહેસાણા",
+        "districtId": 10
+    },
+    {
+        "id": 93,
+        "talukaName": "માંગરોલ",
+        "districtId": 14
+    },
+    {
+        "id": 94,
+        "talukaName": "માંડલ",
+        "districtId": 1
+    },
+    {
+        "id": 95,
+        "talukaName": "માંડવી",
+        "districtId": 14
+    },
+    {
+        "id": 96,
+        "talukaName": "મોરવા હડફ",
+        "districtId": 8
+    },
+    {
+        "id": 97,
+        "talukaName": "રાણપુર",
+        "districtId": 1
+    },
+    {
+        "id": 98,
+        "talukaName": "લુણાવાડા",
+        "districtId": 11
+    },
+    {
+        "id": 99,
+        "talukaName": "લિમખેડા",
+        "districtId": 5
+    },
+    {
+        "id": 100,
+        "talukaName": "વઘઈ",
+        "districtId": 3
+    },
+    {
+        "id": 101,
+        "talukaName": "વડનગર",
+        "districtId": 10
+    },
+    {
+        "id": 102,
+        "talukaName": "વડોદરા",
+        "districtId": 12
+    },
+    {
+        "id": 103,
+        "talukaName": "વ્યારા",
+        "districtId": 4
+    },
+    {
+        "id": 104,
+        "talukaName": "વલસાડ",
+        "districtId": 13
+    },
+    {
+        "id": 105,
+        "talukaName": "વાગરા",
+        "districtId": 9
+    },
+    {
+        "id": 106,
+        "talukaName": "વાઘોડિયા",
+        "districtId": 12
+    },
+    {
+        "id": 107,
+        "talukaName": "વાપી",
+        "districtId": 13
+    },
+    {
+        "id": 108,
+        "talukaName": "વાલીયા",
+        "districtId": 9
+    },
+    {
+        "id": 109,
+        "talukaName": "વાલોડ",
+        "districtId": 4
+    },
+    {
+        "id": 110,
+        "talukaName": "વાંસદા",
+        "districtId": 7
+    },
+    {
+        "id": 111,
+        "talukaName": "વિજાપુર",
+        "districtId": 10
+    },
+    {
+        "id": 112,
+        "talukaName": "વિરપુર",
+        "districtId": 11
+    },
+    {
+        "id": 113,
+        "talukaName": "વિરમગામ",
+        "districtId": 1
+    },
+    {
+        "id": 114,
+        "talukaName": "વિસનગર",
+        "districtId": 10
+    },
+    {
+        "id": 115,
+        "talukaName": "શહેરા",
+        "districtId": 8
+    },
+    {
+        "id": 116,
+        "talukaName": "સંખેડા",
+        "districtId": 2
+    },
+    {
+        "id": 117,
+        "talukaName": "સંજેલી",
+        "districtId": 5
+    },
+    {
+        "id": 118,
+        "talukaName": "સંતરામપુર",
+        "districtId": 11
+    },
+    {
+        "id": 119,
+        "talukaName": "સતલાસણા",
+        "districtId": 10
+    },
+    {
+        "id": 120,
+        "talukaName": "સુબીર",
+        "districtId": 3
+    },
+    {
+        "id": 121,
+        "talukaName": "સુરત સીટી",
+        "districtId": 14
+    },
+    {
+        "id": 122,
+        "talukaName": "સાગબારા",
+        "districtId": 6
+    },
+    {
+        "id": 123,
+        "talukaName": "સાણંદ",
+        "districtId": 1
+    },
+    {
+        "id": 124,
+        "talukaName": "સાવલી",
+        "districtId": 12
+    },
+    {
+        "id": 125,
+        "talukaName": "સિનોર",
+        "districtId": 12
+    },
+    {
+        "id": 126,
+        "talukaName": "સીંગવડ",
+        "districtId": 5
+    },
+    {
+        "id": 127,
+        "talukaName": "સોનગઢ",
+        "districtId": 4
+    },
+    {
+        "id": 128,
+        "talukaName": "હાલોલ",
+        "districtId": 8
+    },
+    {
+        "id": 129,
+        "talukaName": "હાંસોટ",
+        "districtId": 9
+    }
+]
