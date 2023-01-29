@@ -13,6 +13,7 @@ import popups from './popup-page/reducer'
 import queries from './query-page/reducer'
 import joinsamitis from './join-samiti/reducer'
 import states from './state-page/reducer'
+import districts from './district-page/reducer'
 
 export default combineReducers({
     status,
@@ -27,5 +28,6 @@ export default combineReducers({
     popupState:popups,
     queryState:queries,
     joinsamitiState:joinsamitis,
-    stateState:states
+    stateState:states,
+    districtState:districts,
 })
