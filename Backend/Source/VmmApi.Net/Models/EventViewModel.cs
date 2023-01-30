@@ -10,6 +10,9 @@ namespace VmmApi.Net.Models
         public IEnumerable<EventType> Eventtypes { get; set; }
 
         public IEnumerable<Area> Areas { get; set; }
+        public IEnumerable<State> States { get; set; }
+        public IEnumerable<District> Districts { get; set; }
+        public IEnumerable<Taluka> Taluka { get; set; } 
 
     }
 }

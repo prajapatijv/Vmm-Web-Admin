@@ -14,6 +14,9 @@ const _contextMappings = {
     'popup' : { 'apiContext': 'popups', 'actionContext': { 'singular': 'popup', 'SINGULAR': 'POPUP', 'plural': 'popups', 'PLURAL': 'POPUPS' , 'allowAdd':0, 'allowDelete':0 , 'allowDownload':0} },    
     'query' : { 'apiContext': 'queries', 'actionContext': { 'singular': 'query', 'SINGULAR': 'QUERY', 'plural': 'queries', 'PLURAL': 'QUERIES', 'allowDownload':1 } },    
     'joinsamiti' : { 'apiContext': 'joinsamitis', 'actionContext': { 'singular': 'joinsamiti', 'SINGULAR': 'JOINSAMITI', 'plural': 'joinsamitis', 'PLURAL': 'JOINSAMITIS', 'allowDownload':1 } },    
+    'state' : { 'apiContext': 'states', 'actionContext': { 'singular': 'state', 'SINGULAR': 'STATE', 'plural': 'states', 'PLURAL': 'STATES', 'allowDownload':1 } },    
+    'district' : { 'apiContext': 'districts', 'actionContext': { 'singular': 'district', 'SINGULAR': 'DISTRICT', 'plural': 'districts', 'PLURAL': 'DISTRICTS', 'allowDownload':1 } },    
+    'taluka' : { 'apiContext': 'talukas', 'actionContext': { 'singular': 'taluka', 'SINGULAR': 'TALUKA', 'plural': 'talukas', 'PLURAL': 'TALUKAS', 'allowDownload':1 } },    
 }
 
 export const Config = {

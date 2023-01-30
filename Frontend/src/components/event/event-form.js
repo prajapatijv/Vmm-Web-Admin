@@ -12,17 +12,37 @@ import { DatePickerBox } from '../shared/date-picker'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
 
-const EventForm = ({ event, eventtypes, areas, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
+const EventForm = ({ event, eventtypes, areas, states, districts, talukas, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...event }
     const _eventTypes = eventtypes || []
-    const _areas = areas.map(function(a) 
-    {
+    const _areas = areas.map(function (a) {
         return {
             id: a.id,
             description: a.areaName
         }
-    }) 
+    })
+
+    const _states = states.map(function (a) {
+        return {
+            id: a.id,
+            description: a.stateName
+        }
+    })
+
+    const _districts = districts.map(function (a) {
+        return {
+            id: a.id,
+            description: a.districtName
+        }
+    })
+
+    const _talukas = talukas.map(function (a) {
+        return {
+            id: a.id,
+            description: a.talukaName
+        }
+    })
 
     const schema = Yup.object().shape({
         id: Yup.number(),
@@ -38,7 +58,10 @@ const EventForm = ({ event, eventtypes, areas, onClose, onSave, onDelete, saving
         contactNumber: Yup.string().notRequired(),
         contactEmail: Yup.string().notRequired(),
         active: Yup.bool().notRequired(),
-        areaId: Yup.number().required()
+        areaId: Yup.number().required(),
+        stateId: Yup.number().notRequired(),
+        districtId: Yup.number().notRequired(),
+        talukaId: Yup.number().notRequired()
     })
 
     const onSaveEntity = (values, actions) => {
@@ -112,6 +135,18 @@ const EventForm = ({ event, eventtypes, areas, onClose, onSave, onDelete, saving
                             </div>
 
                             <div className="form-row mb-2">
+                                <div className="col-md-4">
+                                    <Field type="text" name="stateId" component={SelectBox} placeholder="State" options={_states} floatinglabel={true} />
+                                </div>
+                                <div className="col-md-4">
+                                    <Field type="text" name="districtId" component={SelectBox} placeholder="District" options={_districts} floatinglabel={true} />
+                                </div>
+                                <div className="col-md-4">
+                                    <Field type="text" name="talukaId" component={SelectBox} placeholder="Taluka" options={_talukas} floatinglabel={true} />
+                                </div>
+                            </div>
+
+                            <div className="form-row mb-2">
                                 <div className="col-md-6">
                                     <Field type="text" name="contactNumber" component={InputBox} placeholder="Contact" floatinglabel={true} />
                                 </div>
@@ -150,6 +185,9 @@ EventForm.propTypes = {
     dirty: PropTypes.bool,
     isValid: PropTypes.bool,
     areas: PropTypes.array,
+    states: PropTypes.array,
+    districts: PropTypes.array,
+    talukas: PropTypes.array,
     allowDelete: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func

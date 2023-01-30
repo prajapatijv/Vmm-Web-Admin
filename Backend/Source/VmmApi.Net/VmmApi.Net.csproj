@@ -178,6 +178,9 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\TalukaController.cs" />
+    <Compile Include="Controllers\DistrictController.cs" />
+    <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Controllers\PopupController.cs" />
     <Compile Include="Controllers\JoinSamitiController.cs" />
     <Compile Include="Controllers\QueryController.cs" />
@@ -214,10 +217,14 @@
     <Compile Include="Models\EventtTypeViewModel.cs" />
     <Compile Include="Models\DocumentTypeViewModel.cs" />
     <Compile Include="Models\DocumentViewModel.cs" />
+    <Compile Include="Models\StateViewModel.cs" />
     <Compile Include="Models\TokenRequest.cs" />
     <Compile Include="Models\AreaViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TalukaService.cs" />
+    <Compile Include="Services\DistrictService.cs" />
+    <Compile Include="Services\StateService.cs" />
     <Compile Include="Services\CacheProvider.cs" />
     <Compile Include="Services\JoinSamitiService.cs" />
     <Compile Include="Services\PopupService.cs" />

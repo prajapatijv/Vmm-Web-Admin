@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Taluka.cs" />
+    <Compile Include="Entities\District.cs" />
+    <Compile Include="Entities\State.cs" />
     <Compile Include="Entities\JoinSamiti.cs" />
     <Compile Include="Entities\Popup.cs" />
     <Compile Include="Entities\Area.cs" />

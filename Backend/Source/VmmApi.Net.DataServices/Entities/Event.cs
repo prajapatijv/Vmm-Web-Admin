@@ -48,5 +48,15 @@ namespace VmmApi.Net.DataServices.Entities
 
         [Column("Area_Id")]
         public byte AreaId { get; set; }
+
+        [Column("State_Id")]
+        public int? StateId { get; set; }
+
+        [Column("District_Id")]
+        public int? DistrictId { get; set; }
+
+        [Column("Taluka_Id")]
+        public int? TalukaId { get; set; }
+
     }
 }

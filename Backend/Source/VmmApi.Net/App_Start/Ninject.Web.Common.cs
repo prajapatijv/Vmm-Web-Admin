@@ -92,6 +92,11 @@ namespace VmmApi.Net.App_Start
             kernel.Bind<IPopupService>().To<PopupService>();
             kernel.Bind<IJoinSamitiService>().To<JoinSamitiService>();
 
+            kernel.Bind<IStateService>().To<StateService>();
+            kernel.Bind<IDistrictService>().To<DistrictService>();
+            kernel.Bind<ITalukaService>().To<TalukaService>();
+
+
             kernel.Bind<IConfigurationProvider>().To<ConfigurationProvider>().InSingletonScope();
             kernel.Bind<FileCacheProvder>().ToSelf().InSingletonScope();
 

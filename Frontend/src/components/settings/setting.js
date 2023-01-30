@@ -34,6 +34,23 @@ const Setting = () =>
                     </div>
                 </div>
             </div>
+            <div className="row" >
+                <div className="col-md-4 py-3">
+                    <div className="card">
+                        <NavItem path="/states" displayName="States" icon={<Compass />} />
+                    </div>
+                </div>
+                <div className="col-md-4 py-3">
+                    <div className="card">
+                        <NavItem path="/districts" displayName="Districts" icon={<Compass />} />
+                    </div>
+                </div>
+                <div className="col-md-4 py-3">
+                    <div className="card">
+                        <NavItem path="/talukas" displayName="Taluka" icon={<Compass />} />
+                    </div>
+                </div>
+            </div>
         </div>
     </WithBasicLayout>
 
