@@ -6,10 +6,26 @@ import * as Yup from 'yup'
 import { InputBox } from '../shared/input-box'
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import { SelectBox } from '../shared/select-box'
 
-const TalukaForm = ({ taluka, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
+const TalukaForm = ({ taluka, states, districts, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
     const _init = { ...taluka }
+
+    const _states = states.map(function (a) {
+        return {
+            id: a.id,
+            description: a.stateName
+        }
+    })
+
+    const _districts = districts.map(function (a) {
+        return {
+            id: a.id,
+            description: a.districtName
+        }
+    })
+
 
     const schema = Yup.object().shape({
         id:Yup.number(),
@@ -44,6 +60,15 @@ const TalukaForm = ({ taluka, onClose, onSave, onDelete, saving, deleting, allow
                             <div className="form-row mb-3">
                                 <Field type="text" name="talukaName" component={InputBox} placeholder="Taluka Name" floatinglabel={true} />
                             </div>
+                            <div className="form-row mb-3">
+                                <div className="col-md-6">
+                                    <Field type="text" name="stateId" component={SelectBox} placeholder="State" options={_states} floatinglabel={true} />
+                                </div>
+
+                                <div className="col-md-6">
+                                    <Field type="text" name="districtId" component={SelectBox} placeholder="District" options={_districts} floatinglabel={true} />
+                                </div>
+                            </div>
 
                             <ButtonBar
                                 showDelete={taluka.id !== 0}
@@ -65,6 +90,7 @@ export default TalukaForm
 
 TalukaForm.propTypes = {
     taluka: PropTypes.object,
+    districts: PropTypes.array,
     onClose: PropTypes.func,
     onSave: PropTypes.func,
     onDelete: PropTypes.func,

@@ -107,8 +107,17 @@ app.get('/api/popups', (req, res) => { var response = {}; response.popups = popu
 app.get('/api/queries', (req, res) => { var response = {}; response.queries = queries; res.status(200).json(response) })
 app.get('/api/joinsamitis', (req, res) => { var response = {}; response.joinsamitis = joinsamitis; response.samititypes = samititypes; res.status(200).json(response) })
 app.get('/api/states', (req, res) => { var response = {}; response.states = states; res.status(200).json(response) })
-app.get('/api/districts', (req, res) => { var response = {}; response.districts = districts; res.status(200).json(response) })
-app.get('/api/talukas', (req, res) => { var response = {}; response.talukas = talukas; res.status(200).json(response) })
+app.get('/api/districts', (req, res) => { 
+    var response = {}; 
+    response.districts = districts; 
+    response.states = states; 
+    res.status(200).json(response) })
+app.get('/api/talukas', (req, res) => { 
+    var response = {}; 
+    response.talukas = talukas; 
+    response.districts = districts; 
+    response.states = states; 
+    res.status(200).json(response) })
 
 //filepond endpoints
 app.post('/api/file', (req, res) => res.status(200).json(new Date().toUTCString()))

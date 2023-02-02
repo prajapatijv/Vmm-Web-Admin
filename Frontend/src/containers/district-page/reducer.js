@@ -2,8 +2,20 @@ import keys from '../container-types'
 import withPageReducer from '../../utility/with-page-reducer'
 
 const districts = (state=initialState, action) => {
-    return withPageReducer(keys.District, state, action, defaultDistrict, (criteria) => byName(criteria))
+    var eventState = withPageReducer(keys.District, state, action, defaultDistrict, (criteria) => byName(criteria))
+
+    switch (action.type) {
+        case `FETCH_DISTRICTS_SUCCEED`: {
+            return { ...eventState, 
+                "states": action.payload.data.states,
+             }
+        }
+
+        default:
+            return eventState
+    }
 }
+
 
 const defaultDistrict = { 
     id:0,
@@ -11,7 +23,8 @@ const defaultDistrict = {
 }
 
 const initialState = {
-    districts:[]
+    districts:[],
+    states:[]
 } 
 
 const byName = criteria => district => {
