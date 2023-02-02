@@ -25,10 +25,18 @@ namespace VmmApi.Net.Services
 
         public TalukaViewModel GetAllTaluka()
         {
-            return new TalukaViewModel
+            var talukas = this.dbContext.Taluka.ToList();
+            var districts = this.dbContext.District.ToList();
+            var states = this.dbContext.State.ToList();
+
+            var vm = new TalukaViewModel
             {
-                Taluka = this.dbContext.Taluka.ToList()
+                Talukas = talukas.Select(t => new TalukaModel(t, districts)),
+                Districts = districts,
+                States = states
             };
+
+            return vm;
         }
 
         public Taluka GetById(int id)

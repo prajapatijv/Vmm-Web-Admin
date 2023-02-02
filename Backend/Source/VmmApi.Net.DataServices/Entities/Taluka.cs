@@ -14,6 +14,5 @@ namespace VmmApi.Net.DataServices.Entities
 
         [Column("district_id")]
         public int DistrictId { get; set; }
-
     }
 }

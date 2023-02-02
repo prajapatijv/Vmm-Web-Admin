@@ -44,7 +44,7 @@ namespace VmmApi.Net.Services
                 Areas = this.areaService.GetAllAreas().Areas,
                 States = this.stateService.GetAllStates().States,
                 Districts = this.districtService.GetAllDistricts().Districts,
-                Taluka = this.talukaService.GetAllTaluka().Taluka
+                Talukas = this.talukaService.GetAllTaluka().Talukas
             };
         }
 

@@ -27,7 +27,8 @@ namespace VmmApi.Net.Services
         {
             return new DistrictViewModel
             {
-                Districts = this.dbContext.District.ToList()
+                Districts = this.dbContext.District.ToList(),
+                States = this.dbContext.State.ToList(),
             };
         }
 

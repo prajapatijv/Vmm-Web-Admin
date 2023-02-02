@@ -5,7 +5,7 @@ using VmmApi.Net.Services;
 
 namespace VmmApi.Net.Controllers
 {
-    [RoutePrefix("api/taluka")]
+    [RoutePrefix("api/talukas")]
     public class TalukaController : BaseController
     {
         private readonly ITalukaService talukaService;
