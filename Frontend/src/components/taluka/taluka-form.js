@@ -91,6 +91,7 @@ export default TalukaForm
 TalukaForm.propTypes = {
     taluka: PropTypes.object,
     districts: PropTypes.array,
+    states: PropTypes.array,
     onClose: PropTypes.func,
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
