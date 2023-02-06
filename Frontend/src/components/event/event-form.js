@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -11,6 +11,7 @@ import { DatePickerBox } from '../shared/date-picker'
 
 import PageTitle from '../shared/page-title'
 import ButtonBar from '../shared/button-bar'
+import { FilterDistricts, FilterTalukas } from '../shared/utils'
 
 const EventForm = ({ event, eventtypes, areas, states, districts, talukas, onClose, onSave, onDelete, saving, deleting, allowDelete }) => {
 
@@ -26,23 +27,38 @@ const EventForm = ({ event, eventtypes, areas, states, districts, talukas, onClo
     const _states = states.map(function (a) {
         return {
             id: a.id,
-            description: a.stateName
+            description: a.stateName,
         }
     })
 
     const _districts = districts.map(function (a) {
         return {
             id: a.id,
-            description: a.districtName
+            description: a.districtName,
+            stateId: a.stateId
         }
     })
 
     const _talukas = talukas.map(function (a) {
         return {
             id: a.id,
-            description: a.talukaName
+            description: a.talukaName,
+            districtId: a.districtId
         }
     })
+
+    const [filteredDistricts, setFilteredDistricts] = useState([])
+    const [filteredTalukas, setFilteredTalukas] = useState([])
+
+    const handleStateChange = (stateId) => {
+        const value = FilterDistricts(stateId, _districts)
+        setFilteredDistricts(value)
+    }
+
+    const handleDistrictChange = (districtId) => {
+        const value = FilterTalukas(districtId, _talukas)
+        setFilteredTalukas(value)
+    }
 
     const schema = Yup.object().shape({
         id: Yup.number(),
@@ -136,13 +152,15 @@ const EventForm = ({ event, eventtypes, areas, states, districts, talukas, onClo
 
                             <div className="form-row mb-2">
                                 <div className="col-md-4">
-                                    <Field type="text" name="stateId" component={SelectBox} placeholder="State" options={_states} floatinglabel={true} />
+                                    <Field type="text" name="stateId" component={SelectBox} placeholder="State" options={_states} floatinglabel={true} 
+                                        onChange={e => handleStateChange(e.target.value)} />
                                 </div>
                                 <div className="col-md-4">
-                                    <Field type="text" name="districtId" component={SelectBox} placeholder="District" options={_districts} floatinglabel={true} />
+                                    <Field type="text" name="districtId" component={SelectBox} placeholder="District" options={filteredDistricts} floatinglabel={true} 
+                                        onChange={e => handleDistrictChange(e.target.value)} />
                                 </div>
                                 <div className="col-md-4">
-                                    <Field type="text" name="talukaId" component={SelectBox} placeholder="Taluka" options={_talukas} floatinglabel={true} />
+                                    <Field type="text" name="talukaId" component={SelectBox} placeholder="Taluka" options={filteredTalukas} floatinglabel={true} />
                                 </div>
                             </div>
 

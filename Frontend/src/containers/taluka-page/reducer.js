@@ -19,7 +19,9 @@ const talukas = (state=initialState, action) => {
 
 const defaultTaluka = { 
     id:0,
-    talukaName:""
+    talukaName:"",
+    stateId: 0,
+    districtId: 0
 }
 
 const initialState = {
