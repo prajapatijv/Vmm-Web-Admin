@@ -12,7 +12,10 @@
         "city": "city",
         "contactNumber": "9998887770",
         "contactEmail": "contact@email.com",
-        "active": 1
+        "active": 1,
+        "stateId":1,
+        "districtId":3,
+        "talukaId":58
     },
     {
         "id": 2,

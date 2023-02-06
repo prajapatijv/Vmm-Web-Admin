@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -51,14 +51,32 @@ const EventForm = ({ event, eventtypes, areas, states, districts, talukas, onClo
     const [filteredTalukas, setFilteredTalukas] = useState([])
 
     const handleStateChange = (stateId) => {
+        filterDistricts(stateId)
+        filterTalukas(0)
+    }
+
+    const handleDistrictChange = (districtId) => {
+        filterTalukas(districtId)
+    }
+
+    useEffect(() => {
+        filterDistricts(event && event.stateId)
+    },[event && event.stateId])
+
+    useEffect(() => {
+        filterTalukas(event && event.districtId)
+    },[event && event.districtId])
+
+    const filterDistricts = (stateId) => {
         const value = FilterDistricts(stateId, _districts)
         setFilteredDistricts(value)
     }
 
-    const handleDistrictChange = (districtId) => {
+    const filterTalukas = (districtId) => {
         const value = FilterTalukas(districtId, _talukas)
         setFilteredTalukas(value)
     }
+
 
     const schema = Yup.object().shape({
         id: Yup.number(),
@@ -153,11 +171,11 @@ const EventForm = ({ event, eventtypes, areas, states, districts, talukas, onClo
                             <div className="form-row mb-2">
                                 <div className="col-md-4">
                                     <Field type="text" name="stateId" component={SelectBox} placeholder="State" options={_states} floatinglabel={true} 
-                                        onChange={e => handleStateChange(e.target.value)} />
+                                        onClick={e => handleStateChange(e.target.value)} />
                                 </div>
                                 <div className="col-md-4">
                                     <Field type="text" name="districtId" component={SelectBox} placeholder="District" options={filteredDistricts} floatinglabel={true} 
-                                        onChange={e => handleDistrictChange(e.target.value)} />
+                                        onClick={e => handleDistrictChange(e.target.value)} />
                                 </div>
                                 <div className="col-md-4">
                                     <Field type="text" name="talukaId" component={SelectBox} placeholder="Taluka" options={filteredTalukas} floatinglabel={true} />

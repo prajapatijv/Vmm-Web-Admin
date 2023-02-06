@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
@@ -30,7 +30,16 @@ const TalukaForm = ({ taluka, states, districts, onClose, onSave, onDelete, savi
 
     const [filteredDistricts, setFilteredDistricts] = useState([])
 
+  
     const handleStateChange = (stateId) => {
+        filterDistricts(stateId)    
+    }
+
+    useEffect(() => {
+        filterDistricts(taluka && taluka.stateId)
+    },[taluka && taluka.stateId])
+
+    const filterDistricts = (stateId) => {
         const value = FilterDistricts(stateId, _districts)
         setFilteredDistricts(value)
     }
@@ -74,7 +83,7 @@ const TalukaForm = ({ taluka, states, districts, onClose, onSave, onDelete, savi
                                 <div className="col-md-6">
                                     <Field type="text" name="stateId" component={SelectBox} placeholder="State" options={_states} 
                                         floatinglabel={true} 
-                                        onChange={e => handleStateChange(e.target.value)} />
+                                        onClick={e => handleStateChange(e.target.value)} />
                                 </div>
 
                                 <div className="col-md-6">

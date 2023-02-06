@@ -32,7 +32,10 @@ const defaultEvent = {
     city: "", 
     contactNumber: "", 
     contactEmail: "",
-    areasId: 0
+    areasId: 0,
+    stateId:0,
+    districtId:0,
+    talukaId:0
 }
 
 const initialState = {
