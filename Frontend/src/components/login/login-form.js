@@ -3,6 +3,7 @@ import { Feather } from 'react-feather'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 import PropTypes from 'prop-types'
+import preval from 'preval.macro'
 
 import { InputBox } from '../shared/input-box'
 import { CheckBox } from '../shared/check-box'
@@ -46,7 +47,8 @@ const LoginForm = ({ auth, onLogin }) => {
                             {auth.processing ? <div className="spinner-border spinner-border-sm text-light py-2 px-2 mr-2" role="status"/> : null}
                             Sign in
                         </button>
-                        <p className="mt-5 mb-3 text-muted">© 2019</p>
+                        <p className="mt-5 mb-3 text-muted">© {new Date().getFullYear()}</p>
+                        <span className="mt-5 mb-3 text-muted small">Latest Build: {preval`module.exports = new Date().toLocaleString();`}</span>
                     </form>
                 </React.Fragment>
             )}
